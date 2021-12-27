@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aVZ-dm-mey">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--TranslateController-->
+        <scene sceneID="wyg-fe-F5m">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TranslateController" id="k24-0U-K5o" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Translate" id="fiW-sN-ny5">
+                        <color key="badgeColor" systemColor="labelColor"/>
+                    </tabBarItem>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y0k-ec-ceJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1191" y="514"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="TkI-pg-1fN">
+            <objects>
+                <tabBarController id="aVZ-dm-mey" customClass="TabBarController" customModule="Baluchon" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IBg-ac-gNn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" systemColor="linkColor"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="JjP-B8-m5C" kind="relationship" relationship="viewControllers" id="uP2-U0-STq"/>
+                        <segue destination="k24-0U-K5o" kind="relationship" relationship="viewControllers" id="ETb-xH-ieB"/>
+                        <segue destination="Oor-a3-QVz" kind="relationship" relationship="viewControllers" id="S1I-Ex-r5c"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gkN-SC-AcT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1191" y="93"/>
+        </scene>
+        <!--WeatherController-->
+        <scene sceneID="eiT-VU-Gen">
+            <objects>
+                <viewControllerPlaceholder storyboardName="WeatherController" id="Oor-a3-QVz" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Weather" id="03b-O4-2hm"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="scL-b7-c02" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-771" y="514"/>
+        </scene>
+        <!--ConvertController-->
+        <scene sceneID="zaL-Dd-SLh">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Convert" storyboardName="ConvertController" id="JjP-B8-m5C" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Convert" id="BBk-B1-dyC">
+                        <color key="badgeColor" systemColor="labelColor"/>
+                    </tabBarItem>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V90-Nz-YuO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1585" y="514"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
