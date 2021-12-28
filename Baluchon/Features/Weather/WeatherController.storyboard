@@ -15,21 +15,79 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qd6-Jl-86L" customClass="WeatherView" customModule="Baluchon" customModuleProvider="target">
+                                <rect key="frame" x="20" y="124" width="374" height="270"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="270" id="91c-c2-rqL"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eWJ-CW-pUR" customClass="WeatherView" customModule="Baluchon" customModuleProvider="target">
+                                <rect key="frame" x="20" y="503" width="374" height="270"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="270" id="LsU-j0-moe"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="destination" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uYg-vF-sGI">
+                                <rect key="frame" x="20" y="428" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="QM7-Al-TOf"/>
+                                    <constraint firstAttribute="height" constant="40" id="VRm-2v-BNt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zQy-CG-B4X">
+                                <rect key="frame" x="340" y="428" width="54" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="pmn-sH-3y5"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="magnifyingglass" catalog="system"/>
+                                <connections>
+                                    <action selector="StartResearch:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="lUz-GY-79q"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zQy-CG-B4X" firstAttribute="leading" secondItem="uYg-vF-sGI" secondAttribute="trailing" constant="20" id="3m7-Nr-gHY"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="eWJ-CW-pUR" secondAttribute="bottom" constant="40" id="74C-r0-OAa"/>
+                            <constraint firstItem="qd6-Jl-86L" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="Eb2-Xn-KJ7"/>
+                            <constraint firstItem="zQy-CG-B4X" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="GjQ-Wt-tcn"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="qd6-Jl-86L" secondAttribute="trailing" constant="20" id="Qn2-Ic-lUC"/>
+                            <constraint firstItem="uYg-vF-sGI" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="VVq-rV-7jM"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="eWJ-CW-pUR" secondAttribute="trailing" constant="20" id="Y3Y-LR-gMG"/>
+                            <constraint firstItem="uYg-vF-sGI" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="ptB-ol-cgG"/>
+                            <constraint firstItem="qd6-Jl-86L" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="80" id="riz-tK-r9g"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="zQy-CG-B4X" secondAttribute="trailing" constant="20" id="s28-zu-MQA"/>
+                            <constraint firstItem="eWJ-CW-pUR" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="s70-5U-77P"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Weather" image="thermometer.sun" catalog="system" id="D60-gi-bYz"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="destinationWeather" destination="eWJ-CW-pUR" id="oI0-sF-ZCB"/>
+                        <outlet property="localWeather" destination="qd6-Jl-86L" id="cbW-8W-GhN"/>
+                        <outlet property="research" destination="uYg-vF-sGI" id="ilk-VN-lkj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="28" y="93"/>
+            <point key="canvasLocation" x="27.536231884057973" y="92.410714285714278"/>
         </scene>
     </scenes>
     <resources>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="thermometer.sun" catalog="system" width="103" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
