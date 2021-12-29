@@ -29,6 +29,7 @@
 		B6C3FD7E277B7CB800C04BAB /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3FD7D277B7CB800C04BAB /* Country.swift */; };
 		B6C3FD84277B7F3400C04BAB /* UrlApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3FD83277B7F3400C04BAB /* UrlApi.swift */; };
 		B6C3FD86277B814500C04BAB /* WeatherRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3FD85277B814500C04BAB /* WeatherRequest.swift */; };
+		B6C3FD8A277C5A5C00C04BAB /* SkyBackground.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B6C3FD89277C5A5C00C04BAB /* SkyBackground.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		B6C3FD7D277B7CB800C04BAB /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		B6C3FD83277B7F3400C04BAB /* UrlApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlApi.swift; sourceTree = "<group>"; };
 		B6C3FD85277B814500C04BAB /* WeatherRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRequest.swift; sourceTree = "<group>"; };
+		B6C3FD89277C5A5C00C04BAB /* SkyBackground.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SkyBackground.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 				B6C3FCE72775DFBC00C04BAB /* Info.plist */,
 				B6C3FCE42775DFBC00C04BAB /* LaunchScreen.storyboard */,
 				B6C3FCE22775DFBC00C04BAB /* Assets.xcassets */,
+				B6C3FD87277C55BE00C04BAB /* Media */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -310,6 +313,14 @@
 			path = WeatherAPI;
 			sourceTree = "<group>";
 		};
+		B6C3FD87277C55BE00C04BAB /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				B6C3FD89277C5A5C00C04BAB /* SkyBackground.mp4 */,
+			);
+			path = Media;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -421,6 +432,7 @@
 				B6C3FD632775F05C00C04BAB /* WeatherController.storyboard in Resources */,
 				B6C3FD652775F06E00C04BAB /* ConvertController.storyboard in Resources */,
 				B6C3FD612775F04F00C04BAB /* TranslateController.storyboard in Resources */,
+				B6C3FD8A277C5A5C00C04BAB /* SkyBackground.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
