@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -19,13 +20,21 @@
                             <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R33-Ib-cdE">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="V3f-W3-sgv" appends="YES" id="Xfo-C3-H1g"/>
+                                </connections>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qd6-Jl-86L" customClass="WeatherView" customModule="Baluchon" customModuleProvider="target">
                                 <rect key="frame" x="41.5" y="124" width="331" height="255"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="qd6-Jl-86L" secondAttribute="height" multiplier="1.3" id="IaJ-LU-uCG"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="TuO-nH-YFM" appends="YES" id="0u3-06-ugl"/>
+                                </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eWJ-CW-pUR" customClass="WeatherView" customModule="Baluchon" customModuleProvider="target">
                                 <rect key="frame" x="41.5" y="518" width="331" height="255"/>
@@ -34,21 +43,33 @@
                                     <constraint firstAttribute="width" secondItem="eWJ-CW-pUR" secondAttribute="height" multiplier="1.3" id="Iuc-rD-lWb"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="destination" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uYg-vF-sGI">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="destination" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="uYg-vF-sGI">
                                 <rect key="frame" x="20" y="428" width="310.5" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="VRm-2v-BNt"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="webSearch" keyboardAppearance="light" returnKeyType="continue" textContentType="address-level2"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="KLU-OZ-GT6"/>
+                                </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zQy-CG-B4X">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zQy-CG-B4X">
                                 <rect key="frame" x="340.5" y="428" width="53.5" height="40"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="pmn-sH-3y5"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" image="magnifyingglass" catalog="system"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="ok">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="StartResearch:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="lUz-GY-79q"/>
                                 </connections>
@@ -75,7 +96,7 @@
                             <constraint firstItem="qd6-Jl-86L" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="ytc-0c-0XC"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Weather" image="thermometer.sun" catalog="system" id="D60-gi-bYz"/>
+                    <tabBarItem key="tabBarItem" title="Weather" id="D60-gi-bYz"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="destinationWeather" destination="eWJ-CW-pUR" id="oI0-sF-ZCB"/>
@@ -84,15 +105,26 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="V3f-W3-sgv" userLabel="ViewTap Gesture Recognizer">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="Y6W-OH-hqX" id="GNt-bt-mj0"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="TuO-nH-YFM" userLabel="LocalTap Gesture Recognizer">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="Y6W-OH-hqX" id="UqC-az-qaf"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="27.536231884057973" y="92.410714285714278"/>
         </scene>
     </scenes>
     <resources>
-        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
-        <image name="thermometer.sun" catalog="system" width="103" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

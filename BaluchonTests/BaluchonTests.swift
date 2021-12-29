@@ -2,11 +2,10 @@
 //  BaluchonTests.swift
 //  BaluchonTests
 //
-//  Created by fred on 24/12/2021.
+//  Created by fred on 29/12/2021.
 //
 
 import XCTest
-@testable import Baluchon
 
 class BaluchonTests: XCTestCase {
 
@@ -28,7 +27,7 @@ class BaluchonTests: XCTestCase {
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
-        self.measure {
+        measure {
             // Put the code you want to measure the time of here.
         }
     }

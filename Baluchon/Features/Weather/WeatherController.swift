@@ -8,26 +8,25 @@
 import UIKit
 import AVKit
 
-class WeatherController: UIViewController {
-    
+class WeatherController: UIViewController, UITextFieldDelegate {
+
     @IBOutlet weak var localWeather: WeatherView!
     @IBOutlet weak var research: UITextField!
     @IBOutlet weak var destinationWeather: WeatherView!
-    
+
     var videoPlayer: AVPlayer?
     var videoPlayerLayer: AVPlayerLayer?
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         destinationWeather.isHidden = true
         getLocalWeather()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         setupVideo()
     }
-    
+
     private func getLocalWeather() {
         WeatherRequest.getLocalWeather { [self] result in
             switch result {
@@ -41,10 +40,10 @@ class WeatherController: UIViewController {
             }
         }
     }
-    
+
     @IBAction func StartResearch(_ sender: UIButton) {
         guard let destination = research.text else { return }
-        
+
         WeatherRequest.getDestinationWeather(destination: destination) { [self] result in
             switch result {
             case .failure(let error) : print(error)
@@ -60,27 +59,35 @@ class WeatherController: UIViewController {
         destinationWeather.isHidden = false
     }
  
+// MARK: - Keyboard
+
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        research.resignFirstResponder()
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        research.resignFirstResponder()
+        return true
+    }
+
 // MARK: - Player Video
-    
+
     private func setupVideo() {
-        
-        // obtenir le chemin d'accès à la resource vidéo
+
+        // get the path to the video resource
         let bundlePath = Bundle.main.path(forResource: "SkyBackground", ofType: "mp4")
         guard bundlePath != nil else { return }
-        
-        //créer une url à partir du chemin
+
+        // create a url from the path
         let url = URL(fileURLWithPath: bundlePath!)
-        
-        
+
         let item = AVPlayerItem(url: url)
         videoPlayer = AVPlayer(playerItem: item)
         videoPlayerLayer = AVPlayerLayer(player: videoPlayer)
-        
+
         videoPlayerLayer?.frame = CGRect(x: -self.view.frame.size.width*1.5, y: 0, width: self.view.frame.size.width*4, height: self.view.frame.size.height)
-        
+
         view.layer.insertSublayer(videoPlayerLayer!, at: 0)
         videoPlayer?.playImmediately(atRate: 0.3)
     }
-
-
 }
