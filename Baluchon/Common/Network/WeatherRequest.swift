@@ -25,7 +25,7 @@ class WeatherRequest {
             DispatchQueue.main.async {
                 
                 guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                    callback(.failure(.missingData))
+                    callback(.failure(.error(error: error)))
                     return
                 }
                 

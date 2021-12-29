@@ -28,15 +28,17 @@ class WeatherController: UIViewController, UITextFieldDelegate {
     }
 
     private func getLocalWeather() {
-        WeatherRequest.getLocalWeather { [self] result in
-            switch result {
-            case .failure(let error) : print(error)
-            case .success(let meteoData) :
-                localWeather.cityName.text = meteoData.city
-                localWeather.countryName.text = meteoData.country.country
-                localWeather.skyConditions.text = "actuellement " + meteoData.skyConditions[0].description
-                localWeather.temperature.text = String(meteoData.temperature.temperature.withDecimal()) + " °C"
-                localWeather.weatherIcon.image = UIImage(named: meteoData.skyConditions[0].icon)
+        DispatchQueue.main.async {
+            WeatherRequest.getLocalWeather { [self] result in
+                switch result {
+                case .failure(let error) : print(error)
+                case .success(let meteoData) :
+                    localWeather.cityName.text = meteoData.city
+                    localWeather.countryName.text = meteoData.country.country
+                    localWeather.skyConditions.text = "actuellement " + meteoData.skyConditions[0].description
+                    localWeather.temperature.text = String(meteoData.temperature.temperature.withDecimal()) + " °C"
+                    localWeather.weatherIcon.image = UIImage(named: meteoData.skyConditions[0].icon)
+                }
             }
         }
     }
@@ -44,6 +46,7 @@ class WeatherController: UIViewController, UITextFieldDelegate {
     @IBAction func StartResearch(_ sender: UIButton) {
         guard let destination = research.text else { return }
 
+        DispatchQueue.main.async { [self] in
         WeatherRequest.getDestinationWeather(destination: destination) { [self] result in
             switch result {
             case .failure(let error) : print(error)
@@ -56,7 +59,8 @@ class WeatherController: UIViewController, UITextFieldDelegate {
                 
             }
         }
-        destinationWeather.isHidden = false
+            destinationWeather.isHidden = false
+        }
     }
  
 // MARK: - Keyboard
