@@ -29,7 +29,8 @@
 		B6C3FD7E277B7CB800C04BAB /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3FD7D277B7CB800C04BAB /* Country.swift */; };
 		B6C3FD84277B7F3400C04BAB /* UrlApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3FD83277B7F3400C04BAB /* UrlApi.swift */; };
 		B6C3FD86277B814500C04BAB /* WeatherRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3FD85277B814500C04BAB /* WeatherRequest.swift */; };
-		B6C3FD8A277C5A5C00C04BAB /* SkyBackground.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B6C3FD89277C5A5C00C04BAB /* SkyBackground.mp4 */; };
+		B6C3FD8C277C687000C04BAB /* SkyBackground.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B6C3FD8B277C687000C04BAB /* SkyBackground.mp4 */; };
+		B6C3FD8F277C692500C04BAB /* Double+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3FD8E277C692500C04BAB /* Double+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,7 +77,8 @@
 		B6C3FD7D277B7CB800C04BAB /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		B6C3FD83277B7F3400C04BAB /* UrlApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlApi.swift; sourceTree = "<group>"; };
 		B6C3FD85277B814500C04BAB /* WeatherRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRequest.swift; sourceTree = "<group>"; };
-		B6C3FD89277C5A5C00C04BAB /* SkyBackground.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SkyBackground.mp4; sourceTree = "<group>"; };
+		B6C3FD8B277C687000C04BAB /* SkyBackground.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SkyBackground.mp4; sourceTree = "<group>"; };
+		B6C3FD8E277C692500C04BAB /* Double+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +207,7 @@
 		B6C3FD0E2775E04500C04BAB /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				B6C3FD8D277C690900C04BAB /* Extension */,
 				B6C3FD80277B7EB300C04BAB /* Enum */,
 			);
 			path = Utils;
@@ -316,9 +319,17 @@
 		B6C3FD87277C55BE00C04BAB /* Media */ = {
 			isa = PBXGroup;
 			children = (
-				B6C3FD89277C5A5C00C04BAB /* SkyBackground.mp4 */,
+				B6C3FD8B277C687000C04BAB /* SkyBackground.mp4 */,
 			);
 			path = Media;
+			sourceTree = "<group>";
+		};
+		B6C3FD8D277C690900C04BAB /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B6C3FD8E277C692500C04BAB /* Double+.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -432,7 +443,7 @@
 				B6C3FD632775F05C00C04BAB /* WeatherController.storyboard in Resources */,
 				B6C3FD652775F06E00C04BAB /* ConvertController.storyboard in Resources */,
 				B6C3FD612775F04F00C04BAB /* TranslateController.storyboard in Resources */,
-				B6C3FD8A277C5A5C00C04BAB /* SkyBackground.mp4 in Resources */,
+				B6C3FD8C277C687000C04BAB /* SkyBackground.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,6 +469,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6C3FD86277B814500C04BAB /* WeatherRequest.swift in Sources */,
+				B6C3FD8F277C692500C04BAB /* Double+.swift in Sources */,
 				B6C3FCDA2775DFB200C04BAB /* AppDelegate.swift in Sources */,
 				B6C3FD84277B7F3400C04BAB /* UrlApi.swift in Sources */,
 				B6C3FD132775E13300C04BAB /* TranslateController.swift in Sources */,
