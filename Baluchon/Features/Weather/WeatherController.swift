@@ -43,7 +43,7 @@ class WeatherController: UIViewController, UITextFieldDelegate {
         }
     }
 
-    @IBAction func StartResearch(_ sender: UIButton) {
+    @IBAction func startResearch(_ sender: UIButton) {
         guard let destination = research.text else { return }
 
         DispatchQueue.main.async { [self] in
@@ -63,7 +63,7 @@ class WeatherController: UIViewController, UITextFieldDelegate {
         }
     }
  
-// MARK: - Keyboard
+    // MARK: - Keyboard
 
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         research.resignFirstResponder()
@@ -74,7 +74,7 @@ class WeatherController: UIViewController, UITextFieldDelegate {
         return true
     }
 
-// MARK: - Player Video
+    // MARK: - Player Video
 
     private func setupVideo() {
 
@@ -95,3 +95,5 @@ class WeatherController: UIViewController, UITextFieldDelegate {
         videoPlayer?.playImmediately(atRate: 0.3)
     }
 }
+
+// Vidéo de MART PRODUCTION provenant de Pexels

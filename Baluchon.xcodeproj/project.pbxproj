@@ -28,12 +28,12 @@
 		B6C3FD86277B814500C04BAB /* WeatherRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3FD85277B814500C04BAB /* WeatherRequest.swift */; };
 		B6C3FD8C277C687000C04BAB /* SkyBackground.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B6C3FD8B277C687000C04BAB /* SkyBackground.mp4 */; };
 		B6C3FD8F277C692500C04BAB /* Double+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3FD8E277C692500C04BAB /* Double+.swift */; };
-		B6C3FDB3277C7C3800C04BAB /* BaluchonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3FDB2277C7C3800C04BAB /* BaluchonTests.swift */; };
-		B6C3FDC0277C7C4600C04BAB /* BaluchonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3FDBF277C7C4600C04BAB /* BaluchonUITests.swift */; };
-		B6C3FDC2277C7C4600C04BAB /* BaluchonUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3FDC1277C7C4600C04BAB /* BaluchonUITestsLaunchTests.swift */; };
 		B6C3FDC9277CB2B200C04BAB /* ExchangeRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3FDC8277CB2B200C04BAB /* ExchangeRates.swift */; };
 		B6C3FDCB277CB36800C04BAB /* ConvertAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3FDCA277CB36800C04BAB /* ConvertAPI.swift */; };
 		B6C3FDCD277CB5FE00C04BAB /* ConvertRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3FDCC277CB5FE00C04BAB /* ConvertRequest.swift */; };
+		B6C8F372277CF07300481427 /* BaluchonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C8F371277CF07300481427 /* BaluchonTests.swift */; };
+		B6C8F374277CF0A100481427 /* BaluchonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C8F373277CF0A100481427 /* BaluchonUITests.swift */; };
+		B6C8F376277CF0D600481427 /* BaluchonUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C8F375277CF0D600481427 /* BaluchonUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,9 +60,6 @@
 		B6C3FCE22775DFBC00C04BAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6C3FCE52775DFBC00C04BAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6C3FCE72775DFBC00C04BAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B6C3FCF02775DFBC00C04BAB /* BaluchonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaluchonTests.swift; sourceTree = "<group>"; };
-		B6C3FCFA2775DFBC00C04BAB /* BaluchonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaluchonUITests.swift; sourceTree = "<group>"; };
-		B6C3FCFC2775DFBC00C04BAB /* BaluchonUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaluchonUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B6C3FD122775E13300C04BAB /* TranslateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateController.swift; sourceTree = "<group>"; };
 		B6C3FD142775E14800C04BAB /* WeatherController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherController.swift; sourceTree = "<group>"; };
 		B6C3FD162775E15900C04BAB /* ConvertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertController.swift; sourceTree = "<group>"; };
@@ -80,17 +77,14 @@
 		B6C3FD85277B814500C04BAB /* WeatherRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRequest.swift; sourceTree = "<group>"; };
 		B6C3FD8B277C687000C04BAB /* SkyBackground.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SkyBackground.mp4; sourceTree = "<group>"; };
 		B6C3FD8E277C692500C04BAB /* Double+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+.swift"; sourceTree = "<group>"; };
-		B6C3FD96277C770500C04BAB /* BaluchonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaluchonTests.swift; sourceTree = "<group>"; };
-		B6C3FDA3277C771C00C04BAB /* BaluchonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaluchonUITests.swift; sourceTree = "<group>"; };
-		B6C3FDA5277C771C00C04BAB /* BaluchonUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaluchonUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B6C3FDB0277C7C3800C04BAB /* BaluchonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BaluchonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B6C3FDB2277C7C3800C04BAB /* BaluchonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaluchonTests.swift; sourceTree = "<group>"; };
 		B6C3FDBD277C7C4600C04BAB /* BaluchonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BaluchonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B6C3FDBF277C7C4600C04BAB /* BaluchonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaluchonUITests.swift; sourceTree = "<group>"; };
-		B6C3FDC1277C7C4600C04BAB /* BaluchonUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaluchonUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B6C3FDC8277CB2B200C04BAB /* ExchangeRates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRates.swift; sourceTree = "<group>"; };
 		B6C3FDCA277CB36800C04BAB /* ConvertAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertAPI.swift; sourceTree = "<group>"; };
 		B6C3FDCC277CB5FE00C04BAB /* ConvertRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertRequest.swift; sourceTree = "<group>"; };
+		B6C8F371277CF07300481427 /* BaluchonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaluchonTests.swift; path = ../../../Documents/BaluchonTests.swift; sourceTree = "<group>"; };
+		B6C8F373277CF0A100481427 /* BaluchonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaluchonUITests.swift; path = ../../../Documents/BaluchonUITests.swift; sourceTree = "<group>"; };
+		B6C8F375277CF0D600481427 /* BaluchonUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaluchonUITestsLaunchTests.swift; path = ../../../Documents/BaluchonUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,10 +116,6 @@
 			isa = PBXGroup;
 			children = (
 				B6C3FCD82775DFB200C04BAB /* Baluchon */,
-				B6C3FCEF2775DFBC00C04BAB /* BaluchonTests */,
-				B6C3FCF92775DFBC00C04BAB /* BaluchonUITests */,
-				B6C3FD95277C770500C04BAB /* BaluchonTests */,
-				B6C3FDA2277C771C00C04BAB /* BaluchonUITests */,
 				B6C3FDB1277C7C3800C04BAB /* BaluchonTests */,
 				B6C3FDBE277C7C4600C04BAB /* BaluchonUITests */,
 				B6C3FCD72775DFB200C04BAB /* Products */,
@@ -153,23 +143,6 @@
 				B6C3FD092775DFED00C04BAB /* Resources */,
 			);
 			path = Baluchon;
-			sourceTree = "<group>";
-		};
-		B6C3FCEF2775DFBC00C04BAB /* BaluchonTests */ = {
-			isa = PBXGroup;
-			children = (
-				B6C3FCF02775DFBC00C04BAB /* BaluchonTests.swift */,
-			);
-			path = BaluchonTests;
-			sourceTree = "<group>";
-		};
-		B6C3FCF92775DFBC00C04BAB /* BaluchonUITests */ = {
-			isa = PBXGroup;
-			children = (
-				B6C3FCFA2775DFBC00C04BAB /* BaluchonUITests.swift */,
-				B6C3FCFC2775DFBC00C04BAB /* BaluchonUITestsLaunchTests.swift */,
-			);
-			path = BaluchonUITests;
 			sourceTree = "<group>";
 		};
 		B6C3FD092775DFED00C04BAB /* Resources */ = {
@@ -343,27 +316,10 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		B6C3FD95277C770500C04BAB /* BaluchonTests */ = {
-			isa = PBXGroup;
-			children = (
-				B6C3FD96277C770500C04BAB /* BaluchonTests.swift */,
-			);
-			path = BaluchonTests;
-			sourceTree = "<group>";
-		};
-		B6C3FDA2277C771C00C04BAB /* BaluchonUITests */ = {
-			isa = PBXGroup;
-			children = (
-				B6C3FDA3277C771C00C04BAB /* BaluchonUITests.swift */,
-				B6C3FDA5277C771C00C04BAB /* BaluchonUITestsLaunchTests.swift */,
-			);
-			path = BaluchonUITests;
-			sourceTree = "<group>";
-		};
 		B6C3FDB1277C7C3800C04BAB /* BaluchonTests */ = {
 			isa = PBXGroup;
 			children = (
-				B6C3FDB2277C7C3800C04BAB /* BaluchonTests.swift */,
+				B6C8F371277CF07300481427 /* BaluchonTests.swift */,
 			);
 			path = BaluchonTests;
 			sourceTree = "<group>";
@@ -371,8 +327,8 @@
 		B6C3FDBE277C7C4600C04BAB /* BaluchonUITests */ = {
 			isa = PBXGroup;
 			children = (
-				B6C3FDBF277C7C4600C04BAB /* BaluchonUITests.swift */,
-				B6C3FDC1277C7C4600C04BAB /* BaluchonUITestsLaunchTests.swift */,
+				B6C8F373277CF0A100481427 /* BaluchonUITests.swift */,
+				B6C8F375277CF0D600481427 /* BaluchonUITestsLaunchTests.swift */,
 			);
 			path = BaluchonUITests;
 			sourceTree = "<group>";
@@ -536,7 +492,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6C3FDB3277C7C3800C04BAB /* BaluchonTests.swift in Sources */,
+				B6C8F372277CF07300481427 /* BaluchonTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -544,8 +500,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6C3FDC2277C7C4600C04BAB /* BaluchonUITestsLaunchTests.swift in Sources */,
-				B6C3FDC0277C7C4600C04BAB /* BaluchonUITests.swift in Sources */,
+				B6C8F374277CF0A100481427 /* BaluchonUITests.swift in Sources */,
+				B6C8F376277CF0D600481427 /* BaluchonUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,22 +8,38 @@
 import UIKit
 
 class ConvertController: UIViewController {
-
+    
+    @IBOutlet weak var amountField: UITextField!
+    @IBOutlet weak var eurCode: UILabel!
+    @IBOutlet weak var resultAmount: UILabel!
+    @IBOutlet weak var dollarCode: UILabel!
+    @IBOutlet weak var infoText: UILabel!
+    @IBOutlet weak var backgroundImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
 
-        // Do any additional setup after loading the view.
+    // MARK: - IBActions
+
+    @IBAction func SwitchButton(_ sender: UIButton) {
+    }
+
+    @IBAction func ConvertButton(_ sender: UIButton) {
+    }
+
+    // MARK: - Keyboard
+
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        amountField.resignFirstResponder()
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        amountField.resignFirstResponder()
+        return true
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+// Photo de Karolina Grabowska provenant de Pexels
+
