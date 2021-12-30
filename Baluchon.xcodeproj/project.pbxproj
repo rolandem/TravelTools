@@ -11,6 +11,7 @@
 		B684A448277E0EB100B5AF54 /* TranslationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B684A447277E0EB100B5AF54 /* TranslationData.swift */; };
 		B684A44A277E0F4900B5AF54 /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B684A449277E0F4900B5AF54 /* Translation.swift */; };
 		B684A44C277E0FD600B5AF54 /* TranslateAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B684A44B277E0FD600B5AF54 /* TranslateAPI.swift */; };
+		B684A44E277E145000B5AF54 /* TranslateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B684A44D277E145000B5AF54 /* TranslateRequest.swift */; };
 		B6C3FCDA2775DFB200C04BAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3FCD92775DFB200C04BAB /* AppDelegate.swift */; };
 		B6C3FCE12775DFB200C04BAB /* TabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6C3FCDF2775DFB200C04BAB /* TabBarController.storyboard */; };
 		B6C3FCE32775DFBC00C04BAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6C3FCE22775DFBC00C04BAB /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 		B684A447277E0EB100B5AF54 /* TranslationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationData.swift; sourceTree = "<group>"; };
 		B684A449277E0F4900B5AF54 /* Translation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
 		B684A44B277E0FD600B5AF54 /* TranslateAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateAPI.swift; sourceTree = "<group>"; };
+		B684A44D277E145000B5AF54 /* TranslateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateRequest.swift; sourceTree = "<group>"; };
 		B6C3FCD62775DFB200C04BAB /* Baluchon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Baluchon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6C3FCD92775DFB200C04BAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6C3FCE02775DFB200C04BAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TabBarController.storyboard; sourceTree = "<group>"; };
@@ -126,8 +128,9 @@
 		B6C3FD0A2775E00500C04BAB /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				B6C3FD85277B814500C04BAB /* WeatherRequest.swift */,
 				B6C3FDCC277CB5FE00C04BAB /* ConvertRequest.swift */,
+				B684A44D277E145000B5AF54 /* TranslateRequest.swift */,
+				B6C3FD85277B814500C04BAB /* WeatherRequest.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -265,9 +268,9 @@
 		B6C3FD81277B7EE400C04BAB /* Url */ = {
 			isa = PBXGroup;
 			children = (
-				B6C3FD83277B7F3400C04BAB /* WeatherApi.swift */,
 				B6C3FDCA277CB36800C04BAB /* ConvertAPI.swift */,
 				B684A44B277E0FD600B5AF54 /* TranslateAPI.swift */,
+				B6C3FD83277B7F3400C04BAB /* WeatherApi.swift */,
 			);
 			path = Url;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				B6C3FD7C277B7BFA00C04BAB /* Temperature.swift in Sources */,
 				B6C3FD78277B6F6300C04BAB /* WeatherData.swift in Sources */,
 				B6C3FD5E2775EF0C00C04BAB /* TabBarController.swift in Sources */,
+				B684A44E277E145000B5AF54 /* TranslateRequest.swift in Sources */,
 				B6C3FDCD277CB5FE00C04BAB /* ConvertRequest.swift in Sources */,
 				B6C3FD76277B680000C04BAB /* WeatherView.swift in Sources */,
 				B6C3FDCB277CB36800C04BAB /* ConvertAPI.swift in Sources */,
@@ -461,7 +465,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -516,7 +520,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

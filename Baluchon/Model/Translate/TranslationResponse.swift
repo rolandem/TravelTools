@@ -14,3 +14,9 @@ struct TranslationResponse: Decodable {
         case translationData = "data"
     }
 }
+
+enum TranslateError: Error {
+    case missingData
+    case cannotProcessData
+    case wrongUrl
+}
