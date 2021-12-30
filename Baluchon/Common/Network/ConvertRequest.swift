@@ -7,9 +7,9 @@
 
 import Foundation
 
-class QueryService {
+class ConvertRequest {
 
-    static var shared = QueryService()
+    static var shared = ConvertRequest()
     private init()
     {}
 
@@ -17,8 +17,6 @@ class QueryService {
 
     static func getRate(callback: @escaping(Result<ExchangeRate, RateError>) -> Void) {
 
-print("url =", rateUrl as Any)
-        
         guard let rateUrl = rateUrl else {
             print(RateError.wrongUrl)
             return }

@@ -9,13 +9,14 @@ import Foundation
 
 struct ConvertAPI {
     
-    private let apiKey = ""
+    private static let apiKey = ""
 
     static var convertUrl: URL? {
         var component = URLComponents()
         component.scheme = "http"
         component.host = "data.fixer.io"
-        component.path = "/api/latest?access_key=apiKey"
+        component.path = "/api/latest"
+        component.queryItems = [URLQueryItem(name: "access_key", value: apiKey)]
         return component.url
     }
 }

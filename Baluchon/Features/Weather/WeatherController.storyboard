@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -14,19 +14,19 @@
             <objects>
                 <viewController id="Y6W-OH-hqX" customClass="WeatherController" customModule="Baluchon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R33-Ib-cdE">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R33-Ib-cdE">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="V3f-W3-sgv" appends="YES" id="Xfo-C3-H1g"/>
                                 </connections>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qd6-Jl-86L" customClass="WeatherView" customModule="Baluchon" customModuleProvider="target">
-                                <rect key="frame" x="41.5" y="104" width="331" height="255"/>
+                                <rect key="frame" x="48" y="50" width="224" height="172.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -37,14 +37,14 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eWJ-CW-pUR" customClass="WeatherView" customModule="Baluchon" customModuleProvider="target">
-                                <rect key="frame" x="41.5" y="543" width="331" height="255"/>
+                                <rect key="frame" x="32" y="322.5" width="256" height="182.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="eWJ-CW-pUR" secondAttribute="height" multiplier="1.3" id="Iuc-rD-lWb"/>
+                                    <constraint firstAttribute="width" secondItem="eWJ-CW-pUR" secondAttribute="height" multiplier="1.4" id="Iuc-rD-lWb"/>
                                 </constraints>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="destination" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="uYg-vF-sGI">
-                                <rect key="frame" x="20" y="428" width="310.5" height="40"/>
+                                <rect key="frame" x="20" y="252.5" width="240" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="VRm-2v-BNt"/>
                                 </constraints>
@@ -55,7 +55,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zQy-CG-B4X">
-                                <rect key="frame" x="340.5" y="428" width="53.5" height="40"/>
+                                <rect key="frame" x="270" y="252.5" width="30" height="40"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -81,16 +81,16 @@
                             <constraint firstItem="uYg-vF-sGI" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.75" id="3Yn-lR-2Wp"/>
                             <constraint firstItem="zQy-CG-B4X" firstAttribute="leading" secondItem="uYg-vF-sGI" secondAttribute="trailing" constant="10" id="3m7-Nr-gHY"/>
                             <constraint firstItem="R33-Ib-cdE" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="5So-n5-uxf"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="eWJ-CW-pUR" secondAttribute="bottom" constant="15" id="74C-r0-OAa"/>
-                            <constraint firstItem="zQy-CG-B4X" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="GjQ-Wt-tcn"/>
+                            <constraint firstItem="eWJ-CW-pUR" firstAttribute="top" secondItem="uYg-vF-sGI" secondAttribute="bottom" constant="30" id="IWW-tY-KMH"/>
                             <constraint firstAttribute="bottom" secondItem="R33-Ib-cdE" secondAttribute="bottom" id="UnO-aK-AFl"/>
                             <constraint firstItem="uYg-vF-sGI" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="VVq-rV-7jM"/>
                             <constraint firstItem="eWJ-CW-pUR" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Xbo-yW-a5N"/>
-                            <constraint firstItem="qd6-Jl-86L" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.8" id="XiP-zu-5fM"/>
+                            <constraint firstItem="qd6-Jl-86L" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.7" id="XiP-zu-5fM"/>
+                            <constraint firstItem="zQy-CG-B4X" firstAttribute="bottom" secondItem="uYg-vF-sGI" secondAttribute="bottom" id="ZDd-2Q-Khj"/>
                             <constraint firstAttribute="trailing" secondItem="R33-Ib-cdE" secondAttribute="trailing" id="bcU-yK-qXR"/>
                             <constraint firstItem="eWJ-CW-pUR" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.8" id="gNk-Xk-051"/>
-                            <constraint firstItem="uYg-vF-sGI" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="ptB-ol-cgG"/>
-                            <constraint firstItem="qd6-Jl-86L" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="60" id="riz-tK-r9g"/>
+                            <constraint firstItem="uYg-vF-sGI" firstAttribute="top" secondItem="qd6-Jl-86L" secondAttribute="bottom" constant="30" id="ha3-tF-vwk"/>
+                            <constraint firstItem="qd6-Jl-86L" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="50" id="riz-tK-r9g"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="zQy-CG-B4X" secondAttribute="trailing" constant="20" id="s28-zu-MQA"/>
                             <constraint firstItem="R33-Ib-cdE" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="yWk-XF-rSX"/>
                             <constraint firstItem="qd6-Jl-86L" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="ytc-0c-0XC"/>

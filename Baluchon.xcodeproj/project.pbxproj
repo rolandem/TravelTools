@@ -34,6 +34,7 @@
 		B6C8F372277CF07300481427 /* BaluchonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C8F371277CF07300481427 /* BaluchonTests.swift */; };
 		B6C8F374277CF0A100481427 /* BaluchonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C8F373277CF0A100481427 /* BaluchonUITests.swift */; };
 		B6C8F376277CF0D600481427 /* BaluchonUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C8F375277CF0D600481427 /* BaluchonUITestsLaunchTests.swift */; };
+		B6C8F378277DA0B500481427 /* UsdRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C8F377277DA0B500481427 /* UsdRate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		B6C8F371277CF07300481427 /* BaluchonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaluchonTests.swift; path = ../../../Documents/BaluchonTests.swift; sourceTree = "<group>"; };
 		B6C8F373277CF0A100481427 /* BaluchonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaluchonUITests.swift; path = ../../../Documents/BaluchonUITests.swift; sourceTree = "<group>"; };
 		B6C8F375277CF0D600481427 /* BaluchonUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaluchonUITestsLaunchTests.swift; path = ../../../Documents/BaluchonUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B6C8F377277DA0B500481427 /* UsdRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsdRate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				B6C3FDC8277CB2B200C04BAB /* ExchangeRates.swift */,
+				B6C8F377277DA0B500481427 /* UsdRate.swift */,
 			);
 			path = Convert;
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 				B6C3FCDA2775DFB200C04BAB /* AppDelegate.swift in Sources */,
 				B6C3FD84277B7F3400C04BAB /* WeatherApi.swift in Sources */,
 				B6C3FDC9277CB2B200C04BAB /* ExchangeRates.swift in Sources */,
+				B6C8F378277DA0B500481427 /* UsdRate.swift in Sources */,
 				B6C3FD132775E13300C04BAB /* TranslateController.swift in Sources */,
 				B6C3FD7C277B7BFA00C04BAB /* Temperature.swift in Sources */,
 				B6C3FD78277B6F6300C04BAB /* WeatherData.swift in Sources */,
