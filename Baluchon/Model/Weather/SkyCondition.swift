@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SkyConditions: Decodable {
+struct SkyCondition: Decodable {
     let description: String
     let icon: String
 }

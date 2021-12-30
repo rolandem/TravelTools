@@ -10,7 +10,7 @@ import Foundation
 struct ExchangeRate: Decodable {
     
     var timestamp: Int
-    var rates: UsdRate
+    var rate: UsdRate
 }
 
 enum RateError: Error {

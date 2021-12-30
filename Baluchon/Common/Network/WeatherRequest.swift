@@ -9,7 +9,7 @@ import Foundation
 
 class WeatherRequest {
     
-    private static let localUrl = API.getLocale.url
+    private static let localUrl = WeatherAPI.getLocale.url
     
     static func getLocalWeather(callback: @escaping(Result<WeatherData, WeatherError>) -> Void) {
         
@@ -49,7 +49,7 @@ class WeatherRequest {
         
         let session = URLSession(configuration: .ephemeral)
         
-        let destinationUrl = API.getDestination(destination: destination).url
+        let destinationUrl = WeatherAPI.getDestination(destination: destination).url
         guard let weatherDestinationUrl = destinationUrl else {
             print(WeatherError.wrongUrl)
             return }

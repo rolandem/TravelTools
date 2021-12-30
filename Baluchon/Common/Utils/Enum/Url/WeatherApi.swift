@@ -12,7 +12,7 @@ private let locale = "New York"
 private let lang = "fr"
 private let unit = "metric"
 
-enum API {
+enum WeatherAPI {
     case getLocale
     case getDestination(destination: String)
  

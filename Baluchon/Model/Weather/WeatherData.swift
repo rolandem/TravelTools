@@ -10,14 +10,14 @@ import Foundation
 struct WeatherData: Decodable {
     let city: String
     let country: Country
-    let skyConditions: [SkyConditions]
+    let skyCondition: [SkyCondition]
     let temperature: Temperature
     
     
     enum CodingKeys: String, CodingKey {
         case city = "name"
         case country = "sys"
-        case skyConditions = "weather"
+        case skyCondition = "weather"
         case temperature = "main"
     }
 }

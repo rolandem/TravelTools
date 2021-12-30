@@ -29,7 +29,7 @@ class ConvertController: UIViewController, UITextFieldDelegate {
             case .failure(let error) : print(error)
             case.success(let rateData) :
                 let timestamp = rateData.timestamp
-                let usdRate = rateData.rates.USD.withDecimal()
+                let usdRate = rateData.rate.USD.withDecimal()
                 guard let rate = Double(usdRate) else { return }
                 self.rate = rate
                 let date = Date(timeIntervalSince1970: TimeInterval(timestamp))
