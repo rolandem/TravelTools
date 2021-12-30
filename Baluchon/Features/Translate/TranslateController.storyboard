@@ -16,23 +16,97 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jgk-mp-NPg">
+                                <rect key="frame" x="20.5" y="124" width="373" height="200"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="jgk-mp-NPg" secondAttribute="height" multiplier="373:200" id="DZH-13-Ngv"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="light" returnKeyType="continue"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="EJM-Rz-K8L"/>
+                                </connections>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ekm-aZ-dq0">
+                                <rect key="frame" x="178.5" y="344" width="57" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="fhe-8n-KbE"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Traduire"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="translateTexte:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="zYd-5J-h4b"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zML-e1-zqm">
+                                <rect key="frame" x="20.5" y="404" width="373" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="7Tr-HQ-u9M"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemGray4Color"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="zML-e1-zqm" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="8DR-PR-BqE"/>
+                            <constraint firstItem="Ekm-aZ-dq0" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="FZ4-RC-Cqt"/>
+                            <constraint firstItem="jgk-mp-NPg" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="80" id="JgE-Gm-JSb"/>
+                            <constraint firstItem="zML-e1-zqm" firstAttribute="top" secondItem="Ekm-aZ-dq0" secondAttribute="bottom" constant="30" id="SUh-DE-sFn"/>
+                            <constraint firstItem="jgk-mp-NPg" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.9" id="Tld-Qc-MSc"/>
+                            <constraint firstItem="zML-e1-zqm" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.9" id="VHC-jC-xAX"/>
+                            <constraint firstItem="Ekm-aZ-dq0" firstAttribute="top" secondItem="jgk-mp-NPg" secondAttribute="bottom" constant="20" id="f7Q-47-jSv"/>
+                            <constraint firstItem="jgk-mp-NPg" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="tLK-1f-4CI"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="DMT-yx-62Y" appends="YES" id="LKa-O2-elU"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Translate" image="network" catalog="system" id="MaW-jW-LEp">
                         <color key="badgeColor" systemColor="secondarySystemBackgroundColor"/>
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="originalText" destination="jgk-mp-NPg" id="USw-2w-2J4"/>
+                        <outlet property="translatedText" destination="zML-e1-zqm" id="TkB-TV-kz4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="DMT-yx-62Y">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="Y6W-OH-hqX" id="dbu-Zi-zJt"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="28" y="93"/>
+            <point key="canvasLocation" x="27.536231884057973" y="92.410714285714278"/>
         </scene>
     </scenes>
     <resources>
         <image name="network" catalog="system" width="128" height="121"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
