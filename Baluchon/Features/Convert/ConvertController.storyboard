@@ -26,12 +26,12 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Montant à convertir" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="bGN-2I-aCH">
                                         <rect key="frame" x="0.0" y="4" width="223" height="30.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="continue"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" keyboardAppearance="light" returnKeyType="continue"/>
                                         <connections>
                                             <outlet property="delegate" destination="Y6W-OH-hqX" id="gCE-Xn-C5F"/>
                                         </connections>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ExJ-nc-lWe">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ExJ-nc-lWe" userLabel="Origin Code">
                                         <rect key="frame" x="238" y="0.0" width="50" height="38.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="oyX-mz-jbH"/>
@@ -59,7 +59,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Go3-01-Qk7">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Go3-01-Qk7" userLabel="Converted Code">
                                         <rect key="frame" x="238" y="0.0" width="50" height="38.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="St0-ae-pd9"/>
@@ -78,18 +78,18 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="EHY-RW-akB" secondAttribute="height" multiplier="373:30" id="Nco-eM-uiv"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="125" translatesAutoresizingMaskIntoConstraints="NO" id="Wmb-kU-7Pk" userLabel="Buttons Stack View">
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="Wmb-kU-7Pk" userLabel="Buttons Stack View">
                                 <rect key="frame" x="16" y="227" width="288" height="31"/>
                                 <subviews>
                                     <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iE6-U8-WVJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="81.5" height="31"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="106.5" height="31"/>
                                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="switch"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="inversé"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="15"/>
@@ -100,10 +100,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Szy-Jw-l0f">
-                                        <rect key="frame" x="206.5" y="0.0" width="81.5" height="31"/>
+                                        <rect key="frame" x="181.5" y="0.0" width="106.5" height="31"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="convert"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="convertir"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="15"/>
@@ -144,15 +144,15 @@
                             <outletCollection property="gestureRecognizers" destination="jKu-Xw-afR" appends="YES" id="nIP-UO-cFC"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Convert" id="S6Q-rh-TvH"/>
+                    <tabBarItem key="tabBarItem" title="Convert" image="arrow.left.arrow.right.circle" catalog="system" id="S6Q-rh-TvH"/>
                     <navigationItem key="navigationItem" id="4hl-oi-TED"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="amountField" destination="bGN-2I-aCH" id="tRn-vN-yIN"/>
                         <outlet property="backgroundImage" destination="pbj-ye-4Lb" id="kqH-Ry-enK"/>
-                        <outlet property="dollarCode" destination="Go3-01-Qk7" id="lpX-mu-rOy"/>
-                        <outlet property="eurCode" destination="ExJ-nc-lWe" id="Hsa-b8-I6j"/>
+                        <outlet property="convertedCode" destination="Go3-01-Qk7" id="yDw-fB-G3w"/>
                         <outlet property="infoText" destination="EHY-RW-akB" id="T1Z-2f-knd"/>
+                        <outlet property="originCode" destination="ExJ-nc-lWe" id="A0d-I2-SXY"/>
                         <outlet property="resultAmount" destination="2WG-3n-Itd" id="qTV-jO-nf1"/>
                     </connections>
                 </viewController>
@@ -168,6 +168,7 @@
     </scenes>
     <resources>
         <image name="ConvertBackground" width="448" height="672"/>
+        <image name="arrow.left.arrow.right.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

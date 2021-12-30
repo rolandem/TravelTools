@@ -36,7 +36,7 @@ class WeatherController: UIViewController, UITextFieldDelegate {
                     localWeather.cityName.text = meteoData.city
                     localWeather.countryName.text = meteoData.country.country
                     localWeather.skyConditions.text = "actuellement " + meteoData.skyConditions[0].description
-                    localWeather.temperature.text = String(meteoData.temperature.temperature.withDecimal()) + " °C"
+                    localWeather.temperature.text = String(meteoData.temperature.temperature.withOutDecimal()) + " °C"
                     localWeather.weatherIcon.image = UIImage(named: meteoData.skyConditions[0].icon)
                 }
             }
@@ -54,7 +54,7 @@ class WeatherController: UIViewController, UITextFieldDelegate {
                 destinationWeather.cityName.text = meteoData.city
                 destinationWeather.countryName.text = meteoData.country.country
                 destinationWeather.skyConditions.text = "actuellement " + meteoData.skyConditions[0].description
-                destinationWeather.temperature.text = String(meteoData.temperature.temperature.withDecimal()) + " °C"
+                destinationWeather.temperature.text = String(meteoData.temperature.temperature.withOutDecimal()) + " °C"
                 destinationWeather.weatherIcon.image = UIImage(named: meteoData.skyConditions[0].icon)
                 
             }
