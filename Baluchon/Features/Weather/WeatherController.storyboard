@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R33-Ib-cdE">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -82,7 +82,7 @@
                             <constraint firstItem="zQy-CG-B4X" firstAttribute="leading" secondItem="uYg-vF-sGI" secondAttribute="trailing" constant="10" id="3m7-Nr-gHY"/>
                             <constraint firstItem="R33-Ib-cdE" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="5So-n5-uxf"/>
                             <constraint firstItem="eWJ-CW-pUR" firstAttribute="top" secondItem="uYg-vF-sGI" secondAttribute="bottom" constant="30" id="IWW-tY-KMH"/>
-                            <constraint firstAttribute="bottom" secondItem="R33-Ib-cdE" secondAttribute="bottom" id="UnO-aK-AFl"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="R33-Ib-cdE" secondAttribute="bottom" id="UnO-aK-AFl"/>
                             <constraint firstItem="uYg-vF-sGI" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="VVq-rV-7jM"/>
                             <constraint firstItem="eWJ-CW-pUR" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Xbo-yW-a5N"/>
                             <constraint firstItem="qd6-Jl-86L" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.7" id="XiP-zu-5fM"/>

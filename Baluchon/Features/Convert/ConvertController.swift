@@ -10,13 +10,13 @@ import UIKit
 class ConvertController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var amountField: UITextField!
-    @IBOutlet weak var originCode: UILabel!
+    @IBOutlet weak var originIcon: UILabel!
     @IBOutlet weak var resultAmount: UILabel!
-    @IBOutlet weak var convertedCode: UILabel!
+    @IBOutlet weak var convertedIcon: UILabel!
     @IBOutlet weak var infoText: UILabel!
     @IBOutlet weak var backgroundImage: UIImageView!
     
-    var rate: Double = 0.00
+    var rate: Double = 1.13
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,16 +42,16 @@ class ConvertController: UIViewController, UITextFieldDelegate {
     // MARK: - IBActions
 
     @IBAction func SwitchButton(_ sender: UIButton) {
-        if originCode.text == "€" {
+        if originIcon.text == "€" {
             amountField.text = ""
             resultAmount.text = "0.00"
-            originCode.text = "$"
-            convertedCode.text = "€"
+            originIcon.text = "$"
+            convertedIcon.text = "€"
         } else {
             amountField.text = ""
             resultAmount.text = "0.00"
-            originCode.text = "€"
-            convertedCode.text = "$"
+            originIcon.text = "€"
+            convertedIcon.text = "$"
         }
     }
 
@@ -59,7 +59,7 @@ class ConvertController: UIViewController, UITextFieldDelegate {
         guard let amountText = amountField.text else { return }
         guard let amount = Double(amountText) else { return }
         
-        if originCode.text == "€" {
+        if originIcon.text == "€" {
             let result = amount * rate
             resultAmount.text = String(result.withDecimal())
         } else {

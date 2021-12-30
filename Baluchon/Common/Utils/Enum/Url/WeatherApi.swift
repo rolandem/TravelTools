@@ -7,8 +7,8 @@
 
 import Foundation
 
-private let locale = "New York"
 private let apiKey = ""
+private let locale = "New York"
 private let lang = "fr"
 private let unit = "metric"
 
