@@ -9,7 +9,7 @@ import Foundation
 
 struct ConvertAPI {
     
-    private static let apiKey = "188a2d00478247ae91af935185a74cdf"
+    private static let apiKey = ""
 
     static var convertUrl: URL? {
         var component = URLComponents()

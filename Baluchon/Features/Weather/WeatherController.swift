@@ -99,5 +99,3 @@ class WeatherController: UIViewController, UITextFieldDelegate {
 }
 
 // Vidéo de MART PRODUCTION provenant de Pexels
-
-// UserDefault

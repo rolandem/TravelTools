@@ -7,7 +7,7 @@
 
 import Foundation
 
-    private let apiKey = "AIzaSyDaQbIyaC7xHMIESShFsySMmcjeHtdnhMk"
+    private let apiKey = ""
     private let format = "text"
 
 enum TranslateAPI {
