@@ -8,8 +8,8 @@
 import Foundation
 
 extension Double {
-
-    func withOutDecimal() -> String {
+    
+    func withoutDecimal() -> String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         formatter.maximumFractionDigits = 0
@@ -18,7 +18,7 @@ extension Double {
         let formattedValue = formatter.string(from: number)!
         return formattedValue
     }
-
+    
     func withDecimal() -> String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal

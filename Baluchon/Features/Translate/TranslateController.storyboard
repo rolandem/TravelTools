@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0gm-qA-RUM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Translate-->
+        <!--Translate Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController id="Y6W-OH-hqX" customClass="TranslateController" customModule="Baluchon" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jgk-mp-NPg">
-                                <rect key="frame" x="20.5" y="124" width="373" height="200"/>
+                                <rect key="frame" x="20.5" y="188" width="373" height="200"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="jgk-mp-NPg" secondAttribute="height" multiplier="373:200" id="DZH-13-Ngv"/>
@@ -31,24 +31,27 @@
                                 </connections>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ekm-aZ-dq0">
-                                <rect key="frame" x="178.5" y="344" width="57" height="30"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="157" y="408" width="100" height="30"/>
+                                <color key="backgroundColor" red="0.5" green="0.23316690742285323" blue="0.36125664318772788" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="fhe-8n-KbE"/>
+                                    <constraint firstAttribute="width" constant="100" id="iPD-jC-f7j"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Traduire"/>
+                                <state key="normal" title="Traduire">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="translateTexte:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="zYd-5J-h4b"/>
+                                    <action selector="translateText:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="tra-Oo-Ls9"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zML-e1-zqm">
-                                <rect key="frame" x="20.5" y="404" width="373" height="30"/>
+                                <rect key="frame" x="20.5" y="518" width="373" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="7Tr-HQ-u9M"/>
@@ -57,6 +60,36 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zel-v8-P8Q">
+                                <rect key="frame" x="243.5" y="150" width="150" height="30"/>
+                                <color key="backgroundColor" systemColor="systemBrownColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="Gbg-A3-zjD"/>
+                                    <constraint firstAttribute="height" constant="30" id="XhA-xJ-d9Y"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Français">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="originalLanguageSelect:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="wn7-sK-IJ6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5JL-TB-xer">
+                                <rect key="frame" x="243.5" y="480" width="150" height="30"/>
+                                <color key="backgroundColor" systemColor="systemBrownColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="0XN-Z5-K3D"/>
+                                    <constraint firstAttribute="width" constant="150" id="0w0-dy-8vP"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Anglais">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="translatedLanguageSelect:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="HHF-ec-MUK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemGray4Color"/>
@@ -64,23 +97,27 @@
                         <constraints>
                             <constraint firstItem="zML-e1-zqm" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="8DR-PR-BqE"/>
                             <constraint firstItem="Ekm-aZ-dq0" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="FZ4-RC-Cqt"/>
-                            <constraint firstItem="jgk-mp-NPg" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="80" id="JgE-Gm-JSb"/>
-                            <constraint firstItem="zML-e1-zqm" firstAttribute="top" secondItem="Ekm-aZ-dq0" secondAttribute="bottom" constant="30" id="SUh-DE-sFn"/>
+                            <constraint firstItem="zML-e1-zqm" firstAttribute="top" secondItem="5JL-TB-xer" secondAttribute="bottom" constant="8" symbolic="YES" id="GsV-9n-Sc8"/>
+                            <constraint firstItem="jgk-mp-NPg" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="100" id="JgE-Gm-JSb"/>
+                            <constraint firstItem="zML-e1-zqm" firstAttribute="top" secondItem="Ekm-aZ-dq0" secondAttribute="bottom" constant="80" id="SUh-DE-sFn"/>
                             <constraint firstItem="jgk-mp-NPg" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.9" id="Tld-Qc-MSc"/>
                             <constraint firstItem="zML-e1-zqm" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.9" id="VHC-jC-xAX"/>
+                            <constraint firstItem="Zel-v8-P8Q" firstAttribute="trailing" secondItem="jgk-mp-NPg" secondAttribute="trailing" id="XMc-vj-tal"/>
+                            <constraint firstItem="5JL-TB-xer" firstAttribute="trailing" secondItem="zML-e1-zqm" secondAttribute="trailing" id="emi-nP-Dqd"/>
                             <constraint firstItem="Ekm-aZ-dq0" firstAttribute="top" secondItem="jgk-mp-NPg" secondAttribute="bottom" constant="20" id="f7Q-47-jSv"/>
+                            <constraint firstItem="jgk-mp-NPg" firstAttribute="top" secondItem="Zel-v8-P8Q" secondAttribute="bottom" constant="8" symbolic="YES" id="i5e-A7-c9L"/>
                             <constraint firstItem="jgk-mp-NPg" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="tLK-1f-4CI"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="DMT-yx-62Y" appends="YES" id="LKa-O2-elU"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Translate" image="network" catalog="system" id="MaW-jW-LEp">
-                        <color key="badgeColor" systemColor="secondarySystemBackgroundColor"/>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="rs7-M1-hPF"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="originalLanguage" destination="Zel-v8-P8Q" id="Ql2-l9-fj8"/>
                         <outlet property="originalText" destination="jgk-mp-NPg" id="USw-2w-2J4"/>
+                        <outlet property="translatedLanguage" destination="5JL-TB-xer" id="hXm-2H-1Xx"/>
                         <outlet property="translatedText" destination="zML-e1-zqm" id="TkB-TV-kz4"/>
                     </connections>
                 </viewController>
@@ -91,11 +128,32 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="937.68115942028987" y="92.410714285714278"/>
+        </scene>
+        <!--Translate-->
+        <scene sceneID="1uf-VF-f8N">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0gm-qA-RUM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Translate" image="translate-20" id="MaW-jW-LEp">
+                        <color key="badgeColor" systemColor="secondarySystemBackgroundColor"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="chI-zF-dyc">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="N5H-Oc-9yo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RKY-DY-OYi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="27.536231884057973" y="92.410714285714278"/>
         </scene>
     </scenes>
     <resources>
-        <image name="network" catalog="system" width="128" height="121"/>
+        <image name="translate-20" width="20" height="20"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -104,6 +162,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

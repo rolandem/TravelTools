@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Temperature: Decodable {
+struct TemperatureData: Decodable {
     let temperature: Double
     
     enum CodingKeys: String, CodingKey {

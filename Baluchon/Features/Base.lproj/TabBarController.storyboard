@@ -24,11 +24,12 @@
         <scene sceneID="TkI-pg-1fN">
             <objects>
                 <tabBarController id="aVZ-dm-mey" customClass="TabBarController" customModule="Baluchon" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" alpha="0.34999999999999998" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IBg-ac-gNn">
+                    <tabBar key="tabBar" opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IBg-ac-gNn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" systemColor="linkColor"/>
+                        <color key="selectedImageTintColor" systemColor="linkColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="JjP-B8-m5C" kind="relationship" relationship="viewControllers" id="uP2-U0-STq"/>

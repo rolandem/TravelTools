@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vyi-f5-Vm7">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Weather-->
+        <!--Weather Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController id="Y6W-OH-hqX" customClass="WeatherController" customModule="Baluchon" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,32 +19,26 @@
                         <subviews>
                             <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R33-Ib-cdE">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
-                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="V3f-W3-sgv" appends="YES" id="Xfo-C3-H1g"/>
                                 </connections>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qd6-Jl-86L" customClass="WeatherView" customModule="Baluchon" customModuleProvider="target">
-                                <rect key="frame" x="48" y="50" width="224" height="172.5"/>
+                                <rect key="frame" x="20" y="69" width="280" height="171.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="qd6-Jl-86L" secondAttribute="height" multiplier="1.3" id="IaJ-LU-uCG"/>
-                                </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="TuO-nH-YFM" appends="YES" id="0u3-06-ugl"/>
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eWJ-CW-pUR" customClass="WeatherView" customModule="Baluchon" customModuleProvider="target">
-                                <rect key="frame" x="32" y="322.5" width="256" height="182.5"/>
+                                <rect key="frame" x="20" y="330.5" width="280" height="171"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="eWJ-CW-pUR" secondAttribute="height" multiplier="1.4" id="Iuc-rD-lWb"/>
-                                </constraints>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="destination" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="uYg-vF-sGI">
-                                <rect key="frame" x="20" y="252.5" width="240" height="40"/>
+                                <rect key="frame" x="20" y="265.5" width="240" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="VRm-2v-BNt"/>
                                 </constraints>
@@ -55,7 +49,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zQy-CG-B4X">
-                                <rect key="frame" x="270" y="252.5" width="30" height="40"/>
+                                <rect key="frame" x="270" y="265.5" width="30" height="40"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -71,7 +65,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="StartResearch:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="lUz-GY-79q"/>
+                                    <action selector="startResearch:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="o8C-uw-zO9"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -81,22 +75,26 @@
                             <constraint firstItem="uYg-vF-sGI" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.75" id="3Yn-lR-2Wp"/>
                             <constraint firstItem="zQy-CG-B4X" firstAttribute="leading" secondItem="uYg-vF-sGI" secondAttribute="trailing" constant="10" id="3m7-Nr-gHY"/>
                             <constraint firstItem="R33-Ib-cdE" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="5So-n5-uxf"/>
-                            <constraint firstItem="eWJ-CW-pUR" firstAttribute="top" secondItem="uYg-vF-sGI" secondAttribute="bottom" constant="30" id="IWW-tY-KMH"/>
+                            <constraint firstItem="eWJ-CW-pUR" firstAttribute="height" secondItem="qd6-Jl-86L" secondAttribute="height" id="6Yf-aN-lpG"/>
+                            <constraint firstItem="eWJ-CW-pUR" firstAttribute="trailing" secondItem="qd6-Jl-86L" secondAttribute="trailing" id="AqJ-ND-GX1"/>
+                            <constraint firstItem="eWJ-CW-pUR" firstAttribute="top" secondItem="uYg-vF-sGI" secondAttribute="bottom" constant="25" id="IWW-tY-KMH"/>
+                            <constraint firstItem="qd6-Jl-86L" firstAttribute="leading" secondItem="uYg-vF-sGI" secondAttribute="leading" id="LUu-YW-R8q"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="R33-Ib-cdE" secondAttribute="bottom" id="UnO-aK-AFl"/>
                             <constraint firstItem="uYg-vF-sGI" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="VVq-rV-7jM"/>
                             <constraint firstItem="eWJ-CW-pUR" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Xbo-yW-a5N"/>
-                            <constraint firstItem="qd6-Jl-86L" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.7" id="XiP-zu-5fM"/>
                             <constraint firstItem="zQy-CG-B4X" firstAttribute="bottom" secondItem="uYg-vF-sGI" secondAttribute="bottom" id="ZDd-2Q-Khj"/>
+                            <constraint firstItem="eWJ-CW-pUR" firstAttribute="leading" secondItem="qd6-Jl-86L" secondAttribute="leading" id="Zvf-O5-O7I"/>
                             <constraint firstAttribute="trailing" secondItem="R33-Ib-cdE" secondAttribute="trailing" id="bcU-yK-qXR"/>
-                            <constraint firstItem="eWJ-CW-pUR" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.8" id="gNk-Xk-051"/>
-                            <constraint firstItem="uYg-vF-sGI" firstAttribute="top" secondItem="qd6-Jl-86L" secondAttribute="bottom" constant="30" id="ha3-tF-vwk"/>
-                            <constraint firstItem="qd6-Jl-86L" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="50" id="riz-tK-r9g"/>
+                            <constraint firstItem="qd6-Jl-86L" firstAttribute="height" secondItem="R33-Ib-cdE" secondAttribute="height" multiplier="0.33" id="cfg-LE-nw4"/>
+                            <constraint firstItem="qd6-Jl-86L" firstAttribute="trailing" secondItem="zQy-CG-B4X" secondAttribute="trailing" id="dx3-2I-iaY"/>
+                            <constraint firstItem="uYg-vF-sGI" firstAttribute="top" secondItem="qd6-Jl-86L" secondAttribute="bottom" constant="25" id="ha3-tF-vwk"/>
+                            <constraint firstItem="qd6-Jl-86L" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="25" id="riz-tK-r9g"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="zQy-CG-B4X" secondAttribute="trailing" constant="20" id="s28-zu-MQA"/>
                             <constraint firstItem="R33-Ib-cdE" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="yWk-XF-rSX"/>
                             <constraint firstItem="qd6-Jl-86L" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="ytc-0c-0XC"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Weather" image="cloud.sun" catalog="system" id="D60-gi-bYz"/>
+                    <navigationItem key="navigationItem" id="Eoq-ly-hgn"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="destinationWeather" destination="eWJ-CW-pUR" id="oI0-sF-ZCB"/>
@@ -116,16 +114,38 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="27.536231884057973" y="92.410714285714278"/>
+            <point key="canvasLocation" x="506" y="92"/>
+        </scene>
+        <!--Weather-->
+        <scene sceneID="CLT-cB-4IZ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Vyi-f5-Vm7" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Weather" image="weather-20" id="D60-gi-bYz"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="W6t-rk-Kd6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="bNK-Fp-qju"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UBJ-kS-Rtd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-272" y="92"/>
         </scene>
     </scenes>
     <resources>
-        <image name="cloud.sun" catalog="system" width="128" height="95"/>
+        <image name="weather-20" width="20" height="20"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

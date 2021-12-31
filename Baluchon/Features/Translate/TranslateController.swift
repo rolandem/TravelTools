@@ -11,33 +11,137 @@ class TranslateController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var originalText: UITextView!
     @IBOutlet weak var translatedText: UILabel!
+    @IBOutlet weak var originalLanguage: UIButton!
+    @IBOutlet weak var translatedLanguage: UIButton!
+    
+    let tableView = UITableView()
+    let darkenView = UIView()
+    var selectedButton = UIButton()
+    var dataSource = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        self.title = "Traducteur"
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
-    @IBAction func translateTexte(_ sender: UIButton) {
+    @IBAction func translateText(_ sender: UIButton) {
         guard let inputText = originalText.text else { return }
         
-        TranslateRequest.getLTranslation(inputText: inputText, sourceLang: "fr", targetLang: "en") { result in
+        TranslateRequest.getTranslation(inputText: inputText, sourceLang: "fr", targetLang: "en") { result in
             switch result {
             case .failure(let error) : print(error)
             case .success(let translation) :
-                self.translatedText.text = translation.translationData.translations[0].translatedText
+                self.translatedText.text = translation.translatedText
+                //translationData.translations[0].translatedText
             }
         }
     }
     
+    // MARK: - Language choice buttons
+    
+    @IBAction func originalLanguageSelect(_ sender: UIButton) {
+        dataSource = ["Français", "Portuguais", "Allemand"]
+        selectedButton = originalLanguage
+        // addDarkenView(at frame: )
+        addDarkenView(frame: originalLanguage.frame)
+    }
+    
+    @IBAction func translatedLanguageSelect(_ sender: UIButton) {
+        dataSource = ["Français", "Portuguais", "Allemand"]
+        selectedButton = translatedLanguage
+        addDarkenView(frame: translatedLanguage.frame)
+    }
+    
     // MARK: - Keyboard
-
+    
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         originalText.resignFirstResponder()
     }
-
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         originalText.resignFirstResponder()
         return true
     }
-   
+}
+
+// MARK: - UITableViewDataSource
+
+extension TranslateController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataSource.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.textLabel?.text = dataSource[indexPath.row]
+        return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+
+extension TranslateController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("CLICKED")
+        selectedButton.setTitle(dataSource[indexPath.row], for: .normal)
+        removeDarkenView()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+}
+
+extension TranslateController {
+    
+    func frameTableView(frame: CGRect, x:CGFloat, y: CGFloat, width: CGFloat, height: CGFloat) {
+        tableView.frame = CGRect(x: frame.origin.x + x, y: frame.origin.y + frame.height + y, width: frame.width + width, height: height)
+    }
+    
+    func addDarkenView(frame: CGRect) {
+        darkenView.frame = view.frame
+        darkenView.backgroundColor = .black.withAlphaComponent(0.9)
+        view.addSubview(darkenView)
+        
+//        frameTableView(frame: frame, x: 0, y: 5, width: 0, height: 0)
+        let frameWhenTableViewIsHidden = CGRect(x: frame.origin.x, y: frame.origin.y + frame.height + 5, width: frame.width, height: 0)
+        tableView.frame = frameWhenTableViewIsHidden
+        
+        self.view.addSubview(tableView)
+        tableView.layer.cornerRadius = 5
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(removeDarkenView))
+        tapGesture.delegate = self
+        darkenView.addGestureRecognizer(tapGesture)
+        darkenView.alpha = 0
+        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
+            self.darkenView.alpha = 0.5
+            self.frameTableView(frame: frame, x: 0, y: 5, width: 0, height: CGFloat(self.dataSource.count * 50))
+        }, completion: nil)
+        
+        tableView.reloadData()
+    }
+    
+    @objc func removeDarkenView() {
+        let frames = selectedButton.frame
+        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
+            self.darkenView.alpha = 0
+            self.frameTableView(frame: frames, x: 0, y: 5, width: 0, height: 0)
+        }, completion: nil)
+    }
+    
+}
+
+extension TranslateController: UIGestureRecognizerDelegate {
+
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if touch.view != nil && touch.view!.isDescendant(of: self.tableView) {
+            return false
+        }
+        return true
+    }
 }

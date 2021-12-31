@@ -16,10 +16,11 @@ class ConvertController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var infoText: UILabel!
     @IBOutlet weak var backgroundImage: UIImageView!
     
-    var rate: Double = 1.13
+    var rate: Double = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Convertisseur"
         getUsdRate()
     }
 
@@ -29,7 +30,7 @@ class ConvertController: UIViewController, UITextFieldDelegate {
             case .failure(let error) : print(error)
             case.success(let rateData) :
                 let timestamp = rateData.timestamp
-                let usdRate = rateData.rate.USD.withDecimal()
+                let usdRate = rateData.rates.USD.withDecimal()
                 guard let rate = Double(usdRate) else { return }
                 self.rate = rate
                 let date = Date(timeIntervalSince1970: TimeInterval(timestamp))
@@ -84,4 +85,3 @@ class ConvertController: UIViewController, UITextFieldDelegate {
 }
 
 // Photo de Karolina Grabowska provenant de Pexels
-

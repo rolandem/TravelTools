@@ -20,7 +20,6 @@ class ConvertRequest {
         guard let rateUrl = rateUrl else {
             print(RateError.wrongUrl)
             return }
-        
         URLSession.shared.dataTask(with: rateUrl) { (data, response, error) in
             DispatchQueue.main.async {
 

@@ -21,6 +21,7 @@ class WeatherController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         destinationWeather.isHidden = true
         getLocalWeather()
+        self.title = "Météo"
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -36,7 +37,7 @@ class WeatherController: UIViewController, UITextFieldDelegate {
                     localWeather.cityName.text = meteoData.city
                     localWeather.countryName.text = meteoData.country.country
                     localWeather.skyConditions.text = "actuellement " + meteoData.skyCondition[0].description
-                    localWeather.temperature.text = String(meteoData.temperature.temperature.withOutDecimal()) + " °C"
+                    localWeather.temperature.text = String(meteoData.temperatureData.temperature.withoutDecimal()) + " °C"
                     localWeather.weatherIcon.image = UIImage(named: meteoData.skyCondition[0].icon)
                 }
             }
@@ -54,7 +55,8 @@ class WeatherController: UIViewController, UITextFieldDelegate {
                 destinationWeather.cityName.text = meteoData.city
                 destinationWeather.countryName.text = meteoData.country.country
                 destinationWeather.skyConditions.text = "actuellement " + meteoData.skyCondition[0].description
-                destinationWeather.temperature.text = String(meteoData.temperature.temperature.withOutDecimal()) + " °C"
+                let temperature = meteoData.temperatureData.temperature.withoutDecimal()
+                destinationWeather.temperature.text = "\(temperature) °C"
                 destinationWeather.weatherIcon.image = UIImage(named: meteoData.skyCondition[0].icon)
                 
             }
@@ -92,8 +94,10 @@ class WeatherController: UIViewController, UITextFieldDelegate {
         videoPlayerLayer?.frame = CGRect(x: -self.view.frame.size.width*1.5, y: 0, width: self.view.frame.size.width*4, height: self.view.frame.size.height - 80)
 
         view.layer.insertSublayer(videoPlayerLayer!, at: 0)
-        videoPlayer?.playImmediately(atRate: 0.3)
+        videoPlayer?.playImmediately(atRate: 0.5)
     }
 }
 
 // Vidéo de MART PRODUCTION provenant de Pexels
+
+// UserDefault

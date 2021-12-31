@@ -9,7 +9,7 @@ import Foundation
 
 class TranslateRequest {
 
-    static func getLTranslation(inputText: String, sourceLang: String, targetLang: String, callback: @escaping(Result<TranslationResponse, TranslateError>) -> Void) {
+    static func getTranslation(inputText: String, sourceLang: String, targetLang: String, callback: @escaping(Result<TranslationResponse, TranslateError>) -> Void) {
         
         let session = URLSession(configuration: .ephemeral)
         let translateUrl = TranslateAPI.translateText(inputText: inputText, sourceLang: sourceLang, targetLang: targetLang).url
@@ -33,6 +33,7 @@ print("translationUrl =", translationUrl)
                     }
                 do {
                     let translatedText = try JSONDecoder().decode(TranslationResponse.self, from: data)
+                    print("translated", translatedText)
                     callback(.success(translatedText))
                 } catch {
                     callback(.failure(.cannotProcessData))
