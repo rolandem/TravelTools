@@ -9,17 +9,59 @@ import Foundation
 
 struct WeatherData: Decodable {
     
-    let city: String
-    let country: Country
-    let skyCondition: [SkyCondition]
-    let temperatureData: TemperatureData
-    
-    enum CodingKeys: String, CodingKey {
-        case city = "name"
-        case country = "sys"
+    enum MainKeys: String, CodingKey {
         case skyCondition = "weather"
         case temperatureData = "main"
+        case country = "sys"
+        case city = "name"
+        
+        enum SkyConditionKeys: String, CodingKey {
+            case description
+            case icon
+        }
+        
+        enum TemperaturesKeys: String, CodingKey {
+            case temperature = "temp"
+            case feelsLike = "feels_like"
+        }
+        
+        enum CountryKeys: String, CodingKey {
+            case country
+        }
     }
+    
+    let description: String
+    let icon: String
+    let temperature: Double
+    let feelsLike: Double
+    let country: String
+    let city: String
+    
+    init(from decoder: Decoder) throws {
+        // main container
+        let container = try decoder.container(keyedBy: MainKeys.self)
+
+        // container array with description and icon
+        var skyConditionContainer = try container.nestedUnkeyedContainer(forKey: .skyCondition)
+        let firstSkyContainer = try skyConditionContainer.nestedContainer(keyedBy: MainKeys.SkyConditionKeys.self)
+        self.description = try firstSkyContainer.decode(String.self, forKey: .description)
+        self.icon = try firstSkyContainer.decode(String.self, forKey: .icon)
+        
+        // container with temperature and feelslike
+        let temperatureContainer = try container.nestedContainer(keyedBy: MainKeys.TemperaturesKeys.self, forKey: .temperatureData)
+        self.temperature = try temperatureContainer.decode(Double.self, forKey: .temperature)
+        self.feelsLike = try temperatureContainer.decode(Double.self, forKey: .feelsLike)
+        
+        // container with country
+        let countryContainer = try container.nestedContainer(keyedBy: MainKeys.CountryKeys.self, forKey: .country)
+        self.country = try countryContainer.decode(String.self, forKey: .country)
+        
+        //name in main container
+        self.city = try container.decode(String.self, forKey: .city)
+        
+    }
+    
+    
 }
 
 // MARK: - Error

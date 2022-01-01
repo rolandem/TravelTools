@@ -35,10 +35,11 @@ class WeatherController: UIViewController, UITextFieldDelegate {
                 case .failure(let error) : print(error)
                 case .success(let meteoData) :
                     localWeather.cityName.text = meteoData.city
-                    localWeather.countryName.text = meteoData.country.country
-                    localWeather.skyConditions.text = "actuellement " + meteoData.skyCondition[0].description
-                    localWeather.temperature.text = String(meteoData.temperatureData.temperature.withoutDecimal()) + " °C"
-                    localWeather.weatherIcon.image = UIImage(named: meteoData.skyCondition[0].icon)
+                    localWeather.countryName.text = meteoData.country
+                    localWeather.skyConditions.text = "actuellement " + meteoData.description
+                    let temperature = meteoData.temperature.withoutDecimal()
+                    localWeather.temperature.text = "\(temperature) °C"
+                    localWeather.weatherIcon.image = UIImage(named: meteoData.icon)
                 }
             }
         }
@@ -53,11 +54,11 @@ class WeatherController: UIViewController, UITextFieldDelegate {
             case .failure(let error) : print(error)
             case .success(let meteoData) :
                 destinationWeather.cityName.text = meteoData.city
-                destinationWeather.countryName.text = meteoData.country.country
-                destinationWeather.skyConditions.text = "actuellement " + meteoData.skyCondition[0].description
-                let temperature = meteoData.temperatureData.temperature.withoutDecimal()
+                destinationWeather.countryName.text = meteoData.country
+                destinationWeather.skyConditions.text = "actuellement " + meteoData.description
+                let temperature = meteoData.temperature.withoutDecimal()
                 destinationWeather.temperature.text = "\(temperature) °C"
-                destinationWeather.weatherIcon.image = UIImage(named: meteoData.skyCondition[0].icon)
+                destinationWeather.weatherIcon.image = UIImage(named: meteoData.icon)
                 
             }
         }

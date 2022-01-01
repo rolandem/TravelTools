@@ -27,9 +27,6 @@
 		B6C3FD74277B655500C04BAB /* WeatherView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6C3FD73277B655500C04BAB /* WeatherView.xib */; };
 		B6C3FD76277B680000C04BAB /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3FD75277B680000C04BAB /* WeatherView.swift */; };
 		B6C3FD78277B6F6300C04BAB /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3FD77277B6F6300C04BAB /* WeatherData.swift */; };
-		B6C3FD7A277B758B00C04BAB /* SkyCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3FD79277B758B00C04BAB /* SkyCondition.swift */; };
-		B6C3FD7C277B7BFA00C04BAB /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3FD7B277B7BFA00C04BAB /* Temperature.swift */; };
-		B6C3FD7E277B7CB800C04BAB /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3FD7D277B7CB800C04BAB /* Country.swift */; };
 		B6C3FD84277B7F3400C04BAB /* WeatherApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3FD83277B7F3400C04BAB /* WeatherApi.swift */; };
 		B6C3FD86277B814500C04BAB /* WeatherRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3FD85277B814500C04BAB /* WeatherRequest.swift */; };
 		B6C3FD8C277C687000C04BAB /* SkyBackground.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B6C3FD8B277C687000C04BAB /* SkyBackground.mp4 */; };
@@ -82,9 +79,6 @@
 		B6C3FD73277B655500C04BAB /* WeatherView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherView.xib; sourceTree = "<group>"; };
 		B6C3FD75277B680000C04BAB /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		B6C3FD77277B6F6300C04BAB /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
-		B6C3FD79277B758B00C04BAB /* SkyCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyCondition.swift; sourceTree = "<group>"; };
-		B6C3FD7B277B7BFA00C04BAB /* Temperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
-		B6C3FD7D277B7CB800C04BAB /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		B6C3FD83277B7F3400C04BAB /* WeatherApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherApi.swift; sourceTree = "<group>"; };
 		B6C3FD85277B814500C04BAB /* WeatherRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRequest.swift; sourceTree = "<group>"; };
 		B6C3FD8B277C687000C04BAB /* SkyBackground.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SkyBackground.mp4; sourceTree = "<group>"; };
@@ -278,9 +272,6 @@
 			isa = PBXGroup;
 			children = (
 				B6C3FD77277B6F6300C04BAB /* WeatherData.swift */,
-				B6C3FD79277B758B00C04BAB /* SkyCondition.swift */,
-				B6C3FD7B277B7BFA00C04BAB /* Temperature.swift */,
-				B6C3FD7D277B7CB800C04BAB /* Country.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -507,7 +498,6 @@
 				B684A44C277E0FD600B5AF54 /* TranslateAPI.swift in Sources */,
 				B6C8F378277DA0B500481427 /* UsdRate.swift in Sources */,
 				B6C3FD132775E13300C04BAB /* TranslateController.swift in Sources */,
-				B6C3FD7C277B7BFA00C04BAB /* Temperature.swift in Sources */,
 				B6C3FD78277B6F6300C04BAB /* WeatherData.swift in Sources */,
 				B6C3FD5E2775EF0C00C04BAB /* TabBarController.swift in Sources */,
 				B684A44E277E145000B5AF54 /* TranslateRequest.swift in Sources */,
@@ -516,8 +506,6 @@
 				B6C3FDCB277CB36800C04BAB /* ConvertAPI.swift in Sources */,
 				B6C3FD152775E14800C04BAB /* WeatherController.swift in Sources */,
 				B6C3FD172775E15900C04BAB /* ConvertController.swift in Sources */,
-				B6C3FD7E277B7CB800C04BAB /* Country.swift in Sources */,
-				B6C3FD7A277B758B00C04BAB /* SkyCondition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
