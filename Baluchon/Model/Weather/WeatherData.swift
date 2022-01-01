@@ -60,8 +60,6 @@ struct WeatherData: Decodable {
         self.city = try container.decode(String.self, forKey: .city)
         
     }
-    
-    
 }
 
 // MARK: - Error

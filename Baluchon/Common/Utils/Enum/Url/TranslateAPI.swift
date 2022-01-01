@@ -7,7 +7,7 @@
 
 import Foundation
 
-    private let apiKey = ""
+    private var apiKey: String = Bundle.main.infoDictionary?["TRANSLATE_API_KEY"] as? String ?? ""
     private let format = "text"
 
 enum TranslateAPI {

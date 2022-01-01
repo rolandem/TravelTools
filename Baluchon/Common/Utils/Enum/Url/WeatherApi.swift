@@ -7,7 +7,7 @@
 
 import Foundation
 
-private let apiKey = ""
+private var apiKey: String = Bundle.main.infoDictionary?["WEATHER_API_KEY"] as? String ?? ""
 private let locale = "New York"
 private let lang = "fr"
 private let unit = "metric"

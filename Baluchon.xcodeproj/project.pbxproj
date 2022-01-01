@@ -63,6 +63,7 @@
 		B684A460277E44FF00B5AF54 /* BaluchonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BaluchonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B684A462277E44FF00B5AF54 /* BaluchonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaluchonUITests.swift; sourceTree = "<group>"; };
 		B684A464277E44FF00B5AF54 /* BaluchonUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaluchonUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B684A4B52780E5DD00B5AF54 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		B6C3FCD62775DFB200C04BAB /* Baluchon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Baluchon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6C3FCD92775DFB200C04BAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6C3FCE02775DFB200C04BAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TabBarController.storyboard; sourceTree = "<group>"; };
@@ -160,6 +161,7 @@
 				B6C3FD682775F30700C04BAB /* Views */,
 				B6C3FD0D2775E03200C04BAB /* Features */,
 				B6C3FD092775DFED00C04BAB /* Resources */,
+				B684A4B52780E5DD00B5AF54 /* Config.xcconfig */,
 			);
 			path = Baluchon;
 			sourceTree = "<group>";
@@ -624,6 +626,7 @@
 		};
 		B6C3FCFE2775DFBC00C04BAB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B684A4B52780E5DD00B5AF54 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -685,6 +688,7 @@
 		};
 		B6C3FCFF2775DFBC00C04BAB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B684A4B52780E5DD00B5AF54 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
