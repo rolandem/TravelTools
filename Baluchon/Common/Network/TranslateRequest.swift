@@ -18,8 +18,6 @@ class TranslateRequest {
             print(TranslateError.wrongUrl)
             return }
         
-print("translationUrl =", translationUrl)
-        
         session.dataTask(with: translationUrl) { (data, response, error) in
             DispatchQueue.main.async {
 

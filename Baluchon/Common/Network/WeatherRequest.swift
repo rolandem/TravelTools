@@ -53,9 +53,7 @@ class WeatherRequest {
         guard let weatherDestinationUrl = destinationUrl else {
             print(WeatherError.wrongUrl)
             return }
-        
-        print("destinationUrl =", weatherDestinationUrl)
-        
+
         session.dataTask(with: weatherDestinationUrl) { (data, response, error) in
             DispatchQueue.main.async {
 
@@ -75,8 +73,6 @@ class WeatherRequest {
                 
                 do {
                     let weatherDestination = try JSONDecoder().decode(WeatherData.self, from: data)
-                    let meteo = weatherDestination
-                    print("météoDest", meteo)
                     callback(.success(weatherDestination))
                 } catch {
                     callback(.failure(.cannotProcessData))

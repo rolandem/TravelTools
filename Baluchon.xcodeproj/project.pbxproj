@@ -34,7 +34,6 @@
 		B6C3FDC9277CB2B200C04BAB /* ExchangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3FDC8277CB2B200C04BAB /* ExchangeRate.swift */; };
 		B6C3FDCB277CB36800C04BAB /* ConvertAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3FDCA277CB36800C04BAB /* ConvertAPI.swift */; };
 		B6C3FDCD277CB5FE00C04BAB /* ConvertRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3FDCC277CB5FE00C04BAB /* ConvertRequest.swift */; };
-		B6C8F378277DA0B500481427 /* UsdRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C8F377277DA0B500481427 /* UsdRate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,7 +86,6 @@
 		B6C3FDC8277CB2B200C04BAB /* ExchangeRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRate.swift; sourceTree = "<group>"; };
 		B6C3FDCA277CB36800C04BAB /* ConvertAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertAPI.swift; sourceTree = "<group>"; };
 		B6C3FDCC277CB5FE00C04BAB /* ConvertRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertRequest.swift; sourceTree = "<group>"; };
-		B6C8F377277DA0B500481427 /* UsdRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsdRate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,9 +188,9 @@
 		B6C3FD0B2775E01800C04BAB /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B6C3FD71277A1DC500C04BAB /* Convert */,
-				B6C3FD70277A1DA800C04BAB /* Translate */,
-				B6C3FD6B2775F46800C04BAB /* Weather */,
+				B6C3FDC8277CB2B200C04BAB /* ExchangeRate.swift */,
+				B684A445277E0D7E00B5AF54 /* TranslationResponse.swift */,
+				B6C3FD77277B6F6300C04BAB /* WeatherData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -268,31 +266,6 @@
 			children = (
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		B6C3FD6B2775F46800C04BAB /* Weather */ = {
-			isa = PBXGroup;
-			children = (
-				B6C3FD77277B6F6300C04BAB /* WeatherData.swift */,
-			);
-			path = Weather;
-			sourceTree = "<group>";
-		};
-		B6C3FD70277A1DA800C04BAB /* Translate */ = {
-			isa = PBXGroup;
-			children = (
-				B684A445277E0D7E00B5AF54 /* TranslationResponse.swift */,
-			);
-			path = Translate;
-			sourceTree = "<group>";
-		};
-		B6C3FD71277A1DC500C04BAB /* Convert */ = {
-			isa = PBXGroup;
-			children = (
-				B6C3FDC8277CB2B200C04BAB /* ExchangeRate.swift */,
-				B6C8F377277DA0B500481427 /* UsdRate.swift */,
-			);
-			path = Convert;
 			sourceTree = "<group>";
 		};
 		B6C3FD72277B64FB00C04BAB /* Views */ = {
@@ -498,7 +471,6 @@
 				B6C3FD84277B7F3400C04BAB /* WeatherApi.swift in Sources */,
 				B6C3FDC9277CB2B200C04BAB /* ExchangeRate.swift in Sources */,
 				B684A44C277E0FD600B5AF54 /* TranslateAPI.swift in Sources */,
-				B6C8F378277DA0B500481427 /* UsdRate.swift in Sources */,
 				B6C3FD132775E13300C04BAB /* TranslateController.swift in Sources */,
 				B6C3FD78277B6F6300C04BAB /* WeatherData.swift in Sources */,
 				B6C3FD5E2775EF0C00C04BAB /* TabBarController.swift in Sources */,

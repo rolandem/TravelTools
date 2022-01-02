@@ -9,7 +9,7 @@ import Foundation
 
 struct ConvertAPI {
 
-    static var apiKey: String = Bundle.main.infoDictionary?["CONVERT_API_KEY"] as? String ?? ""
+    static let apiKey = Bundle.main.infoDictionary?["CONVERT_API_KEY"] as? String ?? ""
 
     static var convertUrl: URL? {
         var component = URLComponents()

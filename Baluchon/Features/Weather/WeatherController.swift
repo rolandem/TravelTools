@@ -59,7 +59,6 @@ class WeatherController: UIViewController, UITextFieldDelegate {
                 let temperature = meteoData.temperature.withoutDecimal()
                 destinationWeather.temperature.text = "\(temperature) °C"
                 destinationWeather.weatherIcon.image = UIImage(named: meteoData.icon)
-                
             }
         }
             destinationWeather.isHidden = false

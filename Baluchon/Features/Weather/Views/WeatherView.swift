@@ -28,7 +28,7 @@ class WeatherView: UIView {
 
 }
 extension WeatherView {
-    
+
     private func loadXib() {
         Bundle.main.loadNibNamed("WeatherView", owner: self, options: nil)
         addSubview(contentView)
