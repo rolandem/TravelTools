@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B6C3FDAF277C7C3800C04BAB"
+               BlueprintIdentifier = "B684A452277E44F300B5AF54"
                BuildableName = "BaluchonTests.xctest"
                BlueprintName = "BaluchonTests"
                ReferencedContainer = "container:Baluchon.xcodeproj">
@@ -42,7 +42,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B6C3FDBC277C7C4600C04BAB"
+               BlueprintIdentifier = "B684A45F277E44FF00B5AF54"
                BuildableName = "BaluchonUITests.xctest"
                BlueprintName = "BaluchonUITests"
                ReferencedContainer = "container:Baluchon.xcodeproj">

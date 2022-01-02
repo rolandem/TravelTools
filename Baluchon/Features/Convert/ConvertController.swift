@@ -22,6 +22,8 @@ class ConvertController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.title = "Convertisseur"
         //getUsdRate()
+        let apiKey = Bundle.main.infoDictionary?["CONVERT_API_KEY"] as? String
+        print("convert key", apiKey as Any)
     }
 
     private func getUsdRate() {
