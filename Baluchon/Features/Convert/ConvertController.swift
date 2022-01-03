@@ -8,16 +8,17 @@
 import UIKit
 
 class ConvertController: UIViewController, UITextFieldDelegate {
-    
+
     @IBOutlet weak var amountField: UITextField!
     @IBOutlet weak var originIcon: UILabel!
     @IBOutlet weak var resultAmount: UILabel!
     @IBOutlet weak var convertedIcon: UILabel!
     @IBOutlet weak var infoText: UILabel!
-    @IBOutlet weak var backgroundImage: UIImageView!
-    
-    var rate: Double = 0.0
-    
+
+    private var rate: Double = 0.0
+    private var originDevice = "€"
+    private var convertedDevice = "$"
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Convertisseur"
@@ -43,23 +44,17 @@ class ConvertController: UIViewController, UITextFieldDelegate {
     // MARK: - IBActions
 
     @IBAction func SwitchButton(_ sender: UIButton) {
-        if originIcon.text == "€" {
-            amountField.text = ""
-            resultAmount.text = "0.00"
-            originIcon.text = "$"
-            convertedIcon.text = "€"
-        } else {
-            amountField.text = ""
-            resultAmount.text = "0.00"
-            originIcon.text = "€"
-            convertedIcon.text = "$"
-        }
+        swap(&originDevice, &convertedDevice)
+        originIcon.text = originDevice
+        convertedIcon.text = convertedDevice
+        amountField.text = ""
+        resultAmount.text = "0.00"
     }
 
     @IBAction func ConvertButton(_ sender: UIButton) {
         guard let amountText = amountField.text else { return }
         guard let amount = Double(amountText) else { return }
-        
+
         if originIcon.text == "€" {
             let result = amount * rate
             resultAmount.text = String(result.withDecimal())
@@ -67,8 +62,6 @@ class ConvertController: UIViewController, UITextFieldDelegate {
             let result = amount * (1/rate)
             resultAmount.text = String(result.withDecimal())
         }
-        
-        
     }
 
     // MARK: - Keyboard

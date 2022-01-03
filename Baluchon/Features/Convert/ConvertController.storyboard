@@ -162,7 +162,6 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="amountField" destination="bGN-2I-aCH" id="tRn-vN-yIN"/>
-                        <outlet property="backgroundImage" destination="pbj-ye-4Lb" id="kqH-Ry-enK"/>
                         <outlet property="convertedIcon" destination="Go3-01-Qk7" id="7GG-ic-kPr"/>
                         <outlet property="infoText" destination="EHY-RW-akB" id="T1Z-2f-knd"/>
                         <outlet property="originIcon" destination="ZoM-sU-GWK" id="CVd-Iu-c3d"/>
