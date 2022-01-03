@@ -9,15 +9,20 @@ import Foundation
 
 class TranslateRequest {
 
-    static func getTranslation(inputText: String, sourceLang: String, targetLang: String, callback: @escaping(Result<TranslationResponse, TranslateError>) -> Void) {
+    static func getTranslation(inputText: String,
+                               sourceLang: String,
+                               targetLang: String,
+                               callback: @escaping(Result<TranslationResponse, TranslateError>) -> Void) {
         
         let session = URLSession(configuration: .ephemeral)
-        let translateUrl = TranslateAPI.translateText(inputText: inputText, sourceLang: sourceLang, targetLang: targetLang).url
+        let translateUrl = TranslateAPI.translateText(inputText: inputText,
+                                                      sourceLang: sourceLang,
+                                                      targetLang: targetLang).url
         
         guard let translationUrl = translateUrl else {
             print(TranslateError.wrongUrl)
             return }
-        
+
         session.dataTask(with: translationUrl) { (data, response, error) in
             DispatchQueue.main.async {
 

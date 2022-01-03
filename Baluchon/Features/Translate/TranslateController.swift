@@ -17,7 +17,9 @@ class TranslateController: UIViewController, UITextViewDelegate {
     let tableView = UITableView()
     let darkenView = UIView()
     var selectedButton = UIButton()
-    var dataSource = [String]()
+    var dataSource = languages
+    private var sourceLanguage = "fr"
+    private var targetLanguage = "en"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +31,9 @@ class TranslateController: UIViewController, UITextViewDelegate {
     @IBAction func translateText(_ sender: UIButton) {
         guard let inputText = originalText.text else { return }
 
-        TranslateRequest.getTranslation(inputText: inputText, sourceLang: "fr", targetLang: "en") { result in
+        TranslateRequest.getTranslation(inputText: inputText,
+                                        sourceLang: sourceLanguage,
+                                        targetLang: targetLanguage) { result in
             switch result {
             case .failure(let error) : print(error)
             case .success(let translation) :
@@ -41,18 +45,15 @@ class TranslateController: UIViewController, UITextViewDelegate {
     // MARK: - Language choice buttons
 
     @IBAction func originalLanguageSelect(_ sender: UIButton) {
-        dataSource = ["Français", "Portuguais", "Allemand"]
         originalText.resignFirstResponder()
         selectedButton = originalLanguage
-        // addDarkenView(at frame: )
-        addDarkenView(frame: originalLanguage.frame)
+        addDarkenView(at: originalLanguage.frame)
     }
 
     @IBAction func translatedLanguageSelect(_ sender: UIButton) {
-        dataSource = ["Français", "Portuguais", "Allemand"]
         originalText.resignFirstResponder()
         selectedButton = translatedLanguage
-        addDarkenView(frame: translatedLanguage.frame)
+        addDarkenView(at: translatedLanguage.frame)
     }
 
     // MARK: - Keyboard
@@ -77,7 +78,7 @@ extension TranslateController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = dataSource[indexPath.row]
+        cell.textLabel?.text = dataSource[indexPath.row].name
         return cell
     }
 }
@@ -87,7 +88,16 @@ extension TranslateController: UITableViewDataSource {
 extension TranslateController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedButton.setTitle(dataSource[indexPath.row], for: .normal)
+        selectedButton.setTitle(dataSource[indexPath.row].name, for: .normal)
+        originalText.text = ""
+        translatedText.text = ""
+        if selectedButton == originalLanguage {
+            sourceLanguage = dataSource[indexPath.row].codeISO
+            print("source", sourceLanguage)
+        } else {
+            targetLanguage = dataSource[indexPath.row].codeISO
+            print("target", targetLanguage)
+        }
         removeDarkenView()
     }
 
@@ -102,7 +112,7 @@ extension TranslateController {
         tableView.frame = CGRect(x: frame.origin.x + x, y: frame.origin.y + frame.height + y, width: frame.width + width, height: height)
     }
 
-    func addDarkenView(frame: CGRect) {
+    func addDarkenView(at frame: CGRect) {
         darkenView.frame = view.frame
         darkenView.backgroundColor = .black.withAlphaComponent(0.9)
         view.addSubview(darkenView)
@@ -120,7 +130,7 @@ extension TranslateController {
         darkenView.alpha = 0
         UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
             self.darkenView.alpha = 0.5
-            self.frameTableView(frame: frame, x: 0, y: 5, width: 0, height: CGFloat(self.dataSource.count * 50))
+            self.frameTableView(frame: frame, x: 0, y: 5, width: 0, height: CGFloat(self.dataSource.count * 7))
         }, completion: nil)
 
         tableView.reloadData()

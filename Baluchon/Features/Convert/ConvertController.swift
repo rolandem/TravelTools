@@ -21,7 +21,7 @@ class ConvertController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Convertisseur"
-        getUsdRate()
+        //getUsdRate()
     }
 
     private func getUsdRate() {
