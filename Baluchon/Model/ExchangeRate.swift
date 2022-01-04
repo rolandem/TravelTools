@@ -30,10 +30,3 @@ struct ExchangeRate: Decodable {
         self.USD = try RatesContainer.decode(Double.self, forKey: .USD)
     }
 }
-
-enum RateError: Error {
-    case error(error: Error?)
-    case missingData
-    case cannotProcessData
-    case wrongUrl
-}

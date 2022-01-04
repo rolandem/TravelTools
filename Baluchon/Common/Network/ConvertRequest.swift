@@ -9,10 +9,10 @@ import Foundation
 
 class ConvertRequest {
 
+    // limited to one instance : Singleton Pattern
     static var shared = ConvertRequest()
+    // makes the default initializer inaccessible outside the class
     private init(){}
-
-    private var task: URLSessionDataTask?
 
     private var rateSession = URLSession(configuration: .default)
     init(rateSession: URLSession) {
@@ -21,33 +21,18 @@ class ConvertRequest {
 
     private let rateUrl = ConvertAPI.convertUrl
 
-    func getRate(callback: @escaping(Result<ExchangeRate, RateError>) -> Void) {
+    let task = TaskService()
+
+    func getRate(callback: @escaping(Result<ExchangeRate, TaskService.FetchError>) -> Void) {
 
         guard let rateUrl = rateUrl else {
-            print(RateError.wrongUrl)
+            print(TaskService.FetchError.wrongUrl)
             return }
-
-        task?.cancel()
-        task = rateSession.dataTask(with: rateUrl) { (data, response, error) in
-            DispatchQueue.main.async {
-
-                guard let data = data, error == nil else {
-                    callback(.failure(.missingData))
-                    return
-                    }
-                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                    callback(.failure(.missingData))
-                    return
-                    }
-                do {
-                    let rateData = try JSONDecoder().decode(ExchangeRate.self, from: data)
-                    callback(.success(rateData))
-                } catch {
-                    callback(.failure(.cannotProcessData))
-                }
-            }
-        }
-        task?.resume()
+        
+        task.taskData(urlSession: rateSession,
+                      request: rateUrl,
+                      requestDataType: ExchangeRate.self,
+                      completionHandler: callback.self)
     }
     
 }

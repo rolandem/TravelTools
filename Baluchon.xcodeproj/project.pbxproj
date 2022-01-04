@@ -12,6 +12,7 @@
 		B63C4186278227A800DA3CBE /* Translate.json in Resources */ = {isa = PBXBuildFile; fileRef = B63C4185278227A800DA3CBE /* Translate.json */; };
 		B63C41882782291000DA3CBE /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63C41872782291000DA3CBE /* FakeResponseData.swift */; };
 		B63C418A2782E3FA00DA3CBE /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63C41892782E3FA00DA3CBE /* Language.swift */; };
+		B63C418E2784A10000DA3CBE /* TaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63C418D2784A10000DA3CBE /* TaskService.swift */; };
 		B684A446277E0D7E00B5AF54 /* TranslationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B684A445277E0D7E00B5AF54 /* TranslationResponse.swift */; };
 		B684A44C277E0FD600B5AF54 /* TranslateAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B684A44B277E0FD600B5AF54 /* TranslateAPI.swift */; };
 		B684A44E277E145000B5AF54 /* TranslateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B684A44D277E145000B5AF54 /* TranslateRequest.swift */; };
@@ -65,6 +66,7 @@
 		B63C4185278227A800DA3CBE /* Translate.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Translate.json; sourceTree = "<group>"; };
 		B63C41872782291000DA3CBE /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
 		B63C41892782E3FA00DA3CBE /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		B63C418D2784A10000DA3CBE /* TaskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskService.swift; sourceTree = "<group>"; };
 		B684A445277E0D7E00B5AF54 /* TranslationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationResponse.swift; sourceTree = "<group>"; };
 		B684A44B277E0FD600B5AF54 /* TranslateAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateAPI.swift; sourceTree = "<group>"; };
 		B684A44D277E145000B5AF54 /* TranslateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateRequest.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				B6C3FDCC277CB5FE00C04BAB /* ConvertRequest.swift */,
 				B684A44D277E145000B5AF54 /* TranslateRequest.swift */,
 				B6C3FD85277B814500C04BAB /* WeatherRequest.swift */,
+				B63C418D2784A10000DA3CBE /* TaskService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -489,6 +492,7 @@
 				B6C3FD8F277C692500C04BAB /* Double+.swift in Sources */,
 				B6C3FCDA2775DFB200C04BAB /* AppDelegate.swift in Sources */,
 				B6C3FD84277B7F3400C04BAB /* WeatherApi.swift in Sources */,
+				B63C418E2784A10000DA3CBE /* TaskService.swift in Sources */,
 				B6C3FDC9277CB2B200C04BAB /* ExchangeRate.swift in Sources */,
 				B684A44C277E0FD600B5AF54 /* TranslateAPI.swift in Sources */,
 				B6C3FD132775E13300C04BAB /* TranslateController.swift in Sources */,

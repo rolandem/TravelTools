@@ -29,7 +29,10 @@ class ConvertController: UIViewController, UITextFieldDelegate {
     private func getUsdRate() {
         ConvertRequest.shared.getRate { (result) in
             switch result {
-            case .failure(let error) : print(error)
+            case .failure(let response) :
+                let error = response.self
+                print("error", error)
+                
             case.success(let rateData) :
                 let timestamp = rateData.timestamp
                 let usdRate = rateData.USD.withDecimal()
