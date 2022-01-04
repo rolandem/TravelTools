@@ -33,7 +33,7 @@ class TranslateController: UIViewController, UITextViewDelegate {
     @IBAction func translateText(_ sender: UIButton) {
         guard let inputText = originalText.text else { return }
 
-        TranslateRequest.getTranslation(inputText: inputText,
+        TranslateRequest.shared.getTranslation(inputText: inputText,
                                         sourceLang: sourceLanguage,
                                         targetLang: targetLanguage) { result in
             switch result {

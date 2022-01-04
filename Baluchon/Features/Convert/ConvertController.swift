@@ -15,27 +15,27 @@ class ConvertController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var convertedIcon: UILabel!
     @IBOutlet weak var infoText: UILabel!
 
-    private var rate: Double = 0.0
     private var originDevice = "€"
     private var convertedDevice = "$"
+    let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Convertisseur"
         //getUsdRate()
+        infoText.text = "1 € (Euro) = \(defaults.double(forKey: "usdrate")) $ (Dollar)"
     }
 
     private func getUsdRate() {
-        ConvertRequest.getRate { (result) in
+        ConvertRequest.shared.getRate { (result) in
             switch result {
             case .failure(let error) : print(error)
             case.success(let rateData) :
                 let timestamp = rateData.timestamp
                 let usdRate = rateData.USD.withDecimal()
                 guard let rate = Double(usdRate) else { return }
-                self.rate = rate
+                self.defaults.set(rate, forKey: "usdrate")
                 let date = Date(timeIntervalSince1970: TimeInterval(timestamp))
-                self.infoText.text = "1 € (Euro) = \(usdRate) $ (Dollar)"
                 print("date", date)
             }
         }
@@ -54,7 +54,7 @@ class ConvertController: UIViewController, UITextFieldDelegate {
     @IBAction func ConvertButton(_ sender: UIButton) {
         guard let amountText = amountField.text else { return }
         guard let amount = Double(amountText) else { return }
-
+        let rate = defaults.double(forKey: "usdrate")
         if originIcon.text == "€" {
             let result = amount * rate
             resultAmount.text = String(result.withDecimal())

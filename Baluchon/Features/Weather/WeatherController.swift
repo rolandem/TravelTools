@@ -20,7 +20,7 @@ class WeatherController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         destinationWeather.isHidden = true
-        getLocalWeather()
+        setLocalWeather()
         self.title = "Météo"
     }
 
@@ -28,9 +28,9 @@ class WeatherController: UIViewController, UITextFieldDelegate {
         setupVideo()
     }
 
-    private func getLocalWeather() {
+    private func setLocalWeather() {
         DispatchQueue.main.async {
-            WeatherRequest.getLocalWeather { [self] result in
+            WeatherRequest.shared.getLocalWeather { [self] result in
                 switch result {
                 case .failure(let error) : print(error)
                 case .success(let meteoData) :
@@ -49,7 +49,7 @@ class WeatherController: UIViewController, UITextFieldDelegate {
         guard let destination = research.text else { return }
 
         DispatchQueue.main.async { [self] in
-        WeatherRequest.getDestinationWeather(destination: destination) { [self] result in
+            WeatherRequest.shared.getDestinationWeather(destination: destination) { [self] result in
             switch result {
             case .failure(let error) : print(error)
             case .success(let meteoData) :

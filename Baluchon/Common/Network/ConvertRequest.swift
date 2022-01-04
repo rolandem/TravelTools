@@ -10,18 +10,25 @@ import Foundation
 class ConvertRequest {
 
     static var shared = ConvertRequest()
-    private init()
-    {}
+    private init(){}
 
-    private static let rateUrl = ConvertAPI.convertUrl
+    private var task: URLSessionDataTask?
 
-    static func getRate(callback: @escaping(Result<ExchangeRate, RateError>) -> Void) {
+    private var rateSession = URLSession(configuration: .default)
+    init(rateSession: URLSession) {
+        self.rateSession = rateSession
+    }
+
+    private let rateUrl = ConvertAPI.convertUrl
+
+    func getRate(callback: @escaping(Result<ExchangeRate, RateError>) -> Void) {
 
         guard let rateUrl = rateUrl else {
             print(RateError.wrongUrl)
             return }
 
-        URLSession.shared.dataTask(with: rateUrl) { (data, response, error) in
+        task?.cancel()
+        task = rateSession.dataTask(with: rateUrl) { (data, response, error) in
             DispatchQueue.main.async {
 
                 guard let data = data, error == nil else {
@@ -39,7 +46,8 @@ class ConvertRequest {
                     callback(.failure(.cannotProcessData))
                 }
             }
-        } .resume()
+        }
+        task?.resume()
     }
     
 }

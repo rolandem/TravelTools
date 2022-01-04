@@ -8,20 +8,29 @@
 import Foundation
 
 class WeatherRequest {
+
+    static var shared = WeatherRequest()
+    private init(){}
+
+    private var task: URLSessionDataTask?
+
+    private var localWeatherSession = URLSession(configuration: .default)
+    private var destinationWeatherSession = URLSession(configuration: .default)
+    init(localWeatherSession: URLSession, destinationWeatherSession: URLSession) {
+        self.localWeatherSession = localWeatherSession
+        self.destinationWeatherSession = destinationWeatherSession
+    }
     
-    private static let localUrl = WeatherAPI.getLocale.url
+    private let localUrl = WeatherAPI.getLocale.url
     
-    static func getLocalWeather(callback: @escaping(Result<WeatherData, WeatherError>) -> Void) {
-        
-        let session = URLSession(configuration: .default)
-        
+    func getLocalWeather(callback: @escaping(Result<WeatherData, WeatherError>) -> Void) {
+
         guard let weatherLocalUrl = localUrl else {
             print(WeatherError.wrongUrl)
             return }
         
-        print("localUrl =", localUrl as Any)
-        
-        session.dataTask(with: weatherLocalUrl) { (data, response, error) in
+        task?.cancel()
+        task = localWeatherSession.dataTask(with: weatherLocalUrl) { (data, response, error) in
             DispatchQueue.main.async {
                 
                 guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
@@ -42,19 +51,19 @@ class WeatherRequest {
                     callback(.failure(.cannotProcessData))
                 }
             }
-        }.resume()
+        }
+        task?.resume()
     }
     
-    static func getDestinationWeather(destination: String, callback: @escaping(Result<WeatherData, WeatherError>) -> Void) {
-        
-        let session = URLSession(configuration: .ephemeral)
-        
+    func getDestinationWeather(destination: String, callback: @escaping(Result<WeatherData, WeatherError>) -> Void) {
+
         let destinationUrl = WeatherAPI.getDestination(destination: destination).url
         guard let weatherDestinationUrl = destinationUrl else {
             print(WeatherError.wrongUrl)
             return }
 
-        session.dataTask(with: weatherDestinationUrl) { (data, response, error) in
+        task?.cancel()
+        task = destinationWeatherSession.dataTask(with: weatherDestinationUrl) { (data, response, error) in
             DispatchQueue.main.async {
 
                 if error != nil {
@@ -79,6 +88,7 @@ class WeatherRequest {
                     // msg alert non trouvé - ajout tiret dans nom composé
                 }
             }
-        }.resume()
+        }
+        task?.resume()
     }
 }

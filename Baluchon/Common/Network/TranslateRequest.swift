@@ -9,12 +9,21 @@ import Foundation
 
 class TranslateRequest {
 
-    static func getTranslation(inputText: String,
+    static var shared = TranslateRequest()
+    private init(){}
+
+    private var task: URLSessionDataTask?
+
+    private var translateSession = URLSession(configuration: .default)
+    init(translateSession: URLSession) {
+        self.translateSession = translateSession
+    }
+
+    func getTranslation(inputText: String,
                                sourceLang: String,
                                targetLang: String,
                                callback: @escaping(Result<TranslationResponse, TranslateError>) -> Void) {
         
-        let session = URLSession(configuration: .ephemeral)
         let translateUrl = TranslateAPI.translateText(inputText: inputText,
                                                       sourceLang: sourceLang,
                                                       targetLang: targetLang).url
@@ -23,7 +32,8 @@ class TranslateRequest {
             print(TranslateError.wrongUrl)
             return }
 
-        session.dataTask(with: translationUrl) { (data, response, error) in
+        task?.cancel()
+        task = translateSession.dataTask(with: translationUrl) { (data, response, error) in
             DispatchQueue.main.async {
 
                 guard let data = data, error == nil else {
@@ -43,6 +53,7 @@ class TranslateRequest {
 // msg alert non trouvé - ajout tiret dans nom composé
                 }
             }
-        }.resume()
+        }
+        task?.resume()
     }
 }
