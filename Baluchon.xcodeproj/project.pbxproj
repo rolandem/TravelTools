@@ -60,13 +60,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B63C41802781DEAA00DA3CBE /* ConfigKeys.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigKeys.xcconfig; sourceTree = "<group>"; };
 		B63C41812782266B00DA3CBE /* Rates.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Rates.json; sourceTree = "<group>"; };
 		B63C41832782278000DA3CBE /* Weather.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Weather.json; sourceTree = "<group>"; };
 		B63C4185278227A800DA3CBE /* Translate.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Translate.json; sourceTree = "<group>"; };
 		B63C41872782291000DA3CBE /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
 		B63C41892782E3FA00DA3CBE /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		B63C418D2784A10000DA3CBE /* TaskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskService.swift; sourceTree = "<group>"; };
+		B63C41902784E3A800DA3CBE /* ConfigKeys.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigKeys.xcconfig; sourceTree = "<group>"; };
 		B684A445277E0D7E00B5AF54 /* TranslationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationResponse.swift; sourceTree = "<group>"; };
 		B684A44B277E0FD600B5AF54 /* TranslateAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateAPI.swift; sourceTree = "<group>"; };
 		B684A44D277E145000B5AF54 /* TranslateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateRequest.swift; sourceTree = "<group>"; };
@@ -149,7 +149,7 @@
 		B6C3FCCD2775DFB200C04BAB = {
 			isa = PBXGroup;
 			children = (
-				B63C41802781DEAA00DA3CBE /* ConfigKeys.xcconfig */,
+				B63C41902784E3A800DA3CBE /* ConfigKeys.xcconfig */,
 				B6C3FCD82775DFB200C04BAB /* Baluchon */,
 				B684A454277E44F300B5AF54 /* BaluchonTests */,
 				B684A461277E44FF00B5AF54 /* BaluchonUITests */,
@@ -622,7 +622,7 @@
 		};
 		B6C3FCFE2775DFBC00C04BAB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B63C41802781DEAA00DA3CBE /* ConfigKeys.xcconfig */;
+			baseConfigurationReference = B63C41902784E3A800DA3CBE /* ConfigKeys.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -684,7 +684,7 @@
 		};
 		B6C3FCFF2775DFBC00C04BAB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B63C41802781DEAA00DA3CBE /* ConfigKeys.xcconfig */;
+			baseConfigurationReference = B63C41902784E3A800DA3CBE /* ConfigKeys.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
