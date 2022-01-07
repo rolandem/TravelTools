@@ -74,11 +74,6 @@ class ConvertController: UIViewController, UITextFieldDelegate {
         return formattedDate(timestamp, format: "dd")
     }
 
-    private func currentDate() -> String{
-        let currentTime = TimeInterval(Date().timeIntervalSince1970)
-        return formattedDate(Int(currentTime), format: "dd/MM/yyyy")
-    }
-
     private func currentDay() -> String {
         let currentTime = TimeInterval(Date().timeIntervalSince1970)
         return formattedDate(Int(currentTime), format: "dd")

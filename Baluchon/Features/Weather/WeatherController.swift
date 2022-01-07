@@ -32,7 +32,8 @@ class WeatherController: UIViewController, UITextFieldDelegate {
         DispatchQueue.main.async {
             WeatherRequest.shared.getLocalWeather { [self] result in
                 switch result {
-                case .failure(let error) : print(error)
+                case .failure(let error) :
+                    self.presentAlert(message: error.localizedDescription)
                 case .success(let meteoData) :
                     localWeather.cityName.text = meteoData.city
                     localWeather.countryName.text = meteoData.country
@@ -51,7 +52,8 @@ class WeatherController: UIViewController, UITextFieldDelegate {
         DispatchQueue.main.async { [self] in
             WeatherRequest.shared.getDestinationWeather(destination: destination) { [self] result in
             switch result {
-            case .failure(let error) : print(error)
+            case .failure(let error) :
+                self.presentAlert(message: error.localizedDescription)
             case .success(let meteoData) :
                 destinationWeather.cityName.text = meteoData.city
                 destinationWeather.countryName.text = meteoData.country
@@ -99,3 +101,18 @@ class WeatherController: UIViewController, UITextFieldDelegate {
 }
 
 // Vidéo de MART PRODUCTION provenant de Pexels
+extension WeatherController {
+    func presentAlert(message alertError: String) {
+            let alert = UIAlertController(
+                title: "Oups !",
+                message: "\(alertError)",
+                preferredStyle: .alert
+            )
+            let errorAction = UIAlertAction(
+                title: "ok",
+                style: .cancel
+            )
+            alert.addAction(errorAction)
+            present(alert, animated: true)
+        }
+}

@@ -8,7 +8,7 @@
 import Foundation
 
 final class TaskService {
-    
+ 
     private var task: URLSessionDataTask?
 
     func taskData<T: Decodable>(urlSession: URLSession,
@@ -53,11 +53,26 @@ final class TaskService {
     }
 }
 extension TaskService {
-    enum FetchError: Error {
+    enum FetchError: LocalizedError {
         case response(Int)
         case invalidData(Error)
         case connexion(Error)
         case unknown
         case wrongUrl
+        
+        var errorDescription: String? {
+            switch self {
+            case .response(let error):
+                return "Une erreur \(error) serveur est survenue"
+            case .invalidData(_):
+                return "Les données reçues ne sont pas conformes"
+            case .connexion(_):
+                return "La connexion Internet semble être hors ligne."
+            case .unknown:
+                return "Une erreur inconnue est survenue"
+            case .wrongUrl:
+                return "erreur (404)"
+            }
+        }
     }
 }
