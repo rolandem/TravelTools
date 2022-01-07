@@ -22,10 +22,22 @@ class ConvertController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Convertisseur"
-        //getUsdRate()
-        infoText.text = "1 € (Euro) = \(defaults.double(forKey: "usdrate")) $ (Dollar)"
+        launchQuery()
     }
 
+    // MARKS: - Common Methods
+
+    private func launchQuery() {
+        guard let lastStatementDay = Int(lastDay()) else { return }
+        guard let currentDay = Int(currentDay()) else { return }
+
+        let delta = abs(currentDay) - abs(lastStatementDay)
+        if delta >= 1 {
+            getUsdRate()
+        }
+        updateInfoRate()
+    }
+    
     private func getUsdRate() {
         ConvertRequest.shared.getRate { (result) in
             switch result {
@@ -38,10 +50,46 @@ class ConvertController: UIViewController, UITextFieldDelegate {
                 let usdRate = rateData.USD.withDecimal()
                 guard let rate = Double(usdRate) else { return }
                 self.defaults.set(rate, forKey: "usdrate")
-                let date = Date(timeIntervalSince1970: TimeInterval(timestamp))
-                print("date", date)
+                self.defaults.set(timestamp, forKey: "timestamp")
             }
         }
+    }
+
+    private func updateInfoRate() {
+        let rate = defaults.double(forKey: "usdrate")
+        let lastStatementDate = lastStatementDate()
+
+        infoText.text = "Le \(lastStatementDate), 1 € (Euro) = \(rate) $ ((Dollar)"
+    }
+
+    // MARKS: - Formatted Dates
+
+    private func lastStatementDate() -> String {
+        let timestamp = defaults.integer(forKey: "timestamp")
+        return formattedDate(timestamp, format: "dd/MM/yyyy")
+    }
+
+    private func lastDay() -> String {
+        let timestamp = defaults.integer(forKey: "timestamp")
+        return formattedDate(timestamp, format: "dd")
+    }
+
+    private func currentDate() -> String{
+        let currentTime = TimeInterval(Date().timeIntervalSince1970)
+        return formattedDate(Int(currentTime), format: "dd/MM/yyyy")
+    }
+
+    private func currentDay() -> String {
+        let currentTime = TimeInterval(Date().timeIntervalSince1970)
+        return formattedDate(Int(currentTime), format: "dd")
+    }
+
+    private func formattedDate(_ timestamp: Int, format: String) -> String {
+        let date = Date(timeIntervalSince1970: TimeInterval(timestamp))
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        formatter.timeZone = TimeZone(secondsFromGMT: 3600)
+        return formatter.string(from: date)
     }
 
     // MARK: - IBActions

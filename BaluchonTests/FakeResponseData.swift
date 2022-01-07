@@ -51,6 +51,6 @@ class FakeResponseData {
 
     //MARK: - Error
 
-        class QuoteError: Error{}
-        static let error = QuoteError()
+        class RequestError: Error{}
+        static let error = RequestError()
 }

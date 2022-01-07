@@ -53,7 +53,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="EHY-RW-akB" secondAttribute="height" multiplier="373:30" id="Nco-eM-uiv"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>

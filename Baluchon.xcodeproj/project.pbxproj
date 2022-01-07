@@ -14,6 +14,7 @@
 		B63C418A2782E3FA00DA3CBE /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63C41892782E3FA00DA3CBE /* Language.swift */; };
 		B63C418E2784A10000DA3CBE /* TaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63C418D2784A10000DA3CBE /* TaskService.swift */; };
 		B63C419B278607EE00DA3CBE /* ConvertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63C419A278607EE00DA3CBE /* ConvertTests.swift */; };
+		B63C419D27873D5E00DA3CBE /* TranslateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63C419C27873D5E00DA3CBE /* TranslateTests.swift */; };
 		B684A446277E0D7E00B5AF54 /* TranslationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B684A445277E0D7E00B5AF54 /* TranslationResponse.swift */; };
 		B684A44C277E0FD600B5AF54 /* TranslateAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B684A44B277E0FD600B5AF54 /* TranslateAPI.swift */; };
 		B684A44E277E145000B5AF54 /* TranslateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B684A44D277E145000B5AF54 /* TranslateRequest.swift */; };
@@ -68,6 +69,7 @@
 		B63C418D2784A10000DA3CBE /* TaskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskService.swift; sourceTree = "<group>"; };
 		B63C41902784E3A800DA3CBE /* ConfigKeys.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigKeys.xcconfig; sourceTree = "<group>"; };
 		B63C419A278607EE00DA3CBE /* ConvertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertTests.swift; sourceTree = "<group>"; };
+		B63C419C27873D5E00DA3CBE /* TranslateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateTests.swift; sourceTree = "<group>"; };
 		B684A445277E0D7E00B5AF54 /* TranslationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationResponse.swift; sourceTree = "<group>"; };
 		B684A44B277E0FD600B5AF54 /* TranslateAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateAPI.swift; sourceTree = "<group>"; };
 		B684A44D277E145000B5AF54 /* TranslateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateRequest.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				B63C4185278227A800DA3CBE /* Translate.json */,
 				B63C41872782291000DA3CBE /* FakeResponseData.swift */,
 				B63C419A278607EE00DA3CBE /* ConvertTests.swift */,
+				B63C419C27873D5E00DA3CBE /* TranslateTests.swift */,
 			);
 			path = BaluchonTests;
 			sourceTree = "<group>";
@@ -470,6 +473,7 @@
 			files = (
 				B63C41882782291000DA3CBE /* FakeResponseData.swift in Sources */,
 				B63C419B278607EE00DA3CBE /* ConvertTests.swift in Sources */,
+				B63C419D27873D5E00DA3CBE /* TranslateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,6 +551,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8ZU2A8P99A;
@@ -567,6 +572,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8ZU2A8P99A;

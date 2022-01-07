@@ -20,7 +20,7 @@ final class TaskService {
         task = urlSession.dataTask(with: request) { (data, urlResponse, error) in
             if let error = error {
                 DispatchQueue.main.async {
-                    completionHandler(.failure(.connection(error)))
+                    completionHandler(.failure(.connexion(error)))
                 }
                 return
             }
@@ -56,7 +56,7 @@ extension TaskService {
     enum FetchError: Error {
         case response(Int)
         case invalidData(Error)
-        case connection(Error)
+        case connexion(Error)
         case unknown
         case wrongUrl
     }

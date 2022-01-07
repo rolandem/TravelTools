@@ -23,12 +23,16 @@ class ConvertRequest {
 
     let task = TaskService()
 
+//    typealias result<D: Decodable> = (Result<D, TaskService.FetchError>)
+//
+//    func getRate<D: Decodable>(requestDataType: D.Type, callback: @escaping(result<D>) -> Void) {
+        
     func getRate(callback: @escaping(Result<ExchangeRate, TaskService.FetchError>) -> Void) {
-
+    
         guard let rateUrl = rateUrl else {
             print(TaskService.FetchError.wrongUrl)
             return }
-        
+       print("rate url", rateUrl)
         task.taskData(urlSession: rateSession,
                       request: rateUrl,
                       requestDataType: ExchangeRate.self,

@@ -61,12 +61,3 @@ struct WeatherData: Decodable {
         
     }
 }
-
-// MARK: - Error
-enum WeatherError: Error {
-    case error(error: Error?)
-    case missingData
-    case cannotProcessData
-    case wrongUrl
-}
-

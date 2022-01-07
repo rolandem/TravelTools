@@ -33,11 +33,4 @@ struct TranslationResponse: Decodable {
         let firstTranslateContainer = try translateContainer.nestedContainer(keyedBy: CodingKeys.DataKeys.TranslationsKeys.self)
         self.translatedText = try firstTranslateContainer.decode(String.self, forKey: .translatedText)
     }
-    
-}
-
-enum TranslateError: Error {
-    case missingData
-    case cannotProcessData
-    case wrongUrl
 }
