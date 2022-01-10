@@ -20,7 +20,7 @@ class WeatherController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         destinationWeather.isHidden = true
-        setLocalWeather()
+        getLocalWeather()
         self.title = "Météo"
     }
 
@@ -28,29 +28,33 @@ class WeatherController: UIViewController, UITextFieldDelegate {
         setupVideo()
     }
 
-    private func setLocalWeather() {
-        DispatchQueue.main.async {
-            WeatherRequest.shared.getLocalWeather { [self] result in
-                switch result {
-                case .failure(let error) :
-                    self.presentAlert(message: error.localizedDescription)
-                case .success(let meteoData) :
-                    localWeather.cityName.text = meteoData.city
-                    localWeather.countryName.text = meteoData.country
-                    localWeather.skyConditions.text = "actuellement " + meteoData.description
-                    let temperature = meteoData.temperature.withoutDecimal()
-                    localWeather.temperature.text = "\(temperature) °C"
-                    localWeather.weatherIcon.image = UIImage(named: meteoData.icon)
-                }
+    private func getLocalWeather() {
+
+        let weatherUrl = WeatherAPI.getLocale
+        guard let url = weatherUrl.url else { return }
+
+        APIService.getData(request: url, dataType: WeatherData.self) { [self] result in
+            switch result {
+            case .failure(let error) :
+                self.presentAlert(message: error.localizedDescription)
+            case .success(let meteoData) :
+                localWeather.cityName.text = meteoData.city
+                localWeather.countryName.text = meteoData.country
+                localWeather.skyConditions.text = "actuellement " + meteoData.description
+                let temperature = meteoData.temperature.withoutDecimal()
+                localWeather.temperature.text = "\(temperature) °C"
+                localWeather.weatherIcon.image = UIImage(named: meteoData.icon)
             }
         }
     }
 
-    @IBAction func startResearch(_ sender: UIButton) {
+    @IBAction func getDestinationWeather(_ sender: UIButton) {
         guard let destination = research.text else { return }
 
-        DispatchQueue.main.async { [self] in
-            WeatherRequest.shared.getDestinationWeather(destination: destination) { [self] result in
+        let weatherUrl = WeatherAPI.getWeather(destination: destination)
+        guard let url = weatherUrl.url else { return }
+
+        APIService.getData(request: url, dataType: WeatherData.self) { [self] result in
             switch result {
             case .failure(let error) :
                 self.presentAlert(message: error.localizedDescription)
@@ -63,8 +67,7 @@ class WeatherController: UIViewController, UITextFieldDelegate {
                 destinationWeather.weatherIcon.image = UIImage(named: meteoData.icon)
             }
         }
-            destinationWeather.isHidden = false
-        }
+        destinationWeather.isHidden = false
     }
  
     // MARK: - Keyboard

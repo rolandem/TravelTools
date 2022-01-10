@@ -22,24 +22,30 @@ class ConvertController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Convertisseur"
-        launchQuery()
+        launchQueryIfNeeded()
+        updateInfoRate()
     }
 
     // MARKS: - Common Methods
 
-    private func launchQuery() {
-        guard let lastStatementDay = Int(lastDay()) else { return }
-        guard let currentDay = Int(currentDay()) else { return }
+    private func launchQueryIfNeeded() {
+        guard let lastStatementDay = Int(lastDay()),
+              let currentDay = Int(currentDay()) else {
+                  return
+              }
 
         let delta = abs(currentDay) - abs(lastStatementDay)
         if delta >= 1 {
             getUsdRate()
         }
-        updateInfoRate()
     }
-    
+
     private func getUsdRate() {
-        ConvertRequest.shared.getRate { (result) in
+
+        let convertUrl = ConvertAPI.convertUrl
+        guard let url = convertUrl else { return }
+
+        APIService.getData(request: url, dataType: ExchangeRate.self) { result in
             switch result {
             case .failure(let response) :
                 let error = response.self

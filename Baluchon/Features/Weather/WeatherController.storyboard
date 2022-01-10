@@ -65,7 +65,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="startResearch:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="o8C-uw-zO9"/>
+                                    <action selector="getDestinationWeather:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="gLB-l2-oFz"/>
                                 </connections>
                             </button>
                         </subviews>

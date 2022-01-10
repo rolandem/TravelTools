@@ -32,10 +32,18 @@ class TranslateController: UIViewController, UITextViewDelegate {
 
     @IBAction func translateText(_ sender: UIButton) {
         guard let inputText = originalText.text else { return }
+        
+        let translateUrl = TranslateAPI.translateText(
+            inputText: inputText,
+            sourceLang: sourceLanguage,
+            targetLang: targetLanguage)
+        
+        guard let url = translateUrl.url else { return }
 
-        TranslateRequest.shared.getTranslation(inputText: inputText,
-                                        sourceLang: sourceLanguage,
-                                        targetLang: targetLanguage) { result in
+        APIService.getData(
+            request: url,
+            dataType: TranslationResponse.self
+        ) { result in
             switch result {
             case .failure(let error) : print(error)
             case .success(let translation) :

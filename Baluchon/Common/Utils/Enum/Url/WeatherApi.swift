@@ -14,7 +14,7 @@ private let unit = "metric"
 
 enum WeatherAPI {
     case getLocale
-    case getDestination(destination: String)
+    case getWeather(destination: String)
  
     var url: URL? {
         var component = URLComponents()
@@ -34,7 +34,7 @@ enum WeatherAPI {
                 URLQueryItem(name: "lang", value: lang),
                 URLQueryItem(name: "appid", value: apiKey)
             ]
-        case .getDestination(let destination):
+        case .getWeather(let destination):
             return [
                 URLQueryItem(name: "q", value: destination),
                 URLQueryItem(name: "units", value: unit),
