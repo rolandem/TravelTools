@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ExchangeRate: Decodable {
+struct Rate: Decodable {
 
     enum MainKeys: String, CodingKey {
         case timestamp

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TranslationResponse: Decodable {
+struct Translation: Decodable {
     
     enum CodingKeys: String, CodingKey {
         case data

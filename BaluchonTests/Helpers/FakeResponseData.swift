@@ -13,17 +13,17 @@ class FakeResponseData {
 
         static var fakeRatesCorrectData: Data? {
             let bundle = Bundle(for: FakeResponseData.self)
-            let url = bundle.url(forResource: "Rates", withExtension: "json")!
+            let url = bundle.url(forResource: "rates", withExtension: "json")!
             return try! Data(contentsOf: url)
         }
 
-        static let fakeRatesIncorrectData = "23".data(using: .utf8)!
+        static let fakeRatesIncorrectData = "cloud".data(using: .utf8)!
 
     //MARK: - Weather Data
 
         static var fakeWeatherCorrectData: Data? {
             let bundle = Bundle(for: FakeResponseData.self)
-            let url = bundle.url(forResource: "Weather", withExtension: "json")!
+            let url = bundle.url(forResource: "weather", withExtension: "json")!
             return try! Data(contentsOf: url)
         }
 
@@ -33,7 +33,7 @@ class FakeResponseData {
 
         static var fakeTranslateCorrectData: Data? {
             let bundle = Bundle(for: FakeResponseData.self)
-            let url = bundle.url(forResource: "Translate", withExtension: "json")!
+            let url = bundle.url(forResource: "translate", withExtension: "json")!
             return try! Data(contentsOf: url)
         }
 

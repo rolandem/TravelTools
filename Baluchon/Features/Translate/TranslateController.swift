@@ -42,7 +42,7 @@ class TranslateController: UIViewController, UITextViewDelegate {
 
         APIService.getData(
             request: url,
-            dataType: TranslationResponse.self
+            dataType: Translation.self
         ) { result in
             switch result {
             case .failure(let error) : print(error)
