@@ -8,19 +8,27 @@
 import Foundation
 
 final class APIService {
+    
+    static var shared = APIService()
+        private init() {}
+
+    private  var task: URLSessionDataTask?
+    private var session = URLSession(configuration: .default)
+    init(session: URLSession) {
+        self.session = session
+    }
 
     typealias result<T: Decodable> = (Result<T, FetchError>) -> Void
 
-    static func getData<T: Decodable>(
+    func getData<T: Decodable>(
         request: URL,
         dataType: T.Type,
         completion: @escaping (result<T>)
     ) {
 
-        let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: request) { (data, urlResponse, error) in
+        task = session.dataTask(with: request) { (data, urlResponse, error) in
             DispatchQueue.main.async {
-                
+
                 if let error = error {
                     completion(.failure(.connexion(error)))
                 }
@@ -28,28 +36,29 @@ final class APIService {
                     completion(.failure(.unknown))
                     return
                 }
+                guard let data = data else { return }
                 switch urlResponse.statusCode {
                 case 200..<300:
                     do {
-                        let dataload = try JSONDecoder().decode(dataType, from: data ?? Data())
+                        let dataload = try JSONDecoder().decode(dataType, from: data)
                         completion(.success(dataload))
                     }
-                    catch let jsonError {
-                        completion(.failure(.invalidData(jsonError)))
+                    catch {
+                        completion(.failure(.invalidData))
                     }
                 default:
                     completion(.failure(.response(urlResponse.statusCode)))
                 }
             }
         }
-        task.resume()
+        task?.resume()
     }
 }
 
 extension APIService {
     enum FetchError: LocalizedError {
         case response(Int)
-        case invalidData(Error)
+        case invalidData
         case connexion(Error)
         case unknown
         case wrongUrl
@@ -58,7 +67,7 @@ extension APIService {
             switch self {
             case .response(let error):
                 return "Une erreur \(error) serveur est survenue"
-            case .invalidData(_):
+            case .invalidData:
                 return "Les données reçues ne sont pas conformes"
             case .connexion(_):
                 return "La connexion Internet semble être hors ligne."

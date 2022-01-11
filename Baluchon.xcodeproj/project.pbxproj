@@ -10,7 +10,6 @@
 		B63C41822782266B00DA3CBE /* rates.json in Resources */ = {isa = PBXBuildFile; fileRef = B63C41812782266B00DA3CBE /* rates.json */; };
 		B63C41842782278000DA3CBE /* weather.json in Resources */ = {isa = PBXBuildFile; fileRef = B63C41832782278000DA3CBE /* weather.json */; };
 		B63C4186278227A800DA3CBE /* translate.json in Resources */ = {isa = PBXBuildFile; fileRef = B63C4185278227A800DA3CBE /* translate.json */; };
-		B63C41882782291000DA3CBE /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63C41872782291000DA3CBE /* FakeResponseData.swift */; };
 		B63C418A2782E3FA00DA3CBE /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63C41892782E3FA00DA3CBE /* Language.swift */; };
 		B63C418E2784A10000DA3CBE /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63C418D2784A10000DA3CBE /* APIService.swift */; };
 		B63C41AF2788A0D800DA3CBE /* TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63C41AE2788A0D800DA3CBE /* TestCase.swift */; };
@@ -64,7 +63,6 @@
 		B63C41812782266B00DA3CBE /* rates.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = rates.json; sourceTree = "<group>"; };
 		B63C41832782278000DA3CBE /* weather.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = weather.json; sourceTree = "<group>"; };
 		B63C4185278227A800DA3CBE /* translate.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = translate.json; sourceTree = "<group>"; };
-		B63C41872782291000DA3CBE /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
 		B63C41892782E3FA00DA3CBE /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		B63C418D2784A10000DA3CBE /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		B63C41902784E3A800DA3CBE /* ConfigKeys.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigKeys.xcconfig; sourceTree = "<group>"; };
@@ -100,6 +98,7 @@
 		B6CF8EFD278C923100D83FCB /* Rate+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rate+Tests.swift"; sourceTree = "<group>"; };
 		B6CF8EFF278C92D400D83FCB /* Translation+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Translation+Tests.swift"; sourceTree = "<group>"; };
 		B6CF8F01278C933300D83FCB /* Weather+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weather+Tests.swift"; sourceTree = "<group>"; };
+		B6CF8F05278DCD5E00D83FCB /* badjson.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = badjson.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +137,7 @@
 		B63C41A227889FA200DA3CBE /* DataMock */ = {
 			isa = PBXGroup;
 			children = (
+				B6CF8F05278DCD5E00D83FCB /* badjson.json */,
 				B63C41A327889FB400DA3CBE /* Convert */,
 				B63C41A427889FC000DA3CBE /* Translate */,
 				B63C41A527889FC600DA3CBE /* Weather */,
@@ -180,7 +180,6 @@
 		B63C41A92788A02100DA3CBE /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				B63C41872782291000DA3CBE /* FakeResponseData.swift */,
 				B63C41AE2788A0D800DA3CBE /* TestCase.swift */,
 			);
 			path = Helpers;
@@ -520,7 +519,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6CF8F00278C92D400D83FCB /* Translation+Tests.swift in Sources */,
-				B63C41882782291000DA3CBE /* FakeResponseData.swift in Sources */,
 				B6CF8EFE278C923100D83FCB /* Rate+Tests.swift in Sources */,
 				B6CF8EFB278C90DF00D83FCB /* APIService+Tests.swift in Sources */,
 				B6CF8F02278C933300D83FCB /* Weather+Tests.swift in Sources */,

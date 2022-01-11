@@ -40,7 +40,7 @@ class TranslateController: UIViewController, UITextViewDelegate {
         
         guard let url = translateUrl.url else { return }
 
-        APIService.getData(
+        APIService.shared.getData(
             request: url,
             dataType: Translation.self
         ) { result in

@@ -8,11 +8,11 @@
 import XCTest
 @testable import Baluchon
 
-class Weather_Tests: XCTestCase {
+class Weather_Tests: TestCase {
 
     func testWeatherJsonMapping() throws {
         // arrange
-        guard let dataWeather = FakeResponseData.fakeWeatherCorrectData else { return }
+        guard let dataWeather = TestCase.stubCorrectData(from: "weather") else { return }
         // act
         let decoder = JSONDecoder()
         let weather = try decoder.decode(Weather.self, from: dataWeather)

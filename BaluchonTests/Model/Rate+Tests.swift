@@ -12,7 +12,7 @@ class Rate_Tests: XCTestCase {
 
     func testRateJsonMapping() throws {
         // arrange
-        guard let dataRate = FakeResponseData.fakeRatesCorrectData else { return }
+        guard let dataRate = TestCase.stubCorrectData(from: "rates") else { return }
         // act
         let decoder = JSONDecoder()
         let rate = try decoder.decode(Rate.self, from: dataRate)

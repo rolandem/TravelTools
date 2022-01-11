@@ -33,7 +33,7 @@ class WeatherController: UIViewController, UITextFieldDelegate {
         let weatherUrl = WeatherAPI.getLocale
         guard let url = weatherUrl.url else { return }
 
-        APIService.getData(request: url, dataType: Weather.self) { [self] result in
+        APIService.shared.getData(request: url, dataType: Weather.self) { [self] result in
             switch result {
             case .failure(let error) :
                 self.presentAlert(message: error.localizedDescription)
@@ -54,7 +54,7 @@ class WeatherController: UIViewController, UITextFieldDelegate {
         let weatherUrl = WeatherAPI.getWeather(destination: destination)
         guard let url = weatherUrl.url else { return }
 
-        APIService.getData(request: url, dataType: Weather.self) { [self] result in
+        APIService.shared.getData(request: url, dataType: Weather.self) { [self] result in
             switch result {
             case .failure(let error) :
                 self.presentAlert(message: error.localizedDescription)

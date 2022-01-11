@@ -45,7 +45,7 @@ class ConvertController: UIViewController, UITextFieldDelegate {
         let convertUrl = ConvertAPI.convertUrl
         guard let url = convertUrl else { return }
 
-        APIService.getData(request: url, dataType: Rate.self) { result in
+        APIService.shared.getData(request: url, dataType: Rate.self) { result in
             switch result {
             case .failure(let response) :
                 let error = response.self
