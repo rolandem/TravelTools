@@ -14,6 +14,8 @@ class WeatherView: UIView {
     @IBOutlet weak var countryName: UILabel!
     @IBOutlet weak var skyConditions: UILabel!
     @IBOutlet weak var temperature: UILabel!
+    @IBOutlet weak var feelsLike: UILabel!
+    @IBOutlet weak var delta: UILabel!
     @IBOutlet weak var weatherIcon: UIImageView!
     
     override init(frame: CGRect) {

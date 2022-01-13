@@ -59,9 +59,9 @@ class TranslateController: UIViewController, UITextViewDelegate {
     @IBAction func switchLanguages(_ sender: UIButton) {
         swap(&sourceLanguage, &targetLanguage)
         swap(&titleLeftButton, &titleRightButton)
+        swap(&originalText.text, &translatedText.text)
         originalLanguage.setTitle(titleLeftButton, for: .normal)
         translatedLanguage.setTitle(titleRightButton, for: .normal)
-        swap(&originalText.text, &translatedText.text)
     }
     
     // MARK: - Language choice buttons

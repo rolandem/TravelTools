@@ -2,48 +2,21 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>WEATHER_API_KEY</key>
-	<string>$(WEATHER_API_KEY)</string>
-	<key>TRANSLATE_API_KEY</key>
-	<string>$(TRANSLATE_API_KEY)</string>
-	<key>CONVERT_API_KEY</key>
-	<string>$(CONVERT_API_KEY)</string>
-	<key>UISupportedInterfaceOrientations</key>
+	<key>UISupportedInterfaceOrientations~iphone</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
-	<key>UIRequiredDeviceCapabilities</key>
-	<array>
-		<string>armv7</string>
-	</array>
-	<key>UIMainStoryboardFile</key>
-	<string>TabBarController</string>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
-	<key>UIApplicationSupportsIndirectInputEvents</key>
-	<true/>
-	<key>LSRequiresIPhoneOS</key>
-	<true/>
-	<key>CFBundleVersion</key>
-	<string>1</string>
-	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
-	<key>CFBundlePackageType</key>
-	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
-	<key>CFBundleName</key>
-	<string>$(PRODUCT_NAME)</string>
-	<key>CFBundleInfoDictionaryVersion</key>
-	<string>6.0</string>
-	<key>CFBundleIdentifier</key>
-	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-	<key>CFBundleExecutable</key>
-	<string>$(EXECUTABLE_NAME)</string>
-	<key>CFBundleDevelopmentRegion</key>
-	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CONVERT_API_KEY</key>
+	<string>$(CONVERT_API_KEY)</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>TRANSLATE_API_KEY</key>
+	<string>$(TRANSLATE_API_KEY)</string>
+	<key>WEATHER_API_KEY</key>
+	<string>$(WEATHER_API_KEY)</string>
 </dict>
 </plist>

@@ -23,6 +23,8 @@ struct Weather: Decodable {
         enum TemperaturesKeys: String, CodingKey {
             case temperature = "temp"
             case feelsLike = "feels_like"
+            case temperatureMini = "temp_min"
+            case temperatureMaxi = "temp_max"
         }
         
         enum CountryKeys: String, CodingKey {
@@ -34,6 +36,8 @@ struct Weather: Decodable {
     let icon: String
     let temperature: Double
     let feelsLike: Double
+    let temperatureMini: Double
+    let temperatureMaxi: Double
     let country: String
     let city: String
     
@@ -51,6 +55,8 @@ struct Weather: Decodable {
         let temperatureContainer = try container.nestedContainer(keyedBy: MainKeys.TemperaturesKeys.self, forKey: .temperatureData)
         self.temperature = try temperatureContainer.decode(Double.self, forKey: .temperature)
         self.feelsLike = try temperatureContainer.decode(Double.self, forKey: .feelsLike)
+        self.temperatureMini = try temperatureContainer.decode(Double.self, forKey: .temperatureMini)
+        self.temperatureMaxi = try temperatureContainer.decode(Double.self, forKey: .temperatureMaxi)
         
         // container with country
         let countryContainer = try container.nestedContainer(keyedBy: MainKeys.CountryKeys.self, forKey: .country)

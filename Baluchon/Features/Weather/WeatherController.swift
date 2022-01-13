@@ -19,7 +19,6 @@ class WeatherController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        destinationWeather.isHidden = true
         getLocalWeather()
         self.title = "Météo"
     }
@@ -39,13 +38,8 @@ class WeatherController: UIViewController, UITextFieldDelegate {
             switch result {
             case .failure(let error) :
                 self.presentAlert(message: error.localizedDescription)
-            case .success(let meteoData) :
-                localWeather.cityName.text = meteoData.city
-                localWeather.countryName.text = meteoData.country
-                localWeather.skyConditions.text = "actuellement " + meteoData.description
-                let temperature = meteoData.temperature.withoutDecimal()
-                localWeather.temperature.text = "\(temperature) °C"
-                localWeather.weatherIcon.image = UIImage(named: meteoData.icon)
+            case .success(let localData) :
+                setupWeatherView(with: localData, from: localWeather)
             }
         }
     }
@@ -60,16 +54,11 @@ class WeatherController: UIViewController, UITextFieldDelegate {
             switch result {
             case .failure(let error) :
                 self.presentAlert(message: error.localizedDescription)
-            case .success(let meteoData) :
-                destinationWeather.cityName.text = meteoData.city
-                destinationWeather.countryName.text = meteoData.country
-                destinationWeather.skyConditions.text = "actuellement " + meteoData.description
-                let temperature = meteoData.temperature.withoutDecimal()
-                destinationWeather.temperature.text = "\(temperature) °C"
-                destinationWeather.weatherIcon.image = UIImage(named: meteoData.icon)
+            case .success(let destinationData) :
+                setupWeatherView(with: destinationData, from: destinationWeather)
             }
         }
-        destinationWeather.isHidden = false
+        research.resignFirstResponder()
     }
  
     // MARK: - Keyboard
@@ -98,13 +87,27 @@ class WeatherController: UIViewController, UITextFieldDelegate {
         videoPlayer = AVPlayer(playerItem: item)
         videoPlayerLayer = AVPlayerLayer(player: videoPlayer)
 
-        videoPlayerLayer?.frame = CGRect(x: -self.view.frame.size.width*1.5, y: 0, width: self.view.frame.size.width*4, height: self.view.frame.size.height - 80)
+        videoPlayerLayer?.frame = CGRect(x: -self.view.frame.size.width * 1.5, y: 0, width: self.view.frame.size.width * 4, height: self.view.frame.size.height)
 
         view.layer.insertSublayer(videoPlayerLayer!, at: 0)
         videoPlayer?.playImmediately(atRate: 0.5)
     }
 }
-
+extension WeatherController {
+    func setupWeatherView(with meteoData: (Weather), from location: WeatherView) {
+        location.cityName.text = meteoData.city
+        location.countryName.text = meteoData.country
+        location.skyConditions.text = "actuellement " + meteoData.description
+        let temperature = meteoData.temperature.withoutDecimal()
+        let feelsLike = meteoData.feelsLike.withoutDecimal()
+        let tempMini = meteoData.temperatureMini.withoutDecimal()
+        let tempMaxi = meteoData.temperatureMaxi.withoutDecimal()
+        location.temperature.text = "\(temperature) °C"
+        location.delta.text = "Max. \(tempMaxi)°  Min. \(tempMini)°"
+        location.feelsLike.text = "ressentie \(feelsLike)°"
+        location.weatherIcon.image = UIImage(named: meteoData.icon)
+    }
+}
 // Vidéo de MART PRODUCTION provenant de Pexels
 extension WeatherController {
     func presentAlert(message alertError: String) {
