@@ -38,14 +38,18 @@ class TranslateController: UIViewController, UITextViewDelegate {
             sourceLang: sourceLanguage,
             targetLang: targetLanguage)
         
-        guard let url = translateUrl.url else { return }
+        guard let url = translateUrl.url else {
+            presentAlert(message: "Erreur de connexion")
+            return
+        }
 
         APIService.shared.getData(
             request: url,
             dataType: Translation.self
         ) { result in
             switch result {
-            case .failure(let error) : print(error)
+            case .failure(let error) :
+                self.presentAlert(message: error.localizedDescription)
             case .success(let translation) :
                 self.translatedText.text = translation.translatedText
             }
@@ -133,10 +137,12 @@ extension TranslateController: UITableViewDelegate {
 extension TranslateController {
 
     func frameTableView(frame: CGRect, x:CGFloat, y: CGFloat, width: CGFloat, height: CGFloat) {
-        tableView.frame = CGRect(x: frame.origin.x + x,
-                                 y: frame.origin.y + frame.height + y,
-                                 width: frame.width + width,
-                                 height: height)
+        tableView.frame = CGRect(
+            x: frame.origin.x + x,
+            y: frame.origin.y + frame.height + y,
+            width: frame.width + width,
+            height: height
+        )
     }
 
     func addDarkenView(at frame: CGRect) {
@@ -145,52 +151,79 @@ extension TranslateController {
         view.addSubview(darkenView)
 
         //let frameWhenTableViewIsHidden = frameTableView(frame: frame, x: 0, y: 5, width: 0, height: 0)
-        let frameWhenTableViewIsHidden = CGRect(x: frame.origin.x,
-                                                y: frame.origin.y + frame.height + 5,
-                                                width: frame.width,
-                                                height: 0)
+        let frameWhenTableViewIsHidden = CGRect(
+            x: frame.origin.x,
+            y: frame.origin.y + frame.height + 5,
+            width: frame.width,
+            height: 0
+        )
         tableView.frame = frameWhenTableViewIsHidden
 
         self.view.addSubview(tableView)
         tableView.layer.cornerRadius = 5
 
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(removeDarkenView))
+        let tapGesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(removeDarkenView)
+        )
         tapGesture.delegate = self
         darkenView.addGestureRecognizer(tapGesture)
         darkenView.alpha = 0
-        UIView.animate(withDuration: 0.4,
-                       delay: 0.0,
-                       usingSpringWithDamping: 1.0,
-                       initialSpringVelocity: 1.0,
-                       options: .curveEaseInOut,
-                       animations: {
-            self.darkenView.alpha = 0.5
-            self.frameTableView(frame: frame, x: 0, y: 5, width: 0,
-                                height: CGFloat(self.dataSource.count * 10))
-        }, completion: nil)
-
+        UIView.animate(
+            withDuration: 0.4,
+            delay: 0.0,
+            usingSpringWithDamping: 1.0,
+            initialSpringVelocity: 1.0,
+            options: .curveEaseInOut,
+            animations: {
+                self.darkenView.alpha = 0.5
+                self.frameTableView(
+                    frame: frame, x: 0, y: 5, width: 0,
+                    height: CGFloat(self.dataSource.count * 10)
+                )
+            }, completion: nil
+        )
         tableView.reloadData()
     }
 
     @objc func removeDarkenView() {
         let frames = selectedButton.frame
-        UIView.animate(withDuration: 0.4, delay: 0.0,
-                       usingSpringWithDamping: 1.0,
-                       initialSpringVelocity: 1.0,
-                       options: .curveEaseInOut,
-                       animations: {
-            self.darkenView.alpha = 0
-            self.frameTableView(frame: frames, x: 0, y: 5, width: 0, height: 0)
-        }, completion: nil)
+        UIView.animate(
+            withDuration: 0.4, delay: 0.0,
+            usingSpringWithDamping: 1.0,
+            initialSpringVelocity: 1.0,
+            options: .curveEaseInOut,
+            animations: {
+                self.darkenView.alpha = 0
+                self.frameTableView(frame: frames, x: 0, y: 5, width: 0, height: 0)
+            }, completion: nil
+        )
     }
 }
 
 extension TranslateController: UIGestureRecognizerDelegate {
 
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        if touch.view != nil && touch.view!.isDescendant(of: self.tableView) {
+    func gestureRecognizer(
+        _ gestureRecognizer: UIGestureRecognizer,
+        shouldReceive touch: UITouch) -> Bool {
+            if touch.view != nil && touch.view!.isDescendant(of: self.tableView) {
             return false
         }
         return true
+    }
+}
+extension TranslateController {
+    func presentAlert(message alertError: String) {
+        let alert = UIAlertController(
+            title: "Oups !",
+            message: "\(alertError)",
+            preferredStyle: .alert
+        )
+        let errorAction = UIAlertAction(
+            title: "ok",
+            style: .cancel
+        )
+        alert.addAction(errorAction)
+        present(alert, animated: true)
     }
 }

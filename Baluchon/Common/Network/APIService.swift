@@ -33,7 +33,7 @@ final class APIService {
                     completion(.failure(.connexion(error)))
                 }
                 guard let urlResponse = urlResponse as? HTTPURLResponse else {
-                    completion(.failure(.unknown))
+                    completion(.failure(.unknow))
                     return
                 }
                 guard let data = data else { return }
@@ -63,21 +63,18 @@ extension APIService {
         case response(Int)
         case invalidData
         case connexion(Error)
-        case unknown
-        case wrongUrl
+        case unknow
         
         var errorDescription: String? {
             switch self {
             case .response(let error):
-                return "Une erreur \(error) serveur est survenue"
+                return "Donnée non trouvée, erreur \(error).\n\n Vérifier l'orthographe.\n Exemple pour Pointe à Pitre,\n saisir pointe-a-pitre"
             case .invalidData:
                 return "Les données reçues ne sont pas conformes"
+            case .unknow:
+                return "Une erreur est survenue"
             case .connexion(_):
-                return "L'opération n'a pas pu être achevée."
-            case .unknown:
-                return "Une erreur inconnue est survenue"
-            case .wrongUrl:
-                return "erreur (404)"
+                return "La connexion Internet semble être hors ligne."
             }
         }
     }

@@ -69,7 +69,6 @@ class APIService_Tests: TestCase {
                 case .failure(let error):
                     switch error {
                     case .invalidData:
-                        XCTAssertNotNil(error)
                         XCTAssertEqual(error.localizedDescription, "Les données reçues ne sont pas conformes")
                     default:
                         XCTFail("Request was not successful: \(error.localizedDescription)")
@@ -97,7 +96,7 @@ class APIService_Tests: TestCase {
                     switch error {
                     case .response(let code):
                         XCTAssertEqual(code, 404)
-                        XCTAssertEqual(error.localizedDescription, "Une erreur \(code) serveur est survenue")
+                        XCTAssertEqual(error.localizedDescription, "Donnée non trouvée, erreur 404.\n\n Vérifier l'orthographe.\n Exemple pour Pointe à Pitre,\n saisir pointe-a-pitre")
                     default:
                         XCTFail("Request was not successful: \(error.localizedDescription)")
                     }
@@ -122,11 +121,10 @@ class APIService_Tests: TestCase {
             switch result {
             case .failure(let error):
                 switch error {
-                case .connexion(let error):
-                    XCTAssertNotNil(error)
-                case .unknown:
-                    XCTAssertNotNil(error)
-                    XCTAssertEqual(error.localizedDescription, "Une erreur inconnue est survenue")
+                case .connexion(_):
+                    XCTAssertEqual(error.localizedDescription,"La connexion Internet semble être hors ligne.")
+                case .unknow:
+                    XCTAssertEqual(error.localizedDescription, "Une erreur est survenue")
                 default:
                     XCTFail("Request was not successful: \(error.localizedDescription)")
                 }

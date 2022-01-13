@@ -23,7 +23,6 @@ class ConvertController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.title = "Convertisseur"
         launchQueryIfNeeded()
         updateInfoRate()
@@ -33,9 +32,7 @@ class ConvertController: UIViewController, UITextFieldDelegate {
 
     private func launchQueryIfNeeded() {
         guard let lastStatementDay = Int(lastDay()),
-              let currentDay = Int(currentDay()) else {
-                  return
-              }
+              let currentDay = Int(currentDay()) else { return }
 
         let delta = abs(currentDay) - abs(lastStatementDay)
         if delta >= 1 {
@@ -46,14 +43,15 @@ class ConvertController: UIViewController, UITextFieldDelegate {
     private func getUsdRate() {
 
         let convertUrl = ConvertAPI.convertUrl
-        guard let url = convertUrl else { return }
+        guard let url = convertUrl else {
+            presentAlert(message: "Erreur de connexion")
+            return
+        }
 
         APIService.shared.getData(request: url, dataType: Rate.self) { result in
             switch result {
-            case .failure(let response) :
-                let error = response.self
-                print("error", error)
-                
+            case .failure(let error) :
+                self.presentAlert(message: error.localizedDescription)
             case.success(let rateData) :
                 let timestamp = rateData.timestamp
                 let usdRate = rateData.USD.withDecimal()
@@ -134,3 +132,18 @@ class ConvertController: UIViewController, UITextFieldDelegate {
 }
 
 // Photo de Karolina Grabowska provenant de Pexels
+extension ConvertController {
+    func presentAlert(message alertError: String) {
+        let alert = UIAlertController(
+            title: "Oups !",
+            message: "\(alertError)",
+            preferredStyle: .alert
+        )
+        let errorAction = UIAlertAction(
+            title: "ok",
+            style: .cancel
+        )
+        alert.addAction(errorAction)
+        present(alert, animated: true)
+    }
+}
