@@ -12,7 +12,7 @@ class Translation_Tests: XCTestCase {
 
     func testTranslateJsonMapping() throws {
         // arrange
-        guard let dataTranslate = TestCase.stubCorrectData(from: "translate") else { return }
+        guard let dataTranslate = TestCase.stubbedData(from: "translate") else { return }
         // act
         let decoder = JSONDecoder()
         let translation = try decoder.decode(Translation.self, from: dataTranslate)

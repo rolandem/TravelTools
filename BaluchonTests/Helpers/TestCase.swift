@@ -10,16 +10,16 @@ import XCTest
 
 class TestCase: XCTestCase {
 
-    // Correct Data and Response
-    
-    static func stubCorrectData( from json: String) -> Data? {
+    static func stubbedData( from json: String) -> Data? {
         let bundle = Bundle(for: TestCase.self)
         let url = bundle.url(forResource: json, withExtension: "json") ?? URL(fileURLWithPath: "www")
         return try? Data(contentsOf: url)
     }
 
-    static func stubRequest(from json: String, statusCode: Int) -> ((URLRequest) -> (HTTPURLResponse, Data?, Error?))? {
-        let stubData = stubCorrectData(from: json)
+    // MARK: - Correct and Wrong Response
+
+    static func stubbedResponse(from json: String, statusCode: Int) -> ((URLRequest) -> (HTTPURLResponse, Data?, Error?))? {
+        let stubData = stubbedData(from: json)
         var data: Data?
         if stubData == nil {
             data = Data()
@@ -39,7 +39,7 @@ class TestCase: XCTestCase {
         return request
     }
 
-    static func stubRequestError(
+    static func stubbedError(
         from json: String,
         statusCode: Int
     ) -> ((URLRequest) -> (HTTPURLResponse, Data?, Error?))? {
@@ -58,6 +58,7 @@ class TestCase: XCTestCase {
     static let error = RequestError()
     
 }
+
 final class TestURLProtocol: URLProtocol {
         override class func canInit(with request: URLRequest) -> Bool {
             return true

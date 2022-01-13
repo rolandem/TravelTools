@@ -12,7 +12,7 @@ class Weather_Tests: TestCase {
 
     func testWeatherJsonMapping() throws {
         // arrange
-        guard let dataWeather = TestCase.stubCorrectData(from: "weather") else { return }
+        guard let dataWeather = TestCase.stubbedData(from: "weather") else { return }
         // act
         let decoder = JSONDecoder()
         let weather = try decoder.decode(Weather.self, from: dataWeather)

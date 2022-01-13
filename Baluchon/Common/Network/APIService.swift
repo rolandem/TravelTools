@@ -41,6 +41,9 @@ final class APIService {
                 case 200..<300:
                     do {
                         let dataload = try JSONDecoder().decode(dataType, from: data)
+                        #if DEBUG
+                        print(dataload)
+                        #endif
                         completion(.success(dataload))
                     }
                     catch {
@@ -70,7 +73,7 @@ extension APIService {
             case .invalidData:
                 return "Les données reçues ne sont pas conformes"
             case .connexion(_):
-                return "La connexion Internet semble être hors ligne."
+                return "L'opération n'a pas pu être achevée."
             case .unknown:
                 return "Une erreur inconnue est survenue"
             case .wrongUrl:

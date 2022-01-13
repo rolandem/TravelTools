@@ -14,9 +14,11 @@ class ConvertController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var resultAmount: UILabel!
     @IBOutlet weak var convertedIcon: UILabel!
     @IBOutlet weak var infoText: UILabel!
+    @IBOutlet weak var switchButton: UIButton!
+    @IBOutlet weak var convertToButton: UIButton!
 
-    private var originDevice = "€"
-    private var convertedDevice = "$"
+    var originDevice = "€"
+    var convertedDevice = "$"
     let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
@@ -26,7 +28,7 @@ class ConvertController: UIViewController, UITextFieldDelegate {
         updateInfoRate()
     }
 
-    // MARKS: - Common Methods
+    // MARK: - Common Methods
 
     private func launchQueryIfNeeded() {
         guard let lastStatementDay = Int(lastDay()),
@@ -68,7 +70,7 @@ class ConvertController: UIViewController, UITextFieldDelegate {
         infoText.text = "Le \(lastStatementDate), 1 € (Euro) = \(rate) $ ((Dollar)"
     }
 
-    // MARKS: - Formatted Dates
+    // MARK: - Formatted Dates
 
     private func lastStatementDate() -> String {
         let timestamp = defaults.integer(forKey: "timestamp")
@@ -95,7 +97,7 @@ class ConvertController: UIViewController, UITextFieldDelegate {
 
     // MARK: - IBActions
 
-    @IBAction func SwitchButton(_ sender: UIButton) {
+    @IBAction func switchIconDevice(_ sender: UIButton) {
         swap(&originDevice, &convertedDevice)
         originIcon.text = originDevice
         convertedIcon.text = convertedDevice
@@ -103,7 +105,7 @@ class ConvertController: UIViewController, UITextFieldDelegate {
         resultAmount.text = "0.00"
     }
 
-    @IBAction func ConvertButton(_ sender: UIButton) {
+    @IBAction func convertButton(_ sender: UIButton) {
         guard let amountText = amountField.text else { return }
         guard let amount = Double(amountText) else { return }
         let rate = defaults.double(forKey: "usdrate")

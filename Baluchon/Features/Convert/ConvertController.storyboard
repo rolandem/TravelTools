@@ -13,7 +13,7 @@
         <!--Convert Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="Convert" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="ConvertController" customModule="Baluchon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ConvertController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="ConvertController" customModule="Baluchon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -75,7 +75,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="SwitchButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="wFM-Dm-FIN"/>
+                                    <action selector="switchIconDevice:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="5I1-SK-v89"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CF4-Hh-Pqw">
@@ -97,7 +97,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="ConvertButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="aMc-AT-7J0"/>
+                                    <action selector="convertButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Pcb-rM-XyP"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5SO-OQ-H8u" userLabel="Result Stack View">
@@ -162,10 +162,12 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="amountField" destination="bGN-2I-aCH" id="tRn-vN-yIN"/>
+                        <outlet property="convertToButton" destination="CF4-Hh-Pqw" id="yLH-FU-qb3"/>
                         <outlet property="convertedIcon" destination="Go3-01-Qk7" id="7GG-ic-kPr"/>
                         <outlet property="infoText" destination="EHY-RW-akB" id="T1Z-2f-knd"/>
                         <outlet property="originIcon" destination="ZoM-sU-GWK" id="CVd-Iu-c3d"/>
                         <outlet property="resultAmount" destination="2WG-3n-Itd" id="qTV-jO-nf1"/>
+                        <outlet property="switchButton" destination="cqV-vn-HRi" id="NHn-0k-sMm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

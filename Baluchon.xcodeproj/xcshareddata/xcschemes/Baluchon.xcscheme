@@ -49,6 +49,16 @@
                ReferencedContainer = "container:Baluchon.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B6CF8F0C278F257800D83FCB"
+               BuildableName = "ConvertUITests.xctest"
+               BlueprintName = "ConvertUITests"
+               ReferencedContainer = "container:Baluchon.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

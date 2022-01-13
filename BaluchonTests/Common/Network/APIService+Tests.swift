@@ -8,7 +8,19 @@
 import XCTest
 @testable import Baluchon
 
-class APIService_Tests: TestCase {  
+class APIService_Tests: TestCase {
+
+    var sut: APIService!
+
+    override func setUpWithError() throws {
+        try super.setUpWithError()
+        sut = APIService(session: session)
+    }
+
+    override func tearDownWithError() throws {
+        sut = nil
+        try super.tearDownWithError()
+    }
 
     override func tearDown() {
             TestURLProtocol.loadingHandler = nil
@@ -22,93 +34,91 @@ class APIService_Tests: TestCase {
         return URLSession(configuration: configuration)
     }
 
-    func test_when_fetching_rate_then_succed() {
+    func test_given_correctJson_when_fetching_rate_then_succed() {
         // arrange
         guard let url = stubUrl else { return }
-        TestURLProtocol.loadingHandler = TestCase.stubRequest(from: "rates", statusCode: 200)
-
+        TestURLProtocol.loadingHandler = TestCase.stubbedResponse(from: "rates", statusCode: 200)
+        let promise = expectation(description: "Loading")
+        
         // act
-        let expectation = XCTestExpectation(description: "Loading")
-        let task = APIService(session: session)
+        sut.getData(request: url, dataType: Rate.self) { (result) in
 
         // assert
-        task.getData(request: url, dataType: Rate.self) { (result) in
             switch result {
                 case .failure(let error):
                     XCTFail("Request was not successful: \(error.localizedDescription)")
                 case .success(let rate):
                 XCTAssertEqual(rate.USD, 1.137145)
             }
-            expectation.fulfill()
+            promise.fulfill()
         }
-        wait(for: [expectation], timeout: 0.1)
+        wait(for: [promise], timeout: 1)
     }
 
-    func test_when_fetching_badjson_then_failed_invalidData() {
+    func test_given_badjson_when_fetching_then_failed_invalidData() {
         // arrange
         guard let url = stubUrl else { return }
-        TestURLProtocol.loadingHandler = TestCase.stubRequest(from: "badjson", statusCode: 204)
-
+        TestURLProtocol.loadingHandler = TestCase.stubbedResponse(from: "badjson", statusCode: 204)
+        let promise = expectation(description: "Loading")
+        
         // act
-        let expectation = XCTestExpectation(description: "Loading")
-        let task = APIService(session: session)
+        sut.getData(request: url, dataType: Rate.self) { (result) in
 
         // assert
-        task.getData(request: url, dataType: Rate.self) { (result) in
             switch result {
                 case .failure(let error):
                     switch error {
                     case .invalidData:
                         XCTAssertNotNil(error)
+                        XCTAssertEqual(error.localizedDescription, "Les données reçues ne sont pas conformes")
                     default:
                         XCTFail("Request was not successful: \(error.localizedDescription)")
                     }
                 case .success(_):
                     XCTFail("Request did not fail when it was expected to.")
             }
-            expectation.fulfill()
+            promise.fulfill()
         }
-        wait(for: [expectation], timeout: 1)
+        wait(for: [promise], timeout: 1)
     }
 
-    func test_when_fetching_translate_then_failed_with_response_statusCode_404() {
+    func test_given_404_when_fetching_translate_then_failed_with_statusCode_404() {
         // arrange
         guard let url = stubUrl else { return }
-        TestURLProtocol.loadingHandler = TestCase.stubRequest(from: "badjson", statusCode: 404)
-
+        TestURLProtocol.loadingHandler = TestCase.stubbedResponse(from: "badjson", statusCode: 404)
+        let promise = expectation(description: "Loading")
+        
         // act
-        let expectation = XCTestExpectation(description: "Loading")
-        let task = APIService(session: session)
+        sut.getData(request: url, dataType: Rate.self) { (result) in
 
         // assert
-        task.getData(request: url, dataType: Rate.self) { (result) in
             switch result {
                 case .failure(let error):
                     switch error {
                     case .response(let code):
                         XCTAssertEqual(code, 404)
+                        XCTAssertEqual(error.localizedDescription, "Une erreur \(code) serveur est survenue")
                     default:
                         XCTFail("Request was not successful: \(error.localizedDescription)")
                     }
                 case .success(_):
                     XCTFail("Request did not fail when it was expected to.")
             }
-            expectation.fulfill()
+            promise.fulfill()
         }
-        wait(for: [expectation], timeout: 1)
+        wait(for: [promise], timeout: 1)
     }
 
-    func test_when_fetching_translate_then_failed_with_error() {
+    func test_given_badresponse_when_fetching_translate_then_failed_with_error() {
         // arrange
         guard let url = stubUrl else { return }
-        TestURLProtocol.loadingHandler = TestCase.stubRequestError(from: "translate", statusCode: 500)
-
-        // act
+        TestURLProtocol.loadingHandler = TestCase.stubbedError(from: "badjson", statusCode: 500)
         let expectation = XCTestExpectation(description: "Loading")
-        let task = APIService(session: session)
+        
+        // act
+        sut.getData(request: url, dataType: Translation.self) { (result) in
 
         // assert
-        task.getData(request: url, dataType: Translation.self) { (result) in
             switch result {
             case .failure(let error):
                 switch error {
@@ -116,13 +126,15 @@ class APIService_Tests: TestCase {
                     XCTAssertNotNil(error)
                 case .unknown:
                     XCTAssertNotNil(error)
-                default: break
+                    XCTAssertEqual(error.localizedDescription, "Une erreur inconnue est survenue")
+                default:
+                    XCTFail("Request was not successful: \(error.localizedDescription)")
                 }
             case .success(_):
                 XCTFail("Request did not fail when it was expected to.")
             }
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 0.1)
+        wait(for: [expectation], timeout: 1)
     }
 }

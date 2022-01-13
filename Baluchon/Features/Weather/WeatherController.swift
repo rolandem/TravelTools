@@ -28,6 +28,8 @@ class WeatherController: UIViewController, UITextFieldDelegate {
         setupVideo()
     }
 
+    // MARK: - Get Weather
+
     private func getLocalWeather() {
 
         let weatherUrl = WeatherAPI.getLocale
