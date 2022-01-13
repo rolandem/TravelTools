@@ -50,6 +50,7 @@ class TranslateController: UIViewController, UITextViewDelegate {
                 self.translatedText.text = translation.translatedText
             }
         }
+        originalText.resignFirstResponder()
     }
     
     @IBAction func cancelTextView(_ sender: UIButton) {

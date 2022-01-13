@@ -23,6 +23,7 @@ class ConvertController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.title = "Convertisseur"
         launchQueryIfNeeded()
         updateInfoRate()
@@ -67,7 +68,7 @@ class ConvertController: UIViewController, UITextFieldDelegate {
         let rate = defaults.double(forKey: "usdrate")
         let lastStatementDate = lastStatementDate()
 
-        infoText.text = "Le \(lastStatementDate), 1 € (Euro) = \(rate) $ ((Dollar)"
+        infoText.text = "Le \(lastStatementDate):  1 € (Euro) = \(rate) $ ((Dollar)"
     }
 
     // MARK: - Formatted Dates
@@ -116,6 +117,7 @@ class ConvertController: UIViewController, UITextFieldDelegate {
             let result = amount * (1/rate)
             resultAmount.text = String(result.withDecimal())
         }
+        amountField.resignFirstResponder()
     }
 
     // MARK: - Keyboard
