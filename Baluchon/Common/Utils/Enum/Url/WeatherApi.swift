@@ -7,40 +7,31 @@
 
 import Foundation
 
-private var apiKey: String = Bundle.main.infoDictionary?["WEATHER_API_KEY"] as? String ?? ""
-private let locale = "New York"
-private let lang = "fr"
-private let unit = "metric"
+struct WeatherAPI {
 
-enum WeatherAPI {
-    case getLocale
-    case getWeather(destination: String)
- 
-    var url: URL? {
+    static var shared = WeatherAPI()
+        private init() {}
+    
+    var apiKey: String = Bundle.main.infoDictionary?["WEATHER_API_KEY"] as? String ?? ""
+    init(apiKey: String) {
+        self.apiKey = apiKey
+    }
+
+    let lang = "fr"
+    let unit = "metric"
+
+    func getUrl(location: String) -> URL? {
+
         var component = URLComponents()
         component.scheme = "http"
         component.host = "api.openweathermap.org"
         component.path = "/data/2.5/weather"
-        component.queryItems = cityQuery()
+        component.queryItems = [
+            URLQueryItem(name: "q", value: location),
+            URLQueryItem(name: "units", value: unit),
+            URLQueryItem(name: "lang", value: lang),
+            URLQueryItem(name: "appid", value: apiKey)
+        ]
         return component.url
-    }
-    
-    private func cityQuery()-> [URLQueryItem]? {
-        switch self {
-        case .getLocale:
-            return [
-                URLQueryItem(name: "q", value: locale),
-                URLQueryItem(name: "units", value: unit),
-                URLQueryItem(name: "lang", value: lang),
-                URLQueryItem(name: "appid", value: apiKey)
-            ]
-        case .getWeather(let destination):
-            return [
-                URLQueryItem(name: "q", value: destination),
-                URLQueryItem(name: "units", value: unit),
-                URLQueryItem(name: "lang", value: lang),
-                URLQueryItem(name: "appid", value: apiKey)
-            ]
-        }
     }
 }

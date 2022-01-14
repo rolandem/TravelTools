@@ -7,31 +7,31 @@
 
 import Foundation
 
-    private var apiKey: String = Bundle.main.infoDictionary?["TRANSLATE_API_KEY"] as? String ?? ""
-    private let format = "text"
+struct TranslateAPI {
 
-enum TranslateAPI {
-    case translateText(inputText: String, sourceLang: String, targetLang: String)
+    static var shared = TranslateAPI()
+        private init() {}
+    
+    var apiKey: String = Bundle.main.infoDictionary?["TRANSLATE_API_KEY"] as? String ?? ""
+    init(apiKey: String) {
+        self.apiKey = apiKey
+    }
 
-    var url: URL? {
+    let format = "text"
+
+    func getUrl(inputText: String, sourceLang: String, targetLang: String) -> URL? {
+        
         var component = URLComponents()
         component.scheme = "https"
         component.host = "translation.googleapis.com"
         component.path = "/language/translate/v2"
-        component.queryItems = translateQuery()
-        return component.url
-    }
-
-    private func translateQuery()-> [URLQueryItem]? {
-        switch self {
-        case .translateText(inputText: let inputText, sourceLang: let sourceLang, targetLang: let targetLang):
-            return [
+        component.queryItems = [
                 URLQueryItem(name: "q", value: inputText),
                 URLQueryItem(name: "source", value: sourceLang),
                 URLQueryItem(name: "target", value: targetLang),
                 URLQueryItem(name: "format", value: format),
                 URLQueryItem(name: "key", value: apiKey)
-            ]
-        }
+        ]
+        return component.url
     }
 }

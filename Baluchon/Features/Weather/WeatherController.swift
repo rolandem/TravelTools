@@ -24,15 +24,15 @@ class WeatherController: UIViewController, UITextFieldDelegate {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        setupVideo()
+        setupBackgroundVideo()
     }
 
     // MARK: - Get Weather
 
     private func getLocalWeather() {
 
-        let weatherUrl = WeatherAPI.getLocale
-        guard let url = weatherUrl.url else {
+        let weatherUrl = WeatherAPI.shared.getUrl(location: "New York")
+        guard let url = weatherUrl else {
             AlertView().presentAlert(message: "L'adresse de la ressource semble erronée")
             return }
 
@@ -49,8 +49,8 @@ class WeatherController: UIViewController, UITextFieldDelegate {
     @IBAction func getDestinationWeather(_ sender: UIButton) {
         guard let destination = research.text else { return }
 
-        let weatherUrl = WeatherAPI.getWeather(destination: destination)
-        guard let url = weatherUrl.url else {
+        let weatherUrl = WeatherAPI.shared.getUrl(location: destination)
+        guard let url = weatherUrl else {
             AlertView().presentAlert(message: "L'adresse de la ressource semble erronée")
             return }
 
@@ -78,23 +78,26 @@ class WeatherController: UIViewController, UITextFieldDelegate {
 
     // MARK: - Player Video
 
-    private func setupVideo() {
+    private func setupBackgroundVideo() {
 
-        // get the path to the video resource
+        /// get the path to the video resource
         let bundlePath = Bundle.main.path(forResource: "SkyBackground", ofType: "mp4")
         guard bundlePath != nil else { return }
 
-        // create a url from the path
+        /// create a url from the path
         let url = URL(fileURLWithPath: bundlePath!)
 
+        /// create the player
         let item = AVPlayerItem(url: url)
         videoPlayer = AVPlayer(playerItem: item)
         videoPlayerLayer = AVPlayerLayer(player: videoPlayer)
 
+        /// full screen video
         videoPlayerLayer?.frame = CGRect(x: -self.view.frame.size.width * 1.5, y: 0, width: self.view.frame.size.width * 4, height: self.view.frame.size.height)
 
+        /// add to view and launch
         view.layer.insertSublayer(videoPlayerLayer!, at: 0)
-        videoPlayer?.playImmediately(atRate: 0.5)
+        videoPlayer?.playImmediately(atRate: 0.6)
     }
 }
 extension WeatherController {

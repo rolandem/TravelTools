@@ -49,7 +49,7 @@ class ConvertController: UIViewController, UITextFieldDelegate {
 
     private func getRate() {
 
-        let convertUrl = ConvertAPI.convertUrl
+        let convertUrl = ConvertAPI().convertUrl
         guard let url = convertUrl else {
             AlertView().presentAlert(message: "L'adresse de la ressource semble erronée")
             return

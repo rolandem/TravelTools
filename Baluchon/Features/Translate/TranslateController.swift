@@ -30,15 +30,18 @@ class TranslateController: UIViewController, UITextViewDelegate {
         tableView.dataSource = self
     }
 
+    // MARK: - Get translation
+
     @IBAction func translateText(_ sender: UIButton) {
         guard let inputText = originalText.text else { return }
-        
-        let translateUrl = TranslateAPI.translateText(
+  
+        let translateUrl = TranslateAPI.shared.getUrl(
             inputText: inputText,
             sourceLang: sourceLanguage,
-            targetLang: targetLanguage)
+            targetLang: targetLanguage
+        )
         
-        guard let url = translateUrl.url else {
+        guard let url = translateUrl else {
             AlertView().presentAlert(message: "L'adresse de la ressource semble erronée")
             return
         }
@@ -56,11 +59,13 @@ class TranslateController: UIViewController, UITextViewDelegate {
         }
         originalText.resignFirstResponder()
     }
-    
+
+    // MARK: - IBActions
+
     @IBAction func cancelTextView(_ sender: UIButton) {
         originalText.text = ""
     }
-    
+
     @IBAction func switchLanguages(_ sender: UIButton) {
         swap(&sourceLanguage, &targetLanguage)
         swap(&titleLeftButton, &titleRightButton)
