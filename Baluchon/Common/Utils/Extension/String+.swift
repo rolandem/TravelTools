@@ -9,7 +9,11 @@ import Foundation
 
 extension String {
 
-    func replaceDecimal() -> String {
+    func replaceComma() -> String {
         return self.replacingOccurrences(of: ",", with: ".")
+    }
+
+    func replaceDot() -> String {
+        return self.replacingOccurrences(of: ".", with: ",")
     }
 }

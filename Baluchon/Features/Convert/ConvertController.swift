@@ -36,17 +36,18 @@ class ConvertController: UIViewController, UITextFieldDelegate {
 
     // MARK: - Common Methods
 
+    /// check if is the same day
     private func launchQueryIfNeeded() {
         guard let lastStatementDay = Int(lastDay()),
               let currentDay = Int(currentDay()) else { return }
 
         let delta = abs(currentDay) - abs(lastStatementDay)
         if delta >= 1 {
-            getUsdRate()
+            getRate()
         }
     }
 
-    private func getUsdRate() {
+    private func getRate() {
 
         let convertUrl = ConvertAPI.convertUrl
         guard let url = convertUrl else {
@@ -112,19 +113,20 @@ class ConvertController: UIViewController, UITextFieldDelegate {
 
     @IBAction func convertButton(_ sender: UIButton) {
         guard var amountText = amountField.text else { return }
-        
+
+        /// check comma and replace it by dot (extension String)
         element.append(amountText)
         if commaIsPresent {
-            amountText = element.last?.replaceDecimal() ?? ""
+            amountText = element.last?.replaceComma() ?? ""
         }
         guard let amount = Double(amountText) else { return }
         let rate = defaults.double(forKey: "usdrate")
         if originIcon.text == "€" {
             let result = amount * rate
-            resultAmount.text = String(result.withDecimal())
+            resultAmount.text = String(result.withDecimal()).replaceDot()
         } else {
             let result = amount * (1/rate)
-            resultAmount.text = String(result.withDecimal())
+            resultAmount.text = String(result.withDecimal()).replaceDot()
         }
         amountField.resignFirstResponder()
     }
