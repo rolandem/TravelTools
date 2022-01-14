@@ -150,7 +150,6 @@ extension TranslateController {
         darkenView.backgroundColor = .black.withAlphaComponent(0.9)
         view.addSubview(darkenView)
 
-        //let frameWhenTableViewIsHidden = frameTableView(frame: frame, x: 0, y: 5, width: 0, height: 0)
         let frameWhenTableViewIsHidden = CGRect(
             x: frame.origin.x,
             y: frame.origin.y + frame.height + 5,

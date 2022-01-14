@@ -21,6 +21,12 @@ class ConvertController: UIViewController, UITextFieldDelegate {
     var convertedDevice = "$"
     let defaults = UserDefaults.standard
 
+    private var element = [String]()
+
+    private var commaIsPresent: Bool {
+        element.last?.firstIndex(of: ",") != nil
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Convertisseur"
@@ -106,6 +112,11 @@ class ConvertController: UIViewController, UITextFieldDelegate {
 
     @IBAction func convertButton(_ sender: UIButton) {
         guard let amountText = amountField.text else { return }
+        
+        element.append(amountText)
+        if commaIsPresent {
+            AlertView().presentAlert(message: "Le séparateur de décimal doit être un point.")
+        }
         guard let amount = Double(amountText) else { return }
         let rate = defaults.double(forKey: "usdrate")
         if originIcon.text == "€" {
