@@ -39,7 +39,7 @@ class TranslateController: UIViewController, UITextViewDelegate {
             targetLang: targetLanguage)
         
         guard let url = translateUrl.url else {
-            presentAlert(message: "Erreur de connexion")
+            AlertView().presentAlert(message: "L'adresse de la ressource semble erronée")
             return
         }
 
@@ -49,7 +49,7 @@ class TranslateController: UIViewController, UITextViewDelegate {
         ) { result in
             switch result {
             case .failure(let error) :
-                self.presentAlert(message: error.localizedDescription)
+                AlertView().presentAlert(message: error.localizedDescription)
             case .success(let translation) :
                 self.translatedText.text = translation.translatedText
             }
@@ -210,20 +210,5 @@ extension TranslateController: UIGestureRecognizerDelegate {
             return false
         }
         return true
-    }
-}
-extension TranslateController {
-    func presentAlert(message alertError: String) {
-        let alert = UIAlertController(
-            title: "Oups !",
-            message: "\(alertError)",
-            preferredStyle: .alert
-        )
-        let errorAction = UIAlertAction(
-            title: "ok",
-            style: .cancel
-        )
-        alert.addAction(errorAction)
-        present(alert, animated: true)
     }
 }

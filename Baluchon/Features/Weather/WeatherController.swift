@@ -32,12 +32,14 @@ class WeatherController: UIViewController, UITextFieldDelegate {
     private func getLocalWeather() {
 
         let weatherUrl = WeatherAPI.getLocale
-        guard let url = weatherUrl.url else { return }
+        guard let url = weatherUrl.url else {
+            AlertView().presentAlert(message: "L'adresse de la ressource semble erronée")
+            return }
 
         APIService.shared.getData(request: url, dataType: Weather.self) { [self] result in
             switch result {
             case .failure(let error) :
-                self.presentAlert(message: error.localizedDescription)
+                AlertView().presentAlert(message: error.localizedDescription)
             case .success(let localData) :
                 setupWeatherView(with: localData, from: localWeather)
             }
@@ -48,12 +50,14 @@ class WeatherController: UIViewController, UITextFieldDelegate {
         guard let destination = research.text else { return }
 
         let weatherUrl = WeatherAPI.getWeather(destination: destination)
-        guard let url = weatherUrl.url else { return }
+        guard let url = weatherUrl.url else {
+            AlertView().presentAlert(message: "L'adresse de la ressource semble erronée")
+            return }
 
         APIService.shared.getData(request: url, dataType: Weather.self) { [self] result in
             switch result {
             case .failure(let error) :
-                self.presentAlert(message: error.localizedDescription)
+                AlertView().presentAlert(message: error.localizedDescription)
             case .success(let destinationData) :
                 setupWeatherView(with: destinationData, from: destinationWeather)
             }
@@ -94,6 +98,7 @@ class WeatherController: UIViewController, UITextFieldDelegate {
     }
 }
 extension WeatherController {
+
     func setupWeatherView(with meteoData: (Weather), from location: WeatherView) {
         location.cityName.text = meteoData.city
         location.countryName.text = meteoData.country
@@ -107,20 +112,4 @@ extension WeatherController {
         location.feelsLike.text = "ressentie \(feelsLike)°"
         location.weatherIcon.image = UIImage(named: meteoData.icon)
     }
-}
-// Vidéo de MART PRODUCTION provenant de Pexels
-extension WeatherController {
-    func presentAlert(message alertError: String) {
-            let alert = UIAlertController(
-                title: "Oups !",
-                message: "\(alertError)",
-                preferredStyle: .alert
-            )
-            let errorAction = UIAlertAction(
-                title: "ok",
-                style: .cancel
-            )
-            alert.addAction(errorAction)
-            present(alert, animated: true)
-        }
 }

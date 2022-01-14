@@ -44,14 +44,14 @@ class ConvertController: UIViewController, UITextFieldDelegate {
 
         let convertUrl = ConvertAPI.convertUrl
         guard let url = convertUrl else {
-            presentAlert(message: "Erreur de connexion")
+            AlertView().presentAlert(message: "L'adresse de la ressource semble erronée")
             return
         }
 
         APIService.shared.getData(request: url, dataType: Rate.self) { result in
             switch result {
             case .failure(let error) :
-                self.presentAlert(message: error.localizedDescription)
+                AlertView().presentAlert(message:error.localizedDescription)
             case.success(let rateData) :
                 let timestamp = rateData.timestamp
                 let usdRate = rateData.USD.withDecimal()
@@ -129,21 +129,4 @@ class ConvertController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-}
-
-// Photo de Karolina Grabowska provenant de Pexels
-extension ConvertController {
-    func presentAlert(message alertError: String) {
-        let alert = UIAlertController(
-            title: "Oups !",
-            message: "\(alertError)",
-            preferredStyle: .alert
-        )
-        let errorAction = UIAlertAction(
-            title: "ok",
-            style: .cancel
-        )
-        alert.addAction(errorAction)
-        present(alert, animated: true)
-    }
 }
