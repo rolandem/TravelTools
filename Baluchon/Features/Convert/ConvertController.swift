@@ -111,11 +111,11 @@ class ConvertController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func convertButton(_ sender: UIButton) {
-        guard let amountText = amountField.text else { return }
+        guard var amountText = amountField.text else { return }
         
         element.append(amountText)
         if commaIsPresent {
-            AlertView().presentAlert(message: "Le séparateur de décimal doit être un point.")
+            amountText = element.last?.replaceDecimal() ?? ""
         }
         guard let amount = Double(amountText) else { return }
         let rate = defaults.double(forKey: "usdrate")
