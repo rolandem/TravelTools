@@ -41,7 +41,7 @@ class APIService_Tests: TestCase {
         let promise = expectation(description: "Loading")
         
         // act
-        sut.getData(request: url, dataType: Rate.self) { (result) in
+        sut.getData(request: url, dataType: RateData.self) { (result) in
 
         // assert
             switch result {
@@ -62,7 +62,7 @@ class APIService_Tests: TestCase {
         let promise = expectation(description: "Loading")
         
         // act
-        sut.getData(request: url, dataType: Rate.self) { (result) in
+        sut.getData(request: url, dataType: RateData.self) { (result) in
 
         // assert
             switch result {
@@ -88,7 +88,7 @@ class APIService_Tests: TestCase {
         let promise = expectation(description: "Loading")
         
         // act
-        sut.getData(request: url, dataType: Rate.self) { (result) in
+        sut.getData(request: url, dataType: RateData.self) { (result) in
 
         // assert
             switch result {
@@ -115,7 +115,7 @@ class APIService_Tests: TestCase {
         let expectation = XCTestExpectation(description: "Loading")
         
         // act
-        sut.getData(request: url, dataType: Translation.self) { (result) in
+        sut.getData(request: url, dataType: TranslationData.self) { (result) in
 
         // assert
             switch result {

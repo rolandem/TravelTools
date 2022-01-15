@@ -15,7 +15,7 @@ class Rate_Tests: XCTestCase {
         guard let dataRate = TestCase.stubbedData(from: "rates") else { return }
         // act
         let decoder = JSONDecoder()
-        let rate = try decoder.decode(Rate.self, from: dataRate)
+        let rate = try decoder.decode(RateData.self, from: dataRate)
         // assert
         XCTAssertEqual(rate.USD, 1.137145)
     }

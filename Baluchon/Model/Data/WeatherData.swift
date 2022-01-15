@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Weather: Decodable {
+struct WeatherData: Decodable {
     
     enum MainKeys: String, CodingKey {
         case skyCondition = "weather"

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Rate: Decodable {
+struct RateData: Decodable {
 
     enum MainKeys: String, CodingKey {
         case timestamp

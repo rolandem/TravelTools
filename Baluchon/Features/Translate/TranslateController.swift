@@ -48,7 +48,7 @@ class TranslateController: UIViewController, UITextViewDelegate {
 
         APIService.shared.getData(
             request: url,
-            dataType: Translation.self
+            dataType: TranslationData.self
         ) { result in
             switch result {
             case .failure(let error) :
@@ -123,6 +123,7 @@ extension TranslateController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedButton.setTitle(dataSource[indexPath.row].name, for: .normal)
         translatedText.text = ""
+        
         if selectedButton == originalLanguage {
             titleLeftButton = dataSource[indexPath.row].name
             sourceLanguage = dataSource[indexPath.row].codeISO
@@ -132,7 +133,7 @@ extension TranslateController: UITableViewDelegate {
         }
         removeDarkenView()
     }
-
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }

@@ -36,7 +36,7 @@ class WeatherController: UIViewController, UITextFieldDelegate {
             AlertView().presentAlert(message: "L'adresse de la ressource semble erronée")
             return }
 
-        APIService.shared.getData(request: url, dataType: Weather.self) { [self] result in
+        APIService.shared.getData(request: url, dataType: WeatherData.self) { [self] result in
             switch result {
             case .failure(let error) :
                 AlertView().presentAlert(message: error.localizedDescription)
@@ -54,7 +54,7 @@ class WeatherController: UIViewController, UITextFieldDelegate {
             AlertView().presentAlert(message: "L'adresse de la ressource semble erronée")
             return }
 
-        APIService.shared.getData(request: url, dataType: Weather.self) { [self] result in
+        APIService.shared.getData(request: url, dataType: WeatherData.self) { [self] result in
             switch result {
             case .failure(let error) :
                 AlertView().presentAlert(message: error.localizedDescription)
@@ -102,7 +102,7 @@ class WeatherController: UIViewController, UITextFieldDelegate {
 }
 extension WeatherController {
 
-    func setupWeatherView(with meteoData: (Weather), from location: WeatherView) {
+    func setupWeatherView(with meteoData: (WeatherData), from location: WeatherView) {
         location.cityName.text = meteoData.city
         location.countryName.text = meteoData.country
         location.skyConditions.text = "actuellement " + meteoData.description

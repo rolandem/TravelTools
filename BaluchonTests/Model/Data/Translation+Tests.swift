@@ -15,7 +15,7 @@ class Translation_Tests: XCTestCase {
         guard let dataTranslate = TestCase.stubbedData(from: "translate") else { return }
         // act
         let decoder = JSONDecoder()
-        let translation = try decoder.decode(Translation.self, from: dataTranslate)
+        let translation = try decoder.decode(TranslationData.self, from: dataTranslate)
         // assert
         XCTAssertEqual(translation.translatedText, "welcome to berlin")
     }

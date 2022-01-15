@@ -17,117 +17,40 @@ class ConvertController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var switchButton: UIButton!
     @IBOutlet weak var convertToButton: UIButton!
 
-    var originDevice = "€"
-    var convertedDevice = "$"
-    let defaults = UserDefaults.standard
-
-    private var element = [String]()
-
-    private var commaIsPresent: Bool {
-        element.last?.firstIndex(of: ",") != nil
-    }
-
+    var originCurrency = "€"
+    var convertedCurrency = "$"
+ 
+    let control = ConvertControl()
+    lazy var rate = control.defaults.double(forKey: "usdrate")
+    lazy var lastStatementDate = control.lastStatementDate()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Convertisseur"
-        launchQueryIfNeeded()
+        control.launchQueryIfNeeded()
         updateInfoRate()
     }
 
-    // MARK: - Common Methods
-
-    /// check if is the same day
-    private func launchQueryIfNeeded() {
-        guard let lastStatementDay = Int(lastDay()),
-              let currentDay = Int(currentDay()) else { return }
-
-        let delta = abs(currentDay) - abs(lastStatementDay)
-        if delta >= 1 {
-            getRate()
-        }
-    }
-
-    private func getRate() {
-
-        let convertUrl = ConvertAPI().convertUrl
-        guard let url = convertUrl else {
-            AlertView().presentAlert(message: "L'adresse de la ressource semble erronée")
-            return
-        }
-
-        APIService.shared.getData(request: url, dataType: Rate.self) { result in
-            switch result {
-            case .failure(let error) :
-                AlertView().presentAlert(message:error.localizedDescription)
-            case.success(let rateData) :
-                let timestamp = rateData.timestamp
-                let usdRate = rateData.USD.withDecimal()
-                guard let rate = Double(usdRate) else { return }
-                self.defaults.set(rate, forKey: "usdrate")
-                self.defaults.set(timestamp, forKey: "timestamp")
-            }
-        }
-    }
-
     private func updateInfoRate() {
-        let rate = defaults.double(forKey: "usdrate")
-        let lastStatementDate = lastStatementDate()
-
         infoText.text = "Le \(lastStatementDate):  1 € (Euro) = \(rate) $ ((Dollar)"
-    }
-
-    // MARK: - Formatted Dates
-
-    private func lastStatementDate() -> String {
-        let timestamp = defaults.integer(forKey: "timestamp")
-        return formattedDate(timestamp, format: "dd/MM/yyyy")
-    }
-
-    private func lastDay() -> String {
-        let timestamp = defaults.integer(forKey: "timestamp")
-        return formattedDate(timestamp, format: "dd")
-    }
-
-    private func currentDay() -> String {
-        let currentTime = TimeInterval(Date().timeIntervalSince1970)
-        return formattedDate(Int(currentTime), format: "dd")
-    }
-
-    private func formattedDate(_ timestamp: Int, format: String) -> String {
-        let date = Date(timeIntervalSince1970: TimeInterval(timestamp))
-        let formatter = DateFormatter()
-        formatter.dateFormat = format
-        formatter.timeZone = TimeZone(secondsFromGMT: 3600)
-        return formatter.string(from: date)
     }
 
     // MARK: - IBActions
 
     @IBAction func switchIconDevice(_ sender: UIButton) {
-        swap(&originDevice, &convertedDevice)
-        originIcon.text = originDevice
-        convertedIcon.text = convertedDevice
+        swap(&originCurrency, &convertedCurrency)
+        originIcon.text = originCurrency
+        convertedIcon.text = convertedCurrency
         amountField.text = ""
         resultAmount.text = "0.00"
     }
 
     @IBAction func convertButton(_ sender: UIButton) {
-        guard var amountText = amountField.text else { return }
-
-        /// check comma and replace it by dot (extension String)
-        element.append(amountText)
-        if commaIsPresent {
-            amountText = element.last?.replaceComma() ?? ""
-        }
-        guard let amount = Double(amountText) else { return }
-        let rate = defaults.double(forKey: "usdrate")
-        if originIcon.text == "€" {
-            let result = amount * rate
-            resultAmount.text = String(result.withDecimal()).replaceDot()
-        } else {
-            let result = amount * (1/rate)
-            resultAmount.text = String(result.withDecimal()).replaceDot()
-        }
+        let amount = control.getConvertedAmount(
+            with: amountField.text,
+            originIcon: originCurrency
+        )
+        resultAmount.text = amount
         amountField.resignFirstResponder()
     }
 
@@ -141,5 +64,4 @@ class ConvertController: UIViewController, UITextFieldDelegate {
         amountField.resignFirstResponder()
         return true
     }
-    
 }
