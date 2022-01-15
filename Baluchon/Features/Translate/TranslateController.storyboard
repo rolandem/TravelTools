@@ -87,25 +87,6 @@
                                     <action selector="switchLanguages:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="pfI-fK-do3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5sv-tV-5dL">
-                                <rect key="frame" x="282" y="263.5" width="30" height="30"/>
-                                <color key="backgroundColor" systemColor="systemRedColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="6ch-Bl-8uW"/>
-                                    <constraint firstAttribute="width" constant="30" id="Jyb-bK-mGe"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="x"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="cancelTextView:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="WrR-pe-MAg"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zML-e1-zqm">
                                 <rect key="frame" x="16" y="378.5" width="288" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -161,6 +142,25 @@
                                     <action selector="translatedLanguageSelect:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="HHF-ec-MUK"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5sv-tV-5dL">
+                                <rect key="frame" x="274" y="134" width="20" height="20"/>
+                                <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="6ch-Bl-8uW"/>
+                                    <constraint firstAttribute="width" constant="20" id="Jyb-bK-mGe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="x"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="cancelTextView:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="WrR-pe-MAg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemGray4Color"/>
@@ -168,10 +168,8 @@
                         <constraints>
                             <constraint firstItem="jgk-mp-NPg" firstAttribute="top" secondItem="Zel-v8-P8Q" secondAttribute="bottom" constant="20" id="1ze-bK-G3H"/>
                             <constraint firstAttribute="bottom" secondItem="x5h-je-gym" secondAttribute="bottom" constant="20" id="3NW-EF-rSE"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="5sv-tV-5dL" secondAttribute="trailing" constant="8" id="6ze-Cq-dhR"/>
                             <constraint firstItem="zML-e1-zqm" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="8DR-PR-BqE"/>
                             <constraint firstItem="Ekm-aZ-dq0" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="FZ4-RC-Cqt"/>
-                            <constraint firstItem="5sv-tV-5dL" firstAttribute="top" secondItem="jgk-mp-NPg" secondAttribute="bottom" constant="-15" id="HAE-yp-8WF"/>
                             <constraint firstItem="jgk-mp-NPg" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="80" id="JgE-Gm-JSb"/>
                             <constraint firstItem="x5h-je-gym" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="OsV-PU-anz"/>
                             <constraint firstItem="Zel-v8-P8Q" firstAttribute="leading" secondItem="jgk-mp-NPg" secondAttribute="leading" id="PZB-1q-k7y"/>
@@ -181,6 +179,7 @@
                             <constraint firstItem="jgk-mp-NPg" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.9" id="Tld-Qc-MSc"/>
                             <constraint firstItem="H8Y-SP-k3b" firstAttribute="bottom" secondItem="Zel-v8-P8Q" secondAttribute="bottom" id="U3n-f8-x9p"/>
                             <constraint firstItem="zML-e1-zqm" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.9" id="VHC-jC-xAX"/>
+                            <constraint firstItem="5sv-tV-5dL" firstAttribute="top" secondItem="jgk-mp-NPg" secondAttribute="top" constant="10" id="bRo-VF-Pou"/>
                             <constraint firstItem="b9T-k6-6A2" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="e6M-6Q-JuB"/>
                             <constraint firstItem="Ekm-aZ-dq0" firstAttribute="top" secondItem="jgk-mp-NPg" secondAttribute="bottom" constant="30" id="f7Q-47-jSv"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="b9T-k6-6A2" secondAttribute="trailing" id="gtB-Uo-YCt"/>
@@ -189,12 +188,14 @@
                             <constraint firstItem="b9T-k6-6A2" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="icB-v2-oLL"/>
                             <constraint firstItem="5JL-TB-xer" firstAttribute="bottom" secondItem="H8Y-SP-k3b" secondAttribute="bottom" id="sgc-Un-16f"/>
                             <constraint firstItem="jgk-mp-NPg" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="tLK-1f-4CI"/>
+                            <constraint firstItem="5sv-tV-5dL" firstAttribute="trailing" secondItem="jgk-mp-NPg" secondAttribute="trailing" constant="-10" id="yes-qL-99z"/>
                             <constraint firstItem="H8Y-SP-k3b" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="zsv-1M-kMT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="rs7-M1-hPF"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="cancelButton" destination="5sv-tV-5dL" id="NeS-QY-Ac4"/>
                         <outlet property="originalLanguage" destination="Zel-v8-P8Q" id="Ql2-l9-fj8"/>
                         <outlet property="originalText" destination="jgk-mp-NPg" id="USw-2w-2J4"/>
                         <outlet property="translatedLanguage" destination="5JL-TB-xer" id="hXm-2H-1Xx"/>
@@ -245,11 +246,11 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

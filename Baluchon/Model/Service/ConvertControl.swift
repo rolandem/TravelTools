@@ -57,7 +57,6 @@ class ConvertControl {
         guard var _amountText = amountText else {
             return " "
         }
-        
         /// replace comma by dot to convert String to Double
         _amountText = _amountText.replaceComma()
         

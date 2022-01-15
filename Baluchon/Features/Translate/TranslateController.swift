@@ -13,6 +13,7 @@ class TranslateController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var translatedText: UILabel!
     @IBOutlet weak var originalLanguage: UIButton!
     @IBOutlet weak var translatedLanguage: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
 
     private let tableView = UITableView()
     private let darkenView = UIView()
@@ -26,6 +27,7 @@ class TranslateController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Traducteur"
+        cancelButton.isHidden = true
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -92,10 +94,19 @@ class TranslateController: UIViewController, UITextViewDelegate {
 
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         originalText.resignFirstResponder()
+        cancelButton.isHidden = true
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         originalText.resignFirstResponder()
+        cancelButton.isHidden = true
+        return true
+    }
+
+    // MARK: - Cancel button - TextfieldDelegate
+
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        cancelButton.isHidden = false
         return true
     }
 }
