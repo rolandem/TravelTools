@@ -10,6 +10,8 @@ import XCTest
 
 class TestCase: XCTestCase {
 
+    // MARK:- Data
+
     static func stubbedData( from json: String) -> Data? {
         let bundle = Bundle(for: TestCase.self)
         let url = bundle.url(forResource: json, withExtension: "json") ?? URL(fileURLWithPath: "www")
@@ -18,7 +20,7 @@ class TestCase: XCTestCase {
 
     // MARK: - Correct and Wrong Response
 
-    static func stubbedResponse(from json: String, statusCode: Int) -> ((URLRequest) -> (HTTPURLResponse, Data?, Error?))? {
+    static func stubbedResponseOK(from json: String) -> ((URLRequest) -> (HTTPURLResponse, Data?, Error?))? {
         let stubData = stubbedData(from: json)
         var data: Data?
         if stubData == nil {
@@ -30,7 +32,49 @@ class TestCase: XCTestCase {
         request = { request in
             let response = HTTPURLResponse(
                 url: request.url!,
-                statusCode: statusCode,
+                statusCode: 200,
+                httpVersion: nil,
+                headerFields: nil
+            )!
+            return (response, data, nil)
+        }
+        return request
+    }
+
+    static func stubbedResponseBad(from json: String) -> ((URLRequest) -> (HTTPURLResponse, Data?, Error?))? {
+        let stubData = stubbedData(from: json)
+        var data: Data?
+        if stubData == nil {
+            data = Data()
+        } else {
+            data = stubData
+        }
+        var request = BaluchonTests.TestURLProtocol.loadingHandler
+        request = { request in
+            let response = HTTPURLResponse(
+                url: request.url!,
+                statusCode: 204,
+                httpVersion: nil,
+                headerFields: nil
+            )!
+            return (response, data, nil)
+        }
+        return request
+    }
+
+    static func stubbedResponse404(from json: String) -> ((URLRequest) -> (HTTPURLResponse, Data?, Error?))? {
+        let stubData = stubbedData(from: json)
+        var data: Data?
+        if stubData == nil {
+            data = Data()
+        } else {
+            data = stubData
+        }
+        var request = BaluchonTests.TestURLProtocol.loadingHandler
+        request = { request in
+            let response = HTTPURLResponse(
+                url: request.url!,
+                statusCode: 404,
                 httpVersion: nil,
                 headerFields: nil
             )!

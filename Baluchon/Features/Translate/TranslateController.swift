@@ -7,22 +7,23 @@
 
 import UIKit
 
-class TranslateController: UIViewController, UITextViewDelegate {
+class TranslateController: UIViewController, UITextViewDelegate, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var originalText: UITextView!
     @IBOutlet weak var translatedText: UILabel!
     @IBOutlet weak var originalLanguage: UIButton!
     @IBOutlet weak var translatedLanguage: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var switchButton:UIButton!
 
-    private let tableView = UITableView()
-    private let darkenView = UIView()
+    let tableView = UITableView()
+    let darkenView = UIView()
     private var selectedButton = UIButton()
-    private var dataSource = languages
-    private var sourceLanguage = "fr"
-    private var targetLanguage = "en"
-    private var titleLeftButton = "Français"
-    private var titleRightButton = "Anglais"
+    var dataSource = languages
+    var sourceLanguage = "fr"
+    var targetLanguage = "en"
+    var titleLeftButton = "Français"
+    var titleRightButton = "Anglais"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,35 +35,40 @@ class TranslateController: UIViewController, UITextViewDelegate {
 
     // MARK: - Get translation
 
-    @IBAction func translateText(_ sender: UIButton) {
-        guard let inputText = originalText.text else { return }
-  
+    private func getUrl() -> URL {
         let translateUrl = TranslateAPI.shared.getUrl(
-            inputText: inputText,
+            inputText: originalText.text ?? " ",
             sourceLang: sourceLanguage,
             targetLang: targetLanguage
         )
-        
+
         guard let url = translateUrl else {
             AlertView().presentAlert(message: "L'adresse de la ressource semble erronée")
-            return
+            return URL(fileURLWithPath: "")
         }
-
-        APIService.shared.getData(
-            request: url,
-            dataType: TranslationData.self
-        ) { result in
-            switch result {
-            case .failure(let error) :
-                AlertView().presentAlert(message: error.localizedDescription)
-            case .success(let translation) :
-                self.translatedText.text = translation.translatedText
-            }
-        }
-        originalText.resignFirstResponder()
+        return url
     }
 
-    // MARK: - IBActions
+    private func gettranslation() {
+        APIService.shared.getData(
+            request: getUrl(),
+            dataType: TranslationData.self
+        ) { result in
+                switch result {
+                case .failure(let error) :
+                    AlertView().presentAlert(message: error.localizedDescription)
+                case .success(let input) :
+                    self.translatedText.text = input.translatedText
+                }
+        }
+    }
+
+    // MARK: - @IBActions
+
+    @IBAction func translateText(_ sender: UIButton) {
+        gettranslation()
+        originalText.resignFirstResponder()
+    }
 
     @IBAction func cancelTextView(_ sender: UIButton) {
         originalText.text = ""
@@ -75,7 +81,7 @@ class TranslateController: UIViewController, UITextViewDelegate {
         originalLanguage.setTitle(titleLeftButton, for: .normal)
         translatedLanguage.setTitle(titleRightButton, for: .normal)
     }
-    
+
     // MARK: - Language choice buttons
 
     @IBAction func originalLanguageSelect(_ sender: UIButton) {
@@ -97,12 +103,6 @@ class TranslateController: UIViewController, UITextViewDelegate {
         cancelButton.isHidden = true
     }
 
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        originalText.resignFirstResponder()
-        cancelButton.isHidden = true
-        return true
-    }
-
     // MARK: - Cancel button - TextfieldDelegate
 
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
@@ -121,7 +121,7 @@ extension TranslateController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.font.withSize(15.0)
+        cell.textLabel?.font.withSize(0.5)
         cell.textLabel?.text = dataSource[indexPath.row].name
         return cell
     }
@@ -134,7 +134,7 @@ extension TranslateController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedButton.setTitle(dataSource[indexPath.row].name, for: .normal)
         translatedText.text = ""
-        
+
         if selectedButton == originalLanguage {
             titleLeftButton = dataSource[indexPath.row].name
             sourceLanguage = dataSource[indexPath.row].codeISO
@@ -184,46 +184,22 @@ extension TranslateController {
         tapGesture.delegate = self
         darkenView.addGestureRecognizer(tapGesture)
         darkenView.alpha = 0
-        UIView.animate(
-            withDuration: 0.4,
-            delay: 0.0,
-            usingSpringWithDamping: 1.0,
-            initialSpringVelocity: 1.0,
-            options: .curveEaseInOut,
-            animations: {
-                self.darkenView.alpha = 0.5
-                self.frameTableView(
-                    frame: frame, x: 0, y: 5, width: 0,
-                    height: CGFloat(self.dataSource.count * 10)
-                )
-            }, completion: nil
-        )
+        view.animation {
+            self.darkenView.alpha = 0.5
+            self.frameTableView(
+                frame: frame, x: 0, y: 5, width: 0,
+                height: CGFloat(self.dataSource.count * 10)
+            )
+        }
         tableView.reloadData()
     }
 
     @objc func removeDarkenView() {
         let frames = selectedButton.frame
-        UIView.animate(
-            withDuration: 0.4, delay: 0.0,
-            usingSpringWithDamping: 1.0,
-            initialSpringVelocity: 1.0,
-            options: .curveEaseInOut,
-            animations: {
-                self.darkenView.alpha = 0
-                self.frameTableView(frame: frames, x: 0, y: 5, width: 0, height: 0)
-            }, completion: nil
-        )
-    }
-}
-
-extension TranslateController: UIGestureRecognizerDelegate {
-
-    func gestureRecognizer(
-        _ gestureRecognizer: UIGestureRecognizer,
-        shouldReceive touch: UITouch) -> Bool {
-            if touch.view != nil && touch.view!.isDescendant(of: self.tableView) {
-            return false
+        view.animation {
+            self.darkenView.alpha = 0
+            self.frameTableView(
+                frame: frames, x: 0, y: 5, width: 0, height: 0)
         }
-        return true
     }
 }

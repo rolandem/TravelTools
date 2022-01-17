@@ -54,20 +54,20 @@ class ConvertControl {
 
     func getConvertedAmount(with amountText: String?, originIcon: String) -> String {
         
-        guard var _amountText = amountText else {
+        guard var amountText = amountText else {
             return " "
         }
         /// replace comma by dot to convert String to Double
-        _amountText = _amountText.replaceComma()
+        amountText = amountText.replaceComma()
         
-        guard let amount = Double(_amountText) else {
+        guard let amount = Double(amountText) else {
             AlertView().presentAlert(message: "Oups, le montant est incorrect")
             return " "
         }
         
         let isDollar = originIcon == "$"
-        let _rate = isDollar ? (1/rate) : rate
-        let result = amount * _rate
+        let rate = isDollar ? (1/rate) : rate
+        let result = amount * rate
         return String(result.withDecimal()).replaceDot()
     }
 

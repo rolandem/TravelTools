@@ -16,6 +16,7 @@ class WeatherController: UIViewController, UITextFieldDelegate {
 
     var videoPlayer: AVPlayer?
     var videoPlayerLayer: AVPlayerLayer?
+    let location = "New York"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,25 +25,33 @@ class WeatherController: UIViewController, UITextFieldDelegate {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         setupBackgroundVideo()
     }
 
     // MARK: - Get Weather
 
-    private func getLocalWeather() {
+    private func getUrl() -> URL {
+        let weatherUrl = WeatherAPI.shared.getUrl(location: location)
 
-        let weatherUrl = WeatherAPI.shared.getUrl(location: "New York")
         guard let url = weatherUrl else {
             AlertView().presentAlert(message: "L'adresse de la ressource semble erronée")
-            return }
+            return URL(fileURLWithPath: "")
+        }
+        return url
+    }
+    private func getLocalWeather() {
 
-        APIService.shared.getData(request: url, dataType: WeatherData.self) { [self] result in
-            switch result {
-            case .failure(let error) :
-                AlertView().presentAlert(message: error.localizedDescription)
-            case .success(let localData) :
-                setupWeatherView(with: localData, from: localWeather)
-            }
+        APIService.shared.getData(
+            request: getUrl(),
+            dataType: WeatherData.self
+        ) { [self] result in
+                switch result {
+                case .failure(let error) :
+                    AlertView().presentAlert(message: error.localizedDescription)
+                case .success(let localData) :
+                    setupWeatherView(with: localData, from: localWeather)
+                }
         }
     }
 

@@ -80,7 +80,7 @@ class ConvertControl_Tests: XCTestCase {
         XCTAssertEqual(convertedAmountShouldBe, convertedAmount)
     }
 
-    func test_convert_null_euro_amount() throws {
+    func test_convert_void_euro_amount() throws {
         // arrange
         let testAmount = " "
         let originIcon = "€"

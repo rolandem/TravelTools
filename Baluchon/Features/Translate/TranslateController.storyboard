@@ -198,6 +198,7 @@
                         <outlet property="cancelButton" destination="5sv-tV-5dL" id="NeS-QY-Ac4"/>
                         <outlet property="originalLanguage" destination="Zel-v8-P8Q" id="Ql2-l9-fj8"/>
                         <outlet property="originalText" destination="jgk-mp-NPg" id="USw-2w-2J4"/>
+                        <outlet property="switchButton" destination="H8Y-SP-k3b" id="jvX-Nw-Dls"/>
                         <outlet property="translatedLanguage" destination="5JL-TB-xer" id="hXm-2H-1Xx"/>
                         <outlet property="translatedText" destination="zML-e1-zqm" id="TkB-TV-kz4"/>
                     </connections>
