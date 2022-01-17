@@ -10,12 +10,20 @@ import XCTest
 
 class TestCase: XCTestCase {
 
-    // MARK:- Data
+    // MARK: - Data
 
     static func stubbedData( from json: String) -> Data? {
         let bundle = Bundle(for: TestCase.self)
         let url = bundle.url(forResource: json, withExtension: "json") ?? URL(fileURLWithPath: "www")
         return try? Data(contentsOf: url)
+    }
+
+    // MARK: - Url
+    
+    static func stubbedUrl( from json: String) -> URL? {
+        let bundle = Bundle(for: TestCase.self)
+        let url = bundle.url(forResource: json, withExtension: "json") ?? URL(fileURLWithPath: "www")
+        return url
     }
 
     // MARK: - Correct and Wrong Response

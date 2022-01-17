@@ -46,12 +46,12 @@ class WeatherController: UIViewController, UITextFieldDelegate {
         APIService.shared.getData(
             request: getUrl(for: localLocation),
             dataType: WeatherData.self
-        ) { [self] result in
+        ) { result in
                 switch result {
                 case .failure(let error) :
                     AlertView().presentAlert(message: error.localizedDescription)
                 case .success(let localData) :
-                    setupWeatherView(with: localData, from: localWeather)
+                    self.setupWeatherView(with: localData, from: self.localWeather)
                 }
         }
     }
