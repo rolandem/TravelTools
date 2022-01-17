@@ -20,7 +20,7 @@ struct WeatherAPI {
     let lang = "fr"
     let unit = "metric"
 
-    func getUrl(location: String) -> URL? {
+    func buildUrl(location: String) -> URL? {
 
         var component = URLComponents()
         component.scheme = "http"

@@ -80,4 +80,16 @@ class TranslateController_Tests: XCTestCase {
         //assert
         XCTAssertEqual(darkview.alpha, 0)
     }
+
+    func test_given_language_when_isSelected_then_cellTitle_matches() {
+        // arrange
+        let languages = sut.dataSource
+        let table = sut.tableView
+        let cell = sut.tableView(table, cellForRowAt: IndexPath(row: 2, section: 0))
+        // act
+        sut.tableView(table, didSelectRowAt: IndexPath(row: 2, section: 0))
+        // assert
+        XCTAssertEqual(cell.textLabel?.text, languages[2].name)
+        XCTAssertEqual(sut.titleRightButton, languages[2].name)
+    }
 }

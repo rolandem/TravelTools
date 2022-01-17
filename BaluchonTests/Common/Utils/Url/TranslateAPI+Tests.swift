@@ -22,7 +22,7 @@ class TranslateAPI_Tests: XCTestCase {
         sut = nil
     }
 
-    func test_translate_url() throws {
+    func test_given_text_when_translate_then_url_good() throws {
         // arrange
         let inputText = "essai traduction"
         let sourceLang = "fr"
@@ -30,5 +30,25 @@ class TranslateAPI_Tests: XCTestCase {
         
         // assert
         XCTAssertEqual(sut.getUrl(inputText: inputText, sourceLang: sourceLang, targetLang: targetLang), URL(string: "https://translation.googleapis.com/language/translate/v2?q=essai%20traduction&source=fr&target=en&format=text&key="))
+    }
+
+    func test_given_text_empty_when_translate_then_url_valid() throws {
+        // arrange
+        let inputText = ""
+        let sourceLang = "fr"
+        let targetLang = "en"
+        
+        // assert
+        XCTAssertEqual(sut.getUrl(inputText: inputText, sourceLang: sourceLang, targetLang: targetLang), URL(string: "https://translation.googleapis.com/language/translate/v2?q=&source=fr&target=en&format=text&key="))
+    }
+
+    func test_given_whitespace_when_translate_then_url_valid() throws {
+        // arrange
+        let inputText = "     "
+        let sourceLang = "fr"
+        let targetLang = "en"
+        
+        // assert
+        XCTAssertEqual(sut.getUrl(inputText: inputText, sourceLang: sourceLang, targetLang: targetLang), URL(string: "https://translation.googleapis.com/language/translate/v2?q=%20%20%20%20%20&source=fr&target=en&format=text&key="))
     }
 }
