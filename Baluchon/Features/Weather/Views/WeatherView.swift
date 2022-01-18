@@ -18,11 +18,6 @@ class WeatherView: UIView {
     @IBOutlet weak var delta: UILabel!
     @IBOutlet weak var weatherIcon: UIImageView!
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        loadXib()
-    }
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         loadXib()

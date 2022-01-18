@@ -22,7 +22,7 @@ class WeatherController_Tests: XCTestCase {
         sut = nil
     }
 
-    func test_given_keyboard_displayed_when_clic_return_then_keyboard_dismiss() {
+    func test_given_keyboard_displayed_when_clic_return_then_keyboard_dismiss() throws {
         // arrange
         guard let research = sut.research else { return }
         research.becomeFirstResponder()

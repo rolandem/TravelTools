@@ -40,7 +40,7 @@ class TranslateController_Tests: XCTestCase {
         XCTAssertEqual(sut.titleRightButton, "Français")
     }
 
-    func test_given_textView_tapped_when_keyboard_appears_then_cancelButton_is_visible() {
+    func test_given_textView_tapped_when_keyboard_appears_then_cancelButton_is_visible() throws {
         // arrange
         guard let textview = sut.originalText else { return }
 
@@ -51,7 +51,7 @@ class TranslateController_Tests: XCTestCase {
         XCTAssertFalse(sut.cancelButton.isHidden)
     }
 
-    func test_given_keyboard_when_dismiss_then_cancelButton_is_hidden() {
+    func test_given_keyboard_when_dismiss_then_cancelButton_is_hidden() throws {
         // arrange
         guard let textview = sut.originalText else { return }
 
@@ -62,7 +62,7 @@ class TranslateController_Tests: XCTestCase {
         XCTAssertTrue(sut.cancelButton.isHidden)
     }
 
-    func test_given_languageButtons_when_selected_then_darkview_appears() {
+    func test_given_languageButtons_when_selected_then_darkview_appears() throws {
         // arrange
         let darkView = sut.darkenView
         guard let view = sut.view else { return }
@@ -72,7 +72,7 @@ class TranslateController_Tests: XCTestCase {
         XCTAssertEqual(darkView.alpha, 0.5)
     }
 
-    func test_given_darkview_when_tapView_then_disappear() {
+    func test_given_darkview_when_tapView_then_disappear() throws {
         // arrange
         let darkview = sut.darkenView
         // act
@@ -81,7 +81,7 @@ class TranslateController_Tests: XCTestCase {
         XCTAssertEqual(darkview.alpha, 0)
     }
 
-    func test_given_language_when_isSelected_then_cellTitle_matches() {
+    func test_given_language_when_isSelected_then_cellTitle_matches() throws {
         // arrange
         let languages = sut.dataSource
         let table = sut.tableView

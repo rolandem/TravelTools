@@ -22,7 +22,7 @@ class ConvertController_Tests: XCTestCase {
         sut = nil
     }
 
-    func test_given_switchIconDeviceButton_when_pressed_then_iconsDevices_swap() {
+    func test_given_switchIconDeviceButton_when_pressed_then_iconsDevices_swap() throws {
 
         // arrange
         guard let originalIcon = sut.originIcon.text,
@@ -41,7 +41,7 @@ class ConvertController_Tests: XCTestCase {
         XCTAssertEqual(convertedIcon, convertedDevice)
     }
 
-    func test_given_keyboard_displayed_when_clic_return_then_keyboard_dismiss() {
+    func test_given_keyboard_displayed_when_clic_return_then_keyboard_dismiss() throws {
         // arrange
         guard let amountText = sut.amountField else { return }
         amountText.becomeFirstResponder()
@@ -55,7 +55,7 @@ class ConvertController_Tests: XCTestCase {
         }
     }
 
-    func test_given_convertButton_when_pressed_then_resignFirstResponder() {
+    func test_given_convertButton_when_pressed_then_resignFirstResponder() throws {
         // arrange
         guard let button = sut.convertToButton,
               let amount = sut.amountField
