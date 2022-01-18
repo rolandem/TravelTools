@@ -75,7 +75,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="switchIconDevice:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="5I1-SK-v89"/>
+                                    <action selector="switchIconCurrency:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="nqX-Aw-3nM"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CF4-Hh-Pqw">

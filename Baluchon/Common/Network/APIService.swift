@@ -68,7 +68,7 @@ extension APIService {
         var errorDescription: String? {
             switch self {
             case .response(let error):
-                return "Donnée non trouvée, erreur \(error).\n\n Vérifier l'orthographe.\n Exemple pour Pointe à Pitre,\n saisir pointe-a-pitre"
+                return "Donnée non trouvée, erreur \(error).\n\n Vérifier la langue ou l'orthographe.\n Exemple pour Pointe à Pitre,\n saisir pointe-a-pitre"
             case .invalidData:
                 return "Les données reçues ne sont pas conformes"
             case .unknow:

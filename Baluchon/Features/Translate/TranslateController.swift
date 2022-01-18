@@ -136,6 +136,7 @@ extension TranslateController: UITableViewDelegate {
         translatedText.text = ""
 
         if selectedButton == originalLanguage {
+            originalText.text = ""
             titleLeftButton = dataSource[indexPath.row].name
             sourceLanguage = dataSource[indexPath.row].codeISO
         } else {

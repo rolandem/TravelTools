@@ -37,7 +37,7 @@ class ConvertController: UIViewController, UITextFieldDelegate {
 
     // MARK: - IBActions
 
-    @IBAction func switchIconDevice(_ sender: UIButton) {
+    @IBAction func switchIconCurrency(_ sender: UIButton) {
         swap(&originCurrency, &convertedCurrency)
         originIcon.text = originCurrency
         convertedIcon.text = convertedCurrency

@@ -96,7 +96,7 @@ class APIService_Tests: TestCase {
                     switch error {
                     case .response(let code):
                         XCTAssertEqual(code, 404)
-                        XCTAssertEqual(error.localizedDescription, "Donnée non trouvée, erreur 404.\n\n Vérifier l'orthographe.\n Exemple pour Pointe à Pitre,\n saisir pointe-a-pitre")
+                        XCTAssertEqual(error.localizedDescription, "Donnée non trouvée, erreur 404.\n\n Vérifier la langue ou l'orthographe.\n Exemple pour Pointe à Pitre,\n saisir pointe-a-pitre")
                     default:
                         XCTFail("Request was not successful: \(error.localizedDescription)")
                     }

@@ -34,7 +34,7 @@ class ConvertController_Tests: XCTestCase {
         let convertedDevice = sut.convertedCurrency
 
         // act
-        sut.switchIconDevice(button)
+        sut.switchIconCurrency(button)
 
         // assert
         XCTAssertEqual(originalIcon, originDevice)

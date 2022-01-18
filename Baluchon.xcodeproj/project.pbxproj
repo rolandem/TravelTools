@@ -341,6 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				B61DA42C2792D48100C9F167 /* Data */,
+				B6D82D802796BCF900622F8D /* Url */,
 				B61DA42B2792D46700C9F167 /* Service */,
 			);
 			path = Model;
@@ -362,7 +363,6 @@
 			isa = PBXGroup;
 			children = (
 				B6C3FD8D277C690900C04BAB /* Extension */,
-				B6C3FD80277B7EB300C04BAB /* Enum */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -413,24 +413,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		B6C3FD80277B7EB300C04BAB /* Enum */ = {
-			isa = PBXGroup;
-			children = (
-				B6C3FD81277B7EE400C04BAB /* Url */,
-			);
-			path = Enum;
-			sourceTree = "<group>";
-		};
-		B6C3FD81277B7EE400C04BAB /* Url */ = {
-			isa = PBXGroup;
-			children = (
-				B6C3FDCA277CB36800C04BAB /* ConvertAPI.swift */,
-				B684A44B277E0FD600B5AF54 /* TranslateAPI.swift */,
-				B6C3FD83277B7F3400C04BAB /* WeatherApi.swift */,
-			);
-			path = Url;
-			sourceTree = "<group>";
-		};
 		B6C3FD87277C55BE00C04BAB /* Media */ = {
 			isa = PBXGroup;
 			children = (
@@ -466,6 +448,16 @@
 				B6D82D7E2794A4C200622F8D /* WeatherController+Tests.swift */,
 			);
 			path = Features;
+			sourceTree = "<group>";
+		};
+		B6D82D802796BCF900622F8D /* Url */ = {
+			isa = PBXGroup;
+			children = (
+				B6C3FDCA277CB36800C04BAB /* ConvertAPI.swift */,
+				B684A44B277E0FD600B5AF54 /* TranslateAPI.swift */,
+				B6C3FD83277B7F3400C04BAB /* WeatherApi.swift */,
+			);
+			path = Url;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
