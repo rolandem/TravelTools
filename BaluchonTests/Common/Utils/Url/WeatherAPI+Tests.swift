@@ -34,10 +34,10 @@ class WeatherAPI_Tests: XCTestCase {
         // arrange
         let location = ""
         let urlShouldBe = URL(string: "http://api.openweathermap.org/data/2.5/weather?q=&units=metric&lang=fr&appid=")
-        
+
         // act
         let result = sut.buildUrl(location: location)
-        
+
         // assert
         XCTAssertEqual(result, urlShouldBe)
     }
@@ -46,10 +46,10 @@ class WeatherAPI_Tests: XCTestCase {
         // arrange
         let location = " "
         let urlShouldBe = URL(string: "http://api.openweathermap.org/data/2.5/weather?q=%20&units=metric&lang=fr&appid=")
-        
+
         // act
         let result = sut.buildUrl(location: location)
-        
+
         // assert
         XCTAssertEqual(result, urlShouldBe)
     }

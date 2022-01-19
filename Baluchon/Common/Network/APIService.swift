@@ -8,7 +8,7 @@
 import Foundation
 
 final class APIService {
-    
+
     static var shared = APIService()
         private init() {}
 
@@ -18,12 +18,12 @@ final class APIService {
         self.session = session
     }
 
-    typealias result<T: Decodable> = (Result<T, FetchError>) -> Void
+    typealias _result<T: Decodable> = (Result<T, FetchError>) -> Void
 
     func getData<T: Decodable>(
         request: URL,
         dataType: T.Type,
-        completion: @escaping (result<T>)
+        completion: @escaping (_result<T>)
     ) {
 
         task = session.dataTask(with: request) { (data, urlResponse, error) in
@@ -45,7 +45,7 @@ final class APIService {
                         print(dataload)
                         #endif
                         completion(.success(dataload))
-                    }
+                        }
                     catch {
                         completion(.failure(.invalidData))
                     }
@@ -64,7 +64,7 @@ extension APIService {
         case invalidData
         case connexion(Error)
         case unknow
-        
+
         var errorDescription: String? {
             switch self {
             case .response(let error):

@@ -27,7 +27,7 @@ class TranslateAPI_Tests: XCTestCase {
         let inputText = "essai traduction"
         let sourceLang = "fr"
         let targetLang = "en"
-        
+
         // assert
         XCTAssertEqual(sut.getUrl(inputText: inputText, sourceLang: sourceLang, targetLang: targetLang), URL(string: "https://translation.googleapis.com/language/translate/v2?q=essai%20traduction&source=fr&target=en&format=text&key="))
     }
@@ -37,7 +37,7 @@ class TranslateAPI_Tests: XCTestCase {
         let inputText = ""
         let sourceLang = "fr"
         let targetLang = "en"
-        
+
         // assert
         XCTAssertEqual(sut.getUrl(inputText: inputText, sourceLang: sourceLang, targetLang: targetLang), URL(string: "https://translation.googleapis.com/language/translate/v2?q=&source=fr&target=en&format=text&key="))
     }
@@ -47,7 +47,7 @@ class TranslateAPI_Tests: XCTestCase {
         let inputText = "     "
         let sourceLang = "fr"
         let targetLang = "en"
-        
+
         // assert
         XCTAssertEqual(sut.getUrl(inputText: inputText, sourceLang: sourceLang, targetLang: targetLang), URL(string: "https://translation.googleapis.com/language/translate/v2?q=%20%20%20%20%20&source=fr&target=en&format=text&key="))
     }

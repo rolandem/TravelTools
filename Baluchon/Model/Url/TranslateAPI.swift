@@ -20,7 +20,7 @@ struct TranslateAPI {
     let format = "text"
 
     func getUrl(inputText: String, sourceLang: String, targetLang: String) -> URL? {
-        
+
         var component = URLComponents()
         component.scheme = "https"
         component.host = "translation.googleapis.com"

@@ -11,7 +11,7 @@ struct WeatherAPI {
 
     static var shared = WeatherAPI()
         private init() {}
-    
+
     var apiKey: String = Bundle.main.infoDictionary?["WEATHER_API_KEY"] as? String ?? ""
     init(apiKey: String) {
         self.apiKey = apiKey

@@ -43,4 +43,3 @@ var languages = [
     Language(name: "Slovène", codeISO: "sl"),
     Language(name: "Suédois", codeISO: "sv")
 ]
-

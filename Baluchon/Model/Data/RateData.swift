@@ -22,7 +22,7 @@ struct RateData: Decodable {
     var USD: Double
 
     init(from decoder: Decoder) throws {
-        // main container
+        /// main container
         let container = try decoder.container(keyedBy: MainKeys.self)
         self.timestamp = try container.decode(Int.self, forKey: .timestamp)
 

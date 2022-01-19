@@ -33,13 +33,13 @@ class ConvertControl {
         }
         return url
     }
-    
+
     private func getRate() {
 
         APIService.shared.getData(request: getUrl(), dataType: RateData.self) { result in
             switch result {
             case .failure(let error) :
-                AlertView().presentAlert(message:error.localizedDescription)
+                AlertView().presentAlert(message: error.localizedDescription)
             case.success(let rateData) :
                 let timestamp = rateData.timestamp
                 let usdRate = rateData.USD.withDecimal()
@@ -53,18 +53,18 @@ class ConvertControl {
     // MARK: - Convenience Methods
 
     func getConvertedAmount(with amountText: String?, originIcon: String) -> String {
-        
+
         guard var amountText = amountText else {
             return " "
         }
         /// replace comma by dot to convert String to Double
         amountText = amountText.replaceComma()
-        
+
         guard let amount = Double(amountText) else {
             AlertView().presentAlert(message: "Oups, le montant est incorrect")
             return " "
         }
-        
+
         let isDollar = originIcon == "$"
         let rate = isDollar ? (1/rate) : rate
         let result = amount * rate
@@ -76,7 +76,7 @@ class ConvertControl {
     func lastStatementDate() -> String {
         return formattedDate(timestamp, format: "dd/MM/yyyy")
     }
-    
+
     private func lastDay() -> String {
         let timestamp = defaults.integer(forKey: "timestamp")
         return formattedDate(timestamp, format: "dd")

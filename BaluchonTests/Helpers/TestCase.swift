@@ -19,7 +19,7 @@ class TestCase: XCTestCase {
     }
 
     // MARK: - Url
-    
+
     static func stubbedUrl( from json: String) -> URL? {
         let bundle = Bundle(for: TestCase.self)
         let url = bundle.url(forResource: json, withExtension: "json") ?? URL(fileURLWithPath: "www")
@@ -103,12 +103,12 @@ class TestCase: XCTestCase {
         }
         return request
     }
-    
-    //MARK: - Error
 
-    class RequestError: Error{}
+    // MARK: - Error
+
+    class RequestError: Error {}
     static let error = RequestError()
-    
+
 }
 
 final class TestURLProtocol: URLProtocol {

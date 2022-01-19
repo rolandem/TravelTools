@@ -72,7 +72,7 @@ class WeatherController: UIViewController, UITextFieldDelegate {
         }
         research.resignFirstResponder()
     }
- 
+
     // MARK: - Keyboard
 
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {

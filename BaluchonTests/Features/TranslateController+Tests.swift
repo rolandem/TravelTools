@@ -77,7 +77,7 @@ class TranslateController_Tests: XCTestCase {
         let darkview = sut.darkenView
         // act
         sut.removeDarkenView()
-        //assert
+        // assert
         XCTAssertEqual(darkview.alpha, 0)
     }
 

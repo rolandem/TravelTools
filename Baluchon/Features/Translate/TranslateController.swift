@@ -145,7 +145,7 @@ extension TranslateController: UITableViewDelegate {
         }
         removeDarkenView()
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
@@ -153,7 +153,7 @@ extension TranslateController: UITableViewDelegate {
 
 extension TranslateController {
 
-    func frameTableView(frame: CGRect, x:CGFloat, y: CGFloat, width: CGFloat, height: CGFloat) {
+    func frameTableView(frame: CGRect, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat) {
         tableView.frame = CGRect(
             x: frame.origin.x + x,
             y: frame.origin.y + frame.height + y,

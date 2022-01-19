@@ -20,11 +20,11 @@ class TranslateController_UITests: XCTestCase {
     }
 
     func testChangeOriginalLanguage() throws {
-        
+
         let app = XCUIApplication()
         app.tabBars["Tab Bar"].buttons["Translate"].tap()
         app/*@START_MENU_TOKEN@*/.staticTexts["Français"]/*[[".buttons[\"Français\"].staticTexts[\"Français\"]",".staticTexts[\"Français\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        
+
         let tablesQuery = app.tables
         tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Croate"]/*[[".cells.staticTexts[\"Croate\"]",".staticTexts[\"Croate\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.swipeUp()
         tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Grec"]/*[[".cells.staticTexts[\"Grec\"]",".staticTexts[\"Grec\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
@@ -34,17 +34,17 @@ class TranslateController_UITests: XCTestCase {
     }
 
     func testChangetranslatedLanguage() throws {
-        
+
         let app = XCUIApplication()
         app.tabBars["Tab Bar"].buttons["Translate"].tap()
         app.staticTexts["Anglais"].tap()
-        
+
         let tablesQuery = app.tables
         tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Croate"]/*[[".cells.staticTexts[\"Croate\"]",".staticTexts[\"Croate\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.swipeUp()
         tablesQuery.staticTexts["Croate"].tap()
-        
+
         let titleButton = app.buttons["Croate"].staticTexts["Croate"]
-        
+
         XCTAssertTrue(titleButton.exists)
     }
 }

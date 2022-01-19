@@ -39,15 +39,15 @@ class APIService_Tests: TestCase {
         guard let url = stubUrl else { return }
         TestURLProtocol.loadingHandler = TestCase.stubbedResponseOK(from: "rates")
         let promise = expectation(description: "Loading")
-        
+
         // act
         sut.getData(request: url, dataType: RateData.self) { (result) in
 
         // assert
             switch result {
-                case .failure(let error):
-                    XCTFail("Request was not successful: \(error.localizedDescription)")
-                case .success(let rate):
+            case .failure(let error):
+                XCTFail("Request was not successful: \(error.localizedDescription)")
+            case .success(let rate):
                 XCTAssertEqual(rate.USD, 1.137145)
             }
             promise.fulfill()
@@ -60,21 +60,21 @@ class APIService_Tests: TestCase {
         guard let url = stubUrl else { return }
         TestURLProtocol.loadingHandler = TestCase.stubbedResponseBad(from: "badjson")
         let promise = expectation(description: "Loading")
-        
+
         // act
         sut.getData(request: url, dataType: WeatherData.self) { (result) in
 
         // assert
             switch result {
-                case .failure(let error):
-                    switch error {
-                    case .invalidData:
-                        XCTAssertEqual(error.localizedDescription, "Les données reçues ne sont pas conformes")
-                    default:
-                        XCTFail("Request was not successful: \(error.localizedDescription)")
-                    }
-                case .success(_):
-                    XCTFail("Request did not fail when it was expected to.")
+            case .failure(let error):
+                switch error {
+                case .invalidData:
+                    XCTAssertEqual(error.localizedDescription, "Les données reçues ne sont pas conformes")
+                default:
+                    XCTFail("Request was not successful: \(error.localizedDescription)")
+                }
+            case .success(_):
+                XCTFail("Request did not fail when it was expected to.")
             }
             promise.fulfill()
         }
@@ -86,22 +86,22 @@ class APIService_Tests: TestCase {
         guard let url = stubUrl else { return }
         TestURLProtocol.loadingHandler = TestCase.stubbedResponse404(from: "badjson")
         let promise = expectation(description: "Loading")
-        
+
         // act
         sut.getData(request: url, dataType: RateData.self) { (result) in
 
         // assert
             switch result {
-                case .failure(let error):
-                    switch error {
-                    case .response(let code):
-                        XCTAssertEqual(code, 404)
-                        XCTAssertEqual(error.localizedDescription, "Donnée non trouvée, erreur 404.\n\n Vérifier la langue ou l'orthographe.\n Exemple pour Pointe à Pitre,\n saisir pointe-a-pitre")
-                    default:
-                        XCTFail("Request was not successful: \(error.localizedDescription)")
-                    }
-                case .success(_):
-                    XCTFail("Request did not fail when it was expected to.")
+            case .failure(let error):
+                switch error {
+                case .response(let code):
+                    XCTAssertEqual(code, 404)
+                    XCTAssertEqual(error.localizedDescription, "Donnée non trouvée, erreur 404.\n\n Vérifier la langue ou l'orthographe.\n Exemple pour Pointe à Pitre,\n saisir pointe-a-pitre")
+                default:
+                    XCTFail("Request was not successful: \(error.localizedDescription)")
+                }
+            case .success(_):
+                XCTFail("Request did not fail when it was expected to.")
             }
             promise.fulfill()
         }
@@ -113,7 +113,7 @@ class APIService_Tests: TestCase {
         guard let url = stubUrl else { return }
         TestURLProtocol.loadingHandler = TestCase.stubbedError(from: "badjson", statusCode: 500)
         let expectation = XCTestExpectation(description: "Loading")
-        
+
         // act
         sut.getData(request: url, dataType: TranslationData.self) { (result) in
 

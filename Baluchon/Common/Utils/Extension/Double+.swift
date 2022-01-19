@@ -8,7 +8,7 @@
 import Foundation
 
 extension Double {
-    
+    /// use to display temperature
     func withoutDecimal() -> String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
@@ -18,7 +18,7 @@ extension Double {
         let formattedValue = formatter.string(from: number)!
         return formattedValue
     }
-    
+    /// use to have two decimal in converted result
     func withDecimal() -> String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal

@@ -19,6 +19,4 @@ class Rate_Tests: XCTestCase {
         // assert
         XCTAssertEqual(rate.USD, 1.137145)
     }
-
-    
 }

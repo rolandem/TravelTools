@@ -25,7 +25,7 @@ class ConvertAPI_Tests: XCTestCase {
     func test_convert_url() throws {
         // arrange
         sut.apiKey = "abcdef"
-        
+
         // asset
         XCTAssertEqual(sut.convertUrl, URL(string: "http://data.fixer.io/api/latest?access_key=abcdef"))
     }

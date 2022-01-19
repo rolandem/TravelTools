@@ -19,5 +19,4 @@ class Weather_Tests: TestCase {
         // assert
         XCTAssertEqual(weather.description, "nuageux")
     }
-
 }

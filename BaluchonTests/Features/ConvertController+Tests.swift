@@ -45,13 +45,12 @@ class ConvertController_Tests: XCTestCase {
         // arrange
         guard let amountText = sut.amountField else { return }
         amountText.becomeFirstResponder()
-        
+
         // act
         if sut.textFieldShouldReturn(amountText) {
 
         // assert
             XCTAssertFalse(amountText.isFirstResponder)
-        
         }
     }
 
@@ -61,10 +60,10 @@ class ConvertController_Tests: XCTestCase {
               let amount = sut.amountField
         else { return }
         amount.becomeFirstResponder()
-        
+
         // act
         sut.convertButton(button)
-        
+
         // assert
         XCTAssertFalse(amount.resignFirstResponder())
     }

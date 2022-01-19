@@ -29,10 +29,10 @@ class ConvertControl_Tests: XCTestCase {
         let originIcon = "€"
         let rate = sut.rate /// recovering last rate
         let convertedAmountShouldBe = String((amount * rate).withDecimal()).replaceDot()
-        
+
         // act
         let convertedAmount = sut.getConvertedAmount(with: testAmount, originIcon: originIcon)
-        
+
         // assert
         XCTAssertEqual(convertedAmountShouldBe, convertedAmount)
     }
@@ -44,10 +44,10 @@ class ConvertControl_Tests: XCTestCase {
         let originIcon = "$"
         let rate = sut.rate /// recovering last rate
         let convertedAmountShouldBe = String((amount * (1/rate)).withDecimal()).replaceDot()
-        
+
         // act
         let convertedAmount = sut.getConvertedAmount(with: testAmount, originIcon: originIcon)
-        
+
         // assert
         XCTAssertEqual(convertedAmountShouldBe, convertedAmount)
     }
@@ -59,10 +59,10 @@ class ConvertControl_Tests: XCTestCase {
         let originIcon = "$"
         let rate = sut.rate /// recovering last rate
         let convertedAmountShouldBe = String((amount * (1/rate)).withDecimal()).replaceDot()
-        
+
         // act
         let convertedAmount = sut.getConvertedAmount(with: testAmount, originIcon: originIcon)
-        
+
         // assert
         XCTAssertEqual(convertedAmountShouldBe, convertedAmount)
     }
@@ -72,10 +72,10 @@ class ConvertControl_Tests: XCTestCase {
         let testAmount = "13,5,0"
         let originIcon = "$"
         let convertedAmountShouldBe = " "
-        
+
         // act
         let convertedAmount = sut.getConvertedAmount(with: testAmount, originIcon: originIcon)
-        
+
         // assert
         XCTAssertEqual(convertedAmountShouldBe, convertedAmount)
     }
@@ -85,10 +85,10 @@ class ConvertControl_Tests: XCTestCase {
         let testAmount = " "
         let originIcon = "€"
         let convertedAmountShouldBe = " "
-        
+
         // act
         let convertedAmount = sut.getConvertedAmount(with: testAmount, originIcon: originIcon)
-        
+
         // assert
         XCTAssertEqual(convertedAmountShouldBe, convertedAmount)
     }

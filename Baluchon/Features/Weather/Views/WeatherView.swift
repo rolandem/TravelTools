@@ -8,7 +8,7 @@
 import UIKit
 
 class WeatherView: UIView {
-    
+
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var cityName: UILabel!
     @IBOutlet weak var countryName: UILabel!
@@ -17,13 +17,13 @@ class WeatherView: UIView {
     @IBOutlet weak var feelsLike: UILabel!
     @IBOutlet weak var delta: UILabel!
     @IBOutlet weak var weatherIcon: UIImageView!
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         loadXib()
     }
-
 }
+
 extension WeatherView {
 
     private func loadXib() {

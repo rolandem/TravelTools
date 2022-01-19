@@ -19,11 +19,11 @@ class ConvertController: UIViewController, UITextFieldDelegate {
 
     var originCurrency = "€"
     var convertedCurrency = "$"
- 
+
     let control = ConvertControl()
     lazy var rate = control.defaults.double(forKey: "usdrate")
     lazy var lastStatementDate = control.lastStatementDate()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Convertisseur"
