@@ -43,21 +43,19 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B684A45F277E44FF00B5AF54"
+               BlueprintIdentifier = "B61DA40B278F7FA700C9F167"
                BuildableName = "BaluchonUITests.xctest"
                BlueprintName = "BaluchonUITests"
                ReferencedContainer = "container:Baluchon.xcodeproj">
             </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B6CF8F0C278F257800D83FCB"
-               BuildableName = "ConvertUITests.xctest"
-               BlueprintName = "ConvertUITests"
-               ReferencedContainer = "container:Baluchon.xcodeproj">
-            </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "BaluchonUITests">
+               </Test>
+               <Test
+                  Identifier = "BaluchonUITestsLaunchTests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>

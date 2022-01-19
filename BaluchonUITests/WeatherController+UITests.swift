@@ -19,16 +19,16 @@ class WeatherController_UITests: XCTestCase {
         app.launch()
     }
 
-    func testExample() throws {
-        
+    func testVideoBackgroundExists() throws {
+
         let app = XCUIApplication()
         app.tabBars["Tab Bar"].buttons["Weather"].tap()
         app.windows.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 0).tap()
-        
+
         let video = app.windows.element
-        
+
         XCTAssertTrue(video.exists)
-        
+
         app.textFields["destination"].tap()
         app.buttons["ok"].tap()
         app.alerts["Oups!"].scrollViews.otherElements.buttons["Ok"].tap()
@@ -37,5 +37,4 @@ class WeatherController_UITests: XCTestCase {
 
         XCTAssertFalse(alert.exists)
     }
-
 }
