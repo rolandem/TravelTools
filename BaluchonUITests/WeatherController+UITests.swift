@@ -22,7 +22,7 @@ class WeatherController_UITests: XCTestCase {
     func testVideoBackgroundExists() throws {
 
         let app = XCUIApplication()
-        app.tabBars["Tab Bar"].buttons["Weather"].tap()
+        app.tabBars["Tab Bar"].buttons["Météo"].tap()
         app.windows.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 0).tap()
 
         let video = app.windows.element

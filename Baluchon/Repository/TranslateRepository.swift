@@ -14,7 +14,7 @@ class TranslateRepository {
     static var shared = TranslateRepository()
         private init() {}
 
-    var apiKey: String = Bundle.main.infoDictionary?["TRANSLATE_API_KEY"] as? String ?? ""
+    var apiKey: String = (Bundle.main.infoDictionary?["TRANSLATE_API_KEY"] as? String).orEmpty
     let format = "text"
 
     init(apiKey: String) {

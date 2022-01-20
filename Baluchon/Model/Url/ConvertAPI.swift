@@ -9,7 +9,7 @@ import Foundation
 
 struct ConvertAPI {
 
-    var apiKey = Bundle.main.infoDictionary?["CONVERT_API_KEY"] as? String ?? ""
+    var apiKey = (Bundle.main.infoDictionary?["CONVERT_API_KEY"] as? String).orEmpty
 
     var convertUrl: URL? {
         var component = URLComponents()
