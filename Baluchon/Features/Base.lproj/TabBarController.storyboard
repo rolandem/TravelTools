@@ -12,7 +12,7 @@
         <scene sceneID="wyg-fe-F5m">
             <objects>
                 <viewControllerPlaceholder storyboardName="TranslateController" id="k24-0U-K5o" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Translate" id="fiW-sN-ny5">
+                    <tabBarItem key="tabBarItem" title="Traduction" id="fiW-sN-ny5">
                         <color key="badgeColor" systemColor="labelColor"/>
                     </tabBarItem>
                 </viewControllerPlaceholder>
@@ -45,7 +45,7 @@
         <scene sceneID="eiT-VU-Gen">
             <objects>
                 <viewControllerPlaceholder storyboardName="WeatherController" id="Oor-a3-QVz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Weather" id="03b-O4-2hm"/>
+                    <tabBarItem key="tabBarItem" title="Météo" id="03b-O4-2hm"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="scL-b7-c02" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -55,7 +55,7 @@
         <scene sceneID="zaL-Dd-SLh">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="ConvertController" storyboardName="ConvertController" id="JjP-B8-m5C" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Convert" id="BBk-B1-dyC">
+                    <tabBarItem key="tabBarItem" title="Conversion" id="BBk-B1-dyC">
                         <color key="badgeColor" systemColor="labelColor"/>
                     </tabBarItem>
                 </viewControllerPlaceholder>

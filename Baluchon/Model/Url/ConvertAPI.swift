@@ -9,9 +9,9 @@ import Foundation
 
 struct ConvertAPI {
 
-     var apiKey = Bundle.main.infoDictionary?["CONVERT_API_KEY"] as? String ?? ""
+    var apiKey = Bundle.main.infoDictionary?["CONVERT_API_KEY"] as? String ?? ""
 
-     var convertUrl: URL? {
+    var convertUrl: URL? {
         var component = URLComponents()
         component.scheme = "http"
         component.host = "data.fixer.io"

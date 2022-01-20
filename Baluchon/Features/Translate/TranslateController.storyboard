@@ -212,11 +212,11 @@
             </objects>
             <point key="canvasLocation" x="936.92307692307691" y="91.706161137440759"/>
         </scene>
-        <!--Translate-->
+        <!--Traduction-->
         <scene sceneID="1uf-VF-f8N">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0gm-qA-RUM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Translate" image="translate-20" id="MaW-jW-LEp">
+                    <tabBarItem key="tabBarItem" title="Traduction" image="translate-20" id="MaW-jW-LEp">
                         <color key="badgeColor" systemColor="secondarySystemBackgroundColor"/>
                     </tabBarItem>
                     <toolbarItems/>

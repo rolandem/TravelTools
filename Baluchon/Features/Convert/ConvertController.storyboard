@@ -179,11 +179,11 @@
             </objects>
             <point key="canvasLocation" x="2015.625" y="129.92957746478874"/>
         </scene>
-        <!--Convert-->
+        <!--Conversion-->
         <scene sceneID="pHt-VZ-R9M">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rR9-GE-2Ed" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Convert" image="convert-20" id="S6Q-rh-TvH"/>
+                    <tabBarItem key="tabBarItem" title="Conversion" image="convert-20" id="S6Q-rh-TvH"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="EbV-yl-3Ol">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

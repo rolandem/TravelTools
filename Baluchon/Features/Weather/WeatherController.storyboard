@@ -116,11 +116,11 @@
             </objects>
             <point key="canvasLocation" x="506" y="92"/>
         </scene>
-        <!--Weather-->
+        <!--Météo-->
         <scene sceneID="CLT-cB-4IZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Vyi-f5-Vm7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Weather" image="weather-20" id="D60-gi-bYz"/>
+                    <tabBarItem key="tabBarItem" title="Météo" image="weather-20" id="D60-gi-bYz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="W6t-rk-Kd6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

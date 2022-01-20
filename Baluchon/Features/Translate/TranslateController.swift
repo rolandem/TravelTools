@@ -25,6 +25,8 @@ class TranslateController: UIViewController, UITextViewDelegate, UIGestureRecogn
     var titleLeftButton = "Français"
     var titleRightButton = "Anglais"
 
+    private let repository = TranslateRepository.shared
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Traducteur"
@@ -33,40 +35,20 @@ class TranslateController: UIViewController, UITextViewDelegate, UIGestureRecogn
         tableView.dataSource = self
     }
 
-    // MARK: - Get translation
-
-    private func getUrl() -> URL {
-        let translateUrl = TranslateAPI.shared.getUrl(
-            inputText: originalText.text ?? " ",
-            sourceLang: sourceLanguage,
-            targetLang: targetLanguage
-        )
-
-        guard let url = translateUrl else {
-            AlertView().presentAlert(message: "L'adresse de la ressource semble erronée")
-            return URL(fileURLWithPath: "")
-        }
-        return url
-    }
-
-    private func gettranslation() {
-        APIService.shared.getData(
-            request: getUrl(),
-            dataType: TranslationData.self
-        ) { result in
-                switch result {
-                case .failure(let error) :
-                    AlertView().presentAlert(message: error.localizedDescription)
-                case .success(let input) :
-                    self.translatedText.text = input.translatedText
-                }
-        }
-    }
-
     // MARK: - @IBActions
 
     @IBAction func translateText(_ sender: UIButton) {
-        gettranslation()
+        repository.getTranslation(
+            for: originalText.text,
+            sourceLanguage: sourceLanguage,
+            targetLanguage: targetLanguage
+        ) { [weak self] (translation, error) in
+            if let error = error {
+                AlertView().presentAlert(message: error.localizedDescription)
+                return
+            }
+            self?.translatedText.text = translation
+        }
         originalText.resignFirstResponder()
     }
 
