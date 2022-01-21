@@ -7,7 +7,7 @@
 
 import Foundation
 
-typealias ResponseOrError = (_ translation: String, _ error: Error?) -> Void
+typealias TranslationOrError = (_ translation: String, _ error: Error?) -> Void
 
 class TranslateRepository {
 
@@ -17,6 +17,7 @@ class TranslateRepository {
     var apiKey: String = (Bundle.main.infoDictionary?["TRANSLATE_API_KEY"] as? String).orEmpty
     let format = "text"
 
+    /// to test getUrl method with a fake apiKey
     init(apiKey: String) {
         self.apiKey = apiKey
     }
@@ -25,7 +26,7 @@ class TranslateRepository {
         for text: String,
         sourceLanguage: String,
         targetLanguage: String,
-        completion: @escaping ResponseOrError
+        completion: @escaping TranslationOrError
     ) {
 
         let translateUrl = getUrl(

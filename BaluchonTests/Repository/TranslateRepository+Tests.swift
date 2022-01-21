@@ -22,7 +22,7 @@ class TranslateRepository_Tests: XCTestCase {
         try super.tearDownWithError()
     }
 
-    func testExample() throws {
+    func test_build_translateUrl() throws {
         // arrange
         let inputText = "essai"
         let source = "fr"
