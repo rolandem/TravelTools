@@ -20,9 +20,9 @@ class ConvertController: UIViewController, UITextFieldDelegate {
     var originCurrency = "€"
     var convertedCurrency = "$"
     private let repository = ConvertRepository.shared
-    var defaults = UserDefaults.standard
-    lazy var rate = defaults.double(forKey: "usdrate")
-    lazy var timestamp = defaults.integer(forKey: "timestamp")
+    private let persistent = Persistent.shared
+    lazy var rate = persistent.recoverRate()
+    lazy var timestamp = persistent.recoverTimestamp()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +45,7 @@ class ConvertController: UIViewController, UITextFieldDelegate {
     }
  
     private func getRate() {
-        repository.getRate { rateData, error in
+        repository.getRate { [self] rateData, error in
             if let error = error {
                 AlertView().presentAlert(message: error.localizedDescription)
             }
@@ -53,8 +53,8 @@ class ConvertController: UIViewController, UITextFieldDelegate {
                   let newTimestamp = rateData?.timestamp
             else { return }
             guard let rateUsd = Double(_rateUsd.withDecimal()) else { return }
-            self.defaults.set(rateUsd, forKey: "usdrate")
-            self.defaults.set(newTimestamp, forKey: "timestamp")
+            persistent.saveRate(rateUsd)
+            persistent.saveTime(newTimestamp)
         }
     }
 
@@ -113,12 +113,12 @@ class ConvertController: UIViewController, UITextFieldDelegate {
     // MARK: - Formatted Dates
 
     func lastStatementDate() -> String {
-        let timestamp = defaults.integer(forKey: "timestamp")
+//        let timestamp = persistent.recoverTimestamp()
         return formattedDate(timestamp, format: "dd/MM/yyyy")
     }
 
     private func lastDay() -> String {
-        let timestamp = defaults.integer(forKey: "timestamp")
+//        let timestamp = persistent.recoverTimestamp()
         return formattedDate(timestamp, format: "dd")
     }
 

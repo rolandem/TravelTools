@@ -51,6 +51,8 @@
 		B6DABD7C279AAE5600680ABF /* ConvertRepository+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DABD7B279AAE5600680ABF /* ConvertRepository+Test.swift */; };
 		B6DABD7E279AC57500680ABF /* WeatherRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DABD7D279AC57500680ABF /* WeatherRepository.swift */; };
 		B6DABD80279AF4C500680ABF /* WeatherRepository+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DABD7F279AF4C500680ABF /* WeatherRepository+Tests.swift */; };
+		B6DABD82279B167800680ABF /* Persistent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DABD81279B167800680ABF /* Persistent.swift */; };
+		B6DABD84279B206700680ABF /* Persistent+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DABD83279B206700680ABF /* Persistent+Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +123,8 @@
 		B6DABD7B279AAE5600680ABF /* ConvertRepository+Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConvertRepository+Test.swift"; sourceTree = "<group>"; };
 		B6DABD7D279AC57500680ABF /* WeatherRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRepository.swift; sourceTree = "<group>"; };
 		B6DABD7F279AF4C500680ABF /* WeatherRepository+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeatherRepository+Tests.swift"; sourceTree = "<group>"; };
+		B6DABD81279B167800680ABF /* Persistent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistent.swift; sourceTree = "<group>"; };
+		B6DABD83279B206700680ABF /* Persistent+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Persistent+Tests.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,16 +161,6 @@
 				B6D82D812797455400622F8D /* WeatherController+UITests.swift */,
 			);
 			path = BaluchonUITests;
-			sourceTree = "<group>";
-		};
-		B61DA42F2792EE1500C9F167 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				B6CF8EFD278C923100D83FCB /* Rate+Tests.swift */,
-				B6CF8EFF278C92D400D83FCB /* Translation+Tests.swift */,
-				B6CF8F01278C933300D83FCB /* Weather+Tests.swift */,
-			);
-			path = Data;
 			sourceTree = "<group>";
 		};
 		B63C41A127889F9B00DA3CBE /* Common */ = {
@@ -301,6 +295,7 @@
 				B684A445277E0D7E00B5AF54 /* Translation.swift */,
 				B6C3FD77277B6F6300C04BAB /* Weather.swift */,
 				B63C41892782E3FA00DA3CBE /* Language.swift */,
+				B6DABD81279B167800680ABF /* Persistent.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -393,7 +388,10 @@
 		B6CF8EFC278C91F600D83FCB /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B61DA42F2792EE1500C9F167 /* Data */,
+				B6CF8EFD278C923100D83FCB /* Rate+Tests.swift */,
+				B6CF8EFF278C92D400D83FCB /* Translation+Tests.swift */,
+				B6CF8F01278C933300D83FCB /* Weather+Tests.swift */,
+				B6DABD83279B206700680ABF /* Persistent+Tests.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -582,6 +580,7 @@
 				B6D82D792793F89800622F8D /* TranslateController+Tests.swift in Sources */,
 				B6DABD80279AF4C500680ABF /* WeatherRepository+Tests.swift in Sources */,
 				B6D82D7F2794A4C200622F8D /* WeatherController+Tests.swift in Sources */,
+				B6DABD84279B206700680ABF /* Persistent+Tests.swift in Sources */,
 				B6CF8EFE278C923100D83FCB /* Rate+Tests.swift in Sources */,
 				B6CF8EFB278C90DF00D83FCB /* APIService+Tests.swift in Sources */,
 				B61DA4182790173300C9F167 /* ConvertController+Tests.swift in Sources */,
@@ -606,6 +605,7 @@
 				B6C3FD132775E13300C04BAB /* TranslateController.swift in Sources */,
 				B6DABD752799F0CA00680ABF /* OptionalString+.swift in Sources */,
 				B6C3FD78277B6F6300C04BAB /* Weather.swift in Sources */,
+				B6DABD82279B167800680ABF /* Persistent.swift in Sources */,
 				B61DA4202791921900C9F167 /* String+.swift in Sources */,
 				B6C3FD5E2775EF0C00C04BAB /* TabBarController.swift in Sources */,
 				B6DABD732799CF8E00680ABF /* TranslateRepository.swift in Sources */,
