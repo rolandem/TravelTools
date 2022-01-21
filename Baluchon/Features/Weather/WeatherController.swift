@@ -16,6 +16,7 @@ class WeatherController: UIViewController, UITextFieldDelegate {
 
     var videoPlayer: AVPlayer?
     var videoPlayerLayer: AVPlayerLayer?
+    private let repository = WeatherRepository.shared
     let localLocation = "New York"
 
     override func viewDidLoad() {
@@ -31,44 +32,25 @@ class WeatherController: UIViewController, UITextFieldDelegate {
 
     // MARK: - Get Weather
 
-    private func getUrl(for location: String) -> URL {
-        let weatherUrl = WeatherAPI.shared.buildUrl(location: location)
-
-        guard let url = weatherUrl else {
-            AlertView().presentAlert(message: "L'adresse de la ressource semble erronée")
-            return URL(fileURLWithPath: "")
-        }
-        return url
-    }
-
     private func getLocalWeather() {
-
-        APIService.shared.getData(
-            request: getUrl(for: localLocation),
-            dataType: WeatherData.self
-        ) { result in
-                switch result {
-                case .failure(let error) :
-                    AlertView().presentAlert(message: error.localizedDescription)
-                case .success(let localData) :
-                    self.setupWeatherView(with: localData, from: self.localWeather)
-                }
-        }
+        repository.getWeather(location: localLocation) { [self] weather, error in
+            if let error = error {
+                AlertView().presentAlert(message: error.localizedDescription)
+            }
+            guard let localWeather = weather else { return }
+            setupWeatherView(with: localWeather, from: self.localWeather)
+            }
     }
 
     @IBAction func getDestinationWeather(_ sender: UIButton) {
         guard let destination = research.text else { return }
 
-        APIService.shared.getData(
-            request: getUrl(for: destination),
-            dataType: WeatherData.self
-        ) { [self] result in
-            switch result {
-            case .failure(let error) :
+        repository.getWeather(location: destination) { [self] weather, error in
+            if let error = error {
                 AlertView().presentAlert(message: error.localizedDescription)
-            case .success(let destinationData) :
-                setupWeatherView(with: destinationData, from: destinationWeather)
             }
+            guard let destinationWeather = weather else { return }
+            setupWeatherView(with: destinationWeather, from: self.destinationWeather)
         }
         research.resignFirstResponder()
     }

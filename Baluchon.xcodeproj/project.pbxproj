@@ -11,7 +11,6 @@
 		B61DA411278F7FA800C9F167 /* BaluchonUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61DA410278F7FA800C9F167 /* BaluchonUITestsLaunchTests.swift */; };
 		B61DA4182790173300C9F167 /* ConvertController+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61DA4172790173300C9F167 /* ConvertController+Tests.swift */; };
 		B61DA4202791921900C9F167 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61DA41F2791921900C9F167 /* String+.swift */; };
-		B61DA42A2791D17900C9F167 /* WeatherAPI+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61DA4292791D17900C9F167 /* WeatherAPI+Tests.swift */; };
 		B61DA43827936AB900C9F167 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61DA43727936AB900C9F167 /* UIView+.swift */; };
 		B63C41822782266B00DA3CBE /* rates.json in Resources */ = {isa = PBXBuildFile; fileRef = B63C41812782266B00DA3CBE /* rates.json */; };
 		B63C41842782278000DA3CBE /* weather.json in Resources */ = {isa = PBXBuildFile; fileRef = B63C41832782278000DA3CBE /* weather.json */; };
@@ -34,7 +33,6 @@
 		B6C3FD74277B655500C04BAB /* WeatherView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6C3FD73277B655500C04BAB /* WeatherView.xib */; };
 		B6C3FD76277B680000C04BAB /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3FD75277B680000C04BAB /* WeatherView.swift */; };
 		B6C3FD78277B6F6300C04BAB /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3FD77277B6F6300C04BAB /* WeatherData.swift */; };
-		B6C3FD84277B7F3400C04BAB /* WeatherApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3FD83277B7F3400C04BAB /* WeatherApi.swift */; };
 		B6C3FD8C277C687000C04BAB /* SkyBackground.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B6C3FD8B277C687000C04BAB /* SkyBackground.mp4 */; };
 		B6C3FD8F277C692500C04BAB /* Double+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3FD8E277C692500C04BAB /* Double+.swift */; };
 		B6C3FDC9277CB2B200C04BAB /* RateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3FDC8277CB2B200C04BAB /* RateData.swift */; };
@@ -51,6 +49,8 @@
 		B6DABD782799F35B00680ABF /* TranslateRepository+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DABD772799F35B00680ABF /* TranslateRepository+Tests.swift */; };
 		B6DABD7A279A9CEB00680ABF /* ConvertRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DABD79279A9CEB00680ABF /* ConvertRepository.swift */; };
 		B6DABD7C279AAE5600680ABF /* ConvertRepository+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DABD7B279AAE5600680ABF /* ConvertRepository+Test.swift */; };
+		B6DABD7E279AC57500680ABF /* WeatherRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DABD7D279AC57500680ABF /* WeatherRepository.swift */; };
+		B6DABD80279AF4C500680ABF /* WeatherRepository+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DABD7F279AF4C500680ABF /* WeatherRepository+Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,7 +76,6 @@
 		B61DA410278F7FA800C9F167 /* BaluchonUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaluchonUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B61DA4172790173300C9F167 /* ConvertController+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConvertController+Tests.swift"; sourceTree = "<group>"; };
 		B61DA41F2791921900C9F167 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
-		B61DA4292791D17900C9F167 /* WeatherAPI+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeatherAPI+Tests.swift"; sourceTree = "<group>"; };
 		B61DA43727936AB900C9F167 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		B63C41812782266B00DA3CBE /* rates.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = rates.json; sourceTree = "<group>"; };
 		B63C41832782278000DA3CBE /* weather.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = weather.json; sourceTree = "<group>"; };
@@ -103,7 +102,6 @@
 		B6C3FD73277B655500C04BAB /* WeatherView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherView.xib; sourceTree = "<group>"; };
 		B6C3FD75277B680000C04BAB /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		B6C3FD77277B6F6300C04BAB /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
-		B6C3FD83277B7F3400C04BAB /* WeatherApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherApi.swift; sourceTree = "<group>"; };
 		B6C3FD8B277C687000C04BAB /* SkyBackground.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SkyBackground.mp4; sourceTree = "<group>"; };
 		B6C3FD8E277C692500C04BAB /* Double+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+.swift"; sourceTree = "<group>"; };
 		B6C3FDC8277CB2B200C04BAB /* RateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateData.swift; sourceTree = "<group>"; };
@@ -121,6 +119,8 @@
 		B6DABD772799F35B00680ABF /* TranslateRepository+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TranslateRepository+Tests.swift"; sourceTree = "<group>"; };
 		B6DABD79279A9CEB00680ABF /* ConvertRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertRepository.swift; sourceTree = "<group>"; };
 		B6DABD7B279AAE5600680ABF /* ConvertRepository+Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConvertRepository+Test.swift"; sourceTree = "<group>"; };
+		B6DABD7D279AC57500680ABF /* WeatherRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRepository.swift; sourceTree = "<group>"; };
+		B6DABD7F279AF4C500680ABF /* WeatherRepository+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeatherRepository+Tests.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,22 +159,6 @@
 			path = BaluchonUITests;
 			sourceTree = "<group>";
 		};
-		B61DA4232791C17800C9F167 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				B61DA4242791C18C00C9F167 /* Url */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		B61DA4242791C18C00C9F167 /* Url */ = {
-			isa = PBXGroup;
-			children = (
-				B61DA4292791D17900C9F167 /* WeatherAPI+Tests.swift */,
-			);
-			path = Url;
-			sourceTree = "<group>";
-		};
 		B61DA42C2792D48100C9F167 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,7 +184,6 @@
 			isa = PBXGroup;
 			children = (
 				B63C41A82788A00C00DA3CBE /* Network */,
-				B61DA4232791C17800C9F167 /* Utils */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -326,7 +309,6 @@
 			isa = PBXGroup;
 			children = (
 				B61DA42C2792D48100C9F167 /* Data */,
-				B6D82D802796BCF900622F8D /* Url */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -434,19 +416,12 @@
 			path = Features;
 			sourceTree = "<group>";
 		};
-		B6D82D802796BCF900622F8D /* Url */ = {
-			isa = PBXGroup;
-			children = (
-				B6C3FD83277B7F3400C04BAB /* WeatherApi.swift */,
-			);
-			path = Url;
-			sourceTree = "<group>";
-		};
 		B6DABD712799CF7C00680ABF /* Repository */ = {
 			isa = PBXGroup;
 			children = (
 				B6DABD79279A9CEB00680ABF /* ConvertRepository.swift */,
 				B6DABD722799CF8E00680ABF /* TranslateRepository.swift */,
+				B6DABD7D279AC57500680ABF /* WeatherRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -456,6 +431,7 @@
 			children = (
 				B6DABD7B279AAE5600680ABF /* ConvertRepository+Test.swift */,
 				B6DABD772799F35B00680ABF /* TranslateRepository+Tests.swift */,
+				B6DABD7F279AF4C500680ABF /* WeatherRepository+Tests.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -612,13 +588,13 @@
 			files = (
 				B6CF8F00278C92D400D83FCB /* Translation+Tests.swift in Sources */,
 				B6D82D792793F89800622F8D /* TranslateController+Tests.swift in Sources */,
+				B6DABD80279AF4C500680ABF /* WeatherRepository+Tests.swift in Sources */,
 				B6D82D7F2794A4C200622F8D /* WeatherController+Tests.swift in Sources */,
 				B6CF8EFE278C923100D83FCB /* Rate+Tests.swift in Sources */,
 				B6CF8EFB278C90DF00D83FCB /* APIService+Tests.swift in Sources */,
 				B61DA4182790173300C9F167 /* ConvertController+Tests.swift in Sources */,
 				B6DABD782799F35B00680ABF /* TranslateRepository+Tests.swift in Sources */,
 				B6CF8F02278C933300D83FCB /* Weather+Tests.swift in Sources */,
-				B61DA42A2791D17900C9F167 /* WeatherAPI+Tests.swift in Sources */,
 				B63C41AF2788A0D800DA3CBE /* TestCase.swift in Sources */,
 				B6DABD7C279AAE5600680ABF /* ConvertRepository+Test.swift in Sources */,
 			);
@@ -632,7 +608,6 @@
 				B63C418A2782E3FA00DA3CBE /* Language.swift in Sources */,
 				B6C3FD8F277C692500C04BAB /* Double+.swift in Sources */,
 				B6C3FCDA2775DFB200C04BAB /* AppDelegate.swift in Sources */,
-				B6C3FD84277B7F3400C04BAB /* WeatherApi.swift in Sources */,
 				B63C418E2784A10000DA3CBE /* APIService.swift in Sources */,
 				B6DABD7A279A9CEB00680ABF /* ConvertRepository.swift in Sources */,
 				B6C3FDC9277CB2B200C04BAB /* RateData.swift in Sources */,
@@ -642,6 +617,7 @@
 				B61DA4202791921900C9F167 /* String+.swift in Sources */,
 				B6C3FD5E2775EF0C00C04BAB /* TabBarController.swift in Sources */,
 				B6DABD732799CF8E00680ABF /* TranslateRepository.swift in Sources */,
+				B6DABD7E279AC57500680ABF /* WeatherRepository.swift in Sources */,
 				B6C3FD76277B680000C04BAB /* WeatherView.swift in Sources */,
 				B61DA43827936AB900C9F167 /* UIView+.swift in Sources */,
 				B6C3FD152775E14800C04BAB /* WeatherController.swift in Sources */,
