@@ -41,6 +41,54 @@ class ConvertController_Tests: XCTestCase {
         XCTAssertEqual(convertedIcon, convertedDevice)
     }
 
+    func test_Given_empty_amount_when_getConvertAmount_is_called_then_displays_empty_result() {
+        // arrange
+        let icon = "€"
+        //guard var amountText = sut.amountField.text else { return }
+        let amountText = ""
+//        guard let amount = Double(amountText) else { return }
+//        let rate = sut.rate
+        let shouldBe = " "
+        
+        // act
+        let result = sut.getConvertedAmount(with: amountText, originIcon: icon)
+
+        // assert
+        XCTAssertEqual(result, shouldBe)
+    }
+
+    func test_Given_€amount_when_getConvertAmount_is_called_then_displays_result() {
+        // arrange
+        let icon = "€"
+        guard var amountText = sut.amountField.text else { return }
+        amountText = "12"
+        guard let amount = Double(amountText) else { return }
+        let rate = sut.rate
+        let shouldBe = ((amount * rate).withDecimal()).replaceDot()
+        
+        // act
+        let result = sut.getConvertedAmount(with: amountText, originIcon: icon)
+
+        // assert
+        XCTAssertEqual(result, shouldBe)
+    }
+
+    func test_Given_$amount_when_getConvertAmount_is_called_then_displays_result() {
+        // arrange
+        let icon = "$"
+        guard var amountText = sut.amountField.text else { return }
+        amountText = "75"
+        guard let amount = Double(amountText) else { return }
+        let rate = sut.rate
+        let shouldBe = ((amount * (1/rate)).withDecimal()).replaceDot()
+        
+        // act
+        let result = sut.getConvertedAmount(with: amountText, originIcon: icon)
+
+        // assert
+        XCTAssertEqual(result, shouldBe)
+    }
+
     func test_given_keyboard_displayed_when_clic_return_then_keyboard_dismiss() throws {
         // arrange
         guard let amountText = sut.amountField else { return }

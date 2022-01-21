@@ -37,8 +37,7 @@ class ConvertController: UIViewController, UITextFieldDelegate {
     func launchQueryIfNeeded() {
         guard let lastStatementDay = Int(lastDay()),
               let currentDay = Int(currentDay()) else { return }
-print("last", lastStatementDay)
-        print("current", currentDay)
+
         let delta = abs(currentDay) - abs(lastStatementDay)
         if delta >= 1 {
             getRate()
