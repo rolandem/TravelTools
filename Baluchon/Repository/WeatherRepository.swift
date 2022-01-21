@@ -7,7 +7,7 @@
 
 import Foundation
 
-typealias WeatherOrError = (_ weather: (WeatherData)?, _ error: Error?) -> Void
+typealias WeatherOrError = (_ weather: (Weather)?, _ error: Error?) -> Void
 
 class WeatherRepository {
 
@@ -15,6 +15,7 @@ class WeatherRepository {
     private init() {}
 
     var apiKey: String = (Bundle.main.infoDictionary?["WEATHER_API_KEY"] as? String).orEmpty
+    /// to test getUrl method with a fake apiKey
     init(apiKey: String) {
         self.apiKey = apiKey
     }
@@ -29,10 +30,12 @@ class WeatherRepository {
         let weatherUrl = getUrl(location: location)
         guard let url = weatherUrl else {
             completion(nil, nil)
-            return }
+            return
+        }
+
         APIService.shared.getData(
             request: url,
-            dataType: WeatherData.self
+            dataType: Weather.self
         ) { result in
             switch result {
             case .failure(let error):

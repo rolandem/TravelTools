@@ -42,7 +42,7 @@ class WeatherController_Tests: XCTestCase {
 
         guard let dataWeather = TestCase.stubbedData(from: "weather") else { return }
         let decoder = JSONDecoder()
-        let weather = try decoder.decode(WeatherData.self, from: dataWeather)
+        let weather = try decoder.decode(Weather.self, from: dataWeather)
 
         // act
         sut.setupWeatherView(with: weather, from: location)

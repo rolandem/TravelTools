@@ -44,10 +44,7 @@ class ConvertController_Tests: XCTestCase {
     func test_Given_empty_amount_when_getConvertAmount_is_called_then_displays_empty_result() {
         // arrange
         let icon = "€"
-        //guard var amountText = sut.amountField.text else { return }
         let amountText = ""
-//        guard let amount = Double(amountText) else { return }
-//        let rate = sut.rate
         let shouldBe = " "
         
         // act

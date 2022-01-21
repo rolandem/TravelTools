@@ -25,10 +25,8 @@ final class APIService {
         dataType: T.Type,
         completion: @escaping (_result<T>)
     ) {
-
         task = session.dataTask(with: request) { (data, urlResponse, error) in
             DispatchQueue.main.async {
-
                 if let error = error {
                     completion(.failure(.connexion(error)))
                 }

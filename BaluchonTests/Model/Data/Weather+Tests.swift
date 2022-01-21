@@ -15,7 +15,7 @@ class Weather_Tests: TestCase {
         guard let dataWeather = TestCase.stubbedData(from: "weather") else { return }
         // act
         let decoder = JSONDecoder()
-        let weather = try decoder.decode(WeatherData.self, from: dataWeather)
+        let weather = try decoder.decode(Weather.self, from: dataWeather)
         // assert
         XCTAssertEqual(weather.description, "nuageux")
     }

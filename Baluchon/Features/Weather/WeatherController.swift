@@ -92,7 +92,7 @@ class WeatherController: UIViewController, UITextFieldDelegate {
 }
 extension WeatherController {
 
-    func setupWeatherView(with meteoData: (WeatherData), from location: WeatherView) {
+    func setupWeatherView(with meteoData: (Weather), from location: WeatherView) {
         location.cityName.text = meteoData.city
         location.countryName.text = meteoData.country
         location.skyConditions.text = "actuellement " + meteoData.description

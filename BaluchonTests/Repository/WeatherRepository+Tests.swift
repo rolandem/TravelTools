@@ -43,7 +43,7 @@ class WeatherRepository_Tests: XCTestCase {
         XCTAssertEqual(result, urlShouldBe)
     }
 
-    func test_given_whitespace_when_getUrl_then_e() {
+    func test_given_whitespace_when_getUrl_then_url_valid() {
         // arrange
         let location = " "
         let urlShouldBe = URL(string: "http://api.openweathermap.org/data/2.5/weather?q=%20&units=metric&lang=fr&appid=ghijkl")

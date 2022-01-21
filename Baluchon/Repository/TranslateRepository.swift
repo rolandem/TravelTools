@@ -15,12 +15,13 @@ class TranslateRepository {
         private init() {}
 
     var apiKey: String = (Bundle.main.infoDictionary?["TRANSLATE_API_KEY"] as? String).orEmpty
-    let format = "text"
 
     /// to test getUrl method with a fake apiKey
     init(apiKey: String) {
         self.apiKey = apiKey
     }
+
+    let format = "text"
 
     func getTranslation(
         for text: String,
@@ -28,7 +29,6 @@ class TranslateRepository {
         targetLanguage: String,
         completion: @escaping TranslationOrError
     ) {
-
         let translateUrl = getUrl(
             inputText: text,
             sourceLang: sourceLanguage,
@@ -41,7 +41,7 @@ class TranslateRepository {
 
         APIService.shared.getData(
             request: url,
-            dataType: TranslationData.self
+            dataType: Translation.self
         ) { result in
             switch result {
             case .failure(let error) :

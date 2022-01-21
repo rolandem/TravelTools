@@ -9,7 +9,7 @@ import Foundation
 
 class ConvertRepository {
 
-    typealias RateOrError = (_ rateData: (RateData)?, _ error: Error?) -> Void
+    typealias RateOrError = (_ rateData: (Rate)?, _ error: Error?) -> Void
 
     static var shared = ConvertRepository()
     private init() {}
@@ -25,7 +25,7 @@ class ConvertRepository {
         guard let url = getUrl else { return }
         APIService.shared.getData(
             request: url,
-            dataType: RateData.self
+            dataType: Rate.self
         ) { result in
             switch result {
             case .failure(let error) :

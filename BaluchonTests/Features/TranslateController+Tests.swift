@@ -25,10 +25,10 @@ class TranslateController_Tests: XCTestCase {
     func test_when_switchLanguages_is_pressed_titleButtons_swap() throws {
         // arrange
         guard let button = sut.switchButton else { return }
-        _ = sut.sourceLanguage    /// "fr"
-        _ = sut.targetLanguage     /// "en"
-        _ = sut.titleLeftButton   /// "Anglais"
-        _ = sut.titleRightButton /// "Français"
+        _ = sut.sourceLanguage       /// "fr"
+        _ = sut.targetLanguage       /// "en"
+        _ = sut.titleLeftButton     /// "Anglais"
+        _ = sut.titleRightButton     /// "Français"
 
         // act
         sut.switchLanguages(button)

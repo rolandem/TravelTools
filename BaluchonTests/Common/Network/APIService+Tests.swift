@@ -26,8 +26,6 @@ class APIService_Tests: TestCase {
             TestURLProtocol.loadingHandler = nil
         }
 
-    let stubUrl = URL(string: "https://ep.com")
-
     var session: URLSession {
         let configuration = URLSessionConfiguration.ephemeral
         configuration.protocolClasses = [TestURLProtocol.self]
@@ -36,12 +34,13 @@ class APIService_Tests: TestCase {
 
     func test_given_correctJson_when_fetching_rate_then_succed() {
         // arrange
-        guard let url = stubUrl else { return }
+        let stuburl = TestCase.stubbedUrl(from: "rates")
+        guard let url = stuburl else { return }
         TestURLProtocol.loadingHandler = TestCase.stubbedResponseOK(from: "rates")
         let promise = expectation(description: "Loading")
 
         // act
-        sut.getData(request: url, dataType: RateData.self) { (result) in
+        sut.getData(request: url, dataType: Rate.self) { (result) in
 
         // assert
             switch result {
@@ -57,12 +56,13 @@ class APIService_Tests: TestCase {
 
     func test_given_badjson_when_fetching_then_failed_invalidData() {
         // arrange
-        guard let url = stubUrl else { return }
+        let stuburl = TestCase.stubbedUrl(from: "badjson")
+        guard let url = stuburl else { return }
         TestURLProtocol.loadingHandler = TestCase.stubbedResponseBad(from: "badjson")
         let promise = expectation(description: "Loading")
 
         // act
-        sut.getData(request: url, dataType: WeatherData.self) { (result) in
+        sut.getData(request: url, dataType: Weather.self) { (result) in
 
         // assert
             switch result {
@@ -83,12 +83,13 @@ class APIService_Tests: TestCase {
 
     func test_given_404_when_fetching_translate_then_failed_with_statusCode_404() {
         // arrange
-        guard let url = stubUrl else { return }
+        let stuburl = TestCase.stubbedUrl(from: "rates")
+        guard let url = stuburl else { return }
         TestURLProtocol.loadingHandler = TestCase.stubbedResponse404(from: "badjson")
         let promise = expectation(description: "Loading")
 
         // act
-        sut.getData(request: url, dataType: RateData.self) { (result) in
+        sut.getData(request: url, dataType: Rate.self) { (result) in
 
         // assert
             switch result {
@@ -110,12 +111,13 @@ class APIService_Tests: TestCase {
 
     func test_given_badresponse_when_fetching_translate_then_failed_with_error() {
         // arrange
-        guard let url = stubUrl else { return }
+        let stuburl = TestCase.stubbedUrl(from: "rates")
+        guard let url = stuburl else { return }
         TestURLProtocol.loadingHandler = TestCase.stubbedError(from: "badjson", statusCode: 500)
         let expectation = XCTestExpectation(description: "Loading")
 
         // act
-        sut.getData(request: url, dataType: TranslationData.self) { (result) in
+        sut.getData(request: url, dataType: Translation.self) { (result) in
 
         // assert
             switch result {
