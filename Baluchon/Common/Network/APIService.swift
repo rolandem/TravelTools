@@ -9,6 +9,8 @@ import Foundation
 
 final class APIService {
 
+    /// generic network call method
+
     static var shared = APIService()
         private init() {}
 
@@ -19,7 +21,7 @@ final class APIService {
     }
 
     typealias _result<T: Decodable> = (Result<T, FetchError>) -> Void
-
+    /// completion returns a Result. Success case with decoded JSON or Failure case with error
     func getData<T: Decodable>(
         request: URL,
         dataType: T.Type,

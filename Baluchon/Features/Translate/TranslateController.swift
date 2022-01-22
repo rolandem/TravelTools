@@ -38,6 +38,7 @@ class TranslateController: UIViewController, UITextViewDelegate, UIGestureRecogn
     // MARK: - @IBActions
 
     @IBAction func translateText(_ sender: UIButton) {
+        /// allocation of the result of the repository
         repository.getTranslation(
             for: originalText.text,
             sourceLanguage: sourceLanguage,
@@ -49,6 +50,7 @@ class TranslateController: UIViewController, UITextViewDelegate, UIGestureRecogn
             }
             self?.translatedText.text = translation
         }
+        /// hides the keyboard
         originalText.resignFirstResponder()
     }
 
@@ -78,7 +80,7 @@ class TranslateController: UIViewController, UITextViewDelegate, UIGestureRecogn
         addDarkenView(at: translatedLanguage.frame)
     }
 
-    // MARK: - Keyboard
+    // MARK: - Hides the keyboard
 
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         originalText.resignFirstResponder()
@@ -134,6 +136,8 @@ extension TranslateController: UITableViewDelegate {
 }
 
 extension TranslateController {
+
+    /// Dark view on the main view when the tableView is displayed
 
     func frameTableView(frame: CGRect, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat) {
         tableView.frame = CGRect(

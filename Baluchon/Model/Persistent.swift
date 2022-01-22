@@ -9,6 +9,8 @@ import Foundation
 
 class Persistent {
 
+    /// methods for saving and retrieving data in UserDefaults
+
     static var shared = Persistent()
     private init() {}
 

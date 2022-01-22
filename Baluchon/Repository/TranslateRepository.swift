@@ -11,6 +11,8 @@ typealias TranslationOrError = (_ translation: String, _ error: Error?) -> Void
 
 class TranslateRepository {
 
+    /// Retrieving the result of the network call (Translation data or error) with the APIService method call.
+
     static var shared = TranslateRepository()
         private init() {}
 
@@ -53,7 +55,7 @@ class TranslateRepository {
     }
 }
 extension TranslateRepository {
-
+    /// build url with the necessary parameters for the translation
     func getUrl(inputText: String, sourceLang: String, targetLang: String) -> URL? {
 
         var component = URLComponents()

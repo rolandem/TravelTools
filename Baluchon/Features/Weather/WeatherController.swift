@@ -55,7 +55,7 @@ class WeatherController: UIViewController, UITextFieldDelegate {
         research.resignFirstResponder()
     }
 
-    // MARK: - Keyboard
+    // MARK: - Hides Keyboard
 
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         research.resignFirstResponder()
@@ -91,6 +91,8 @@ class WeatherController: UIViewController, UITextFieldDelegate {
     }
 }
 extension WeatherController {
+
+    /// assignment of data to outlets in the view
 
     func setupWeatherView(with meteoData: (Weather), from location: WeatherView) {
         location.cityName.text = meteoData.city

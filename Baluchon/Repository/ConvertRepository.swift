@@ -7,15 +7,18 @@
 
 import Foundation
 
+typealias RateOrError = (_ rateData: (Rate)?, _ error: Error?) -> Void
+
 class ConvertRepository {
 
-    typealias RateOrError = (_ rateData: (Rate)?, _ error: Error?) -> Void
+    /// Retrieving the result of the network call (Rate data or error) with the APIService method call
 
     static var shared = ConvertRepository()
     private init() {}
 
     var apiKey = (Bundle.main.infoDictionary?["CONVERT_API_KEY"] as? String).orEmpty
 
+    /// to test getUrl method with a fake apiKey
     init(apiKey: String) {
         self.apiKey = apiKey
     }
@@ -38,7 +41,7 @@ class ConvertRepository {
 }
 
 extension ConvertRepository {
-
+    /// build url
     var getUrl: URL? {
         var component = URLComponents()
         component.scheme = "http"

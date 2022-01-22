@@ -30,6 +30,7 @@ class AlertView: UIAlertController {
     func show() {
         self.showAnimated(animated: true)
     }
+
     func showAnimated(animated _: Bool) {
 
             let blankViewController = UIViewController()
@@ -44,6 +45,7 @@ class AlertView: UIAlertController {
 
             blankViewController.present(self, animated: true, completion: nil)
         }
+
     func presentAlert(message: String?) {
 
             let alertController = AlertView(title: "Oups!", message: message, preferredStyle: .alert)

@@ -33,8 +33,8 @@ class ConvertController: UIViewController, UITextFieldDelegate {
 
     // MARK: - Convenience Methods
 
-    /// check if is the same day
-    func launchQueryIfNeeded() {
+    /// check if is the same day, to have one network call per day
+    private func launchQueryIfNeeded() {
         guard let lastStatementDay = Int(lastDay()),
               let currentDay = Int(currentDay()) else { return }
 
@@ -43,7 +43,7 @@ class ConvertController: UIViewController, UITextFieldDelegate {
             getRate()
         }
     }
- 
+    /// when there is a network call, the result of the repository is affected
     private func getRate() {
         repository.getRate { [self] rateData, error in
             if let error = error {
@@ -80,6 +80,7 @@ class ConvertController: UIViewController, UITextFieldDelegate {
         let result = amount * rate
         return String(result.withDecimal()).replaceDot()
     }
+
     // MARK: - IBActions
 
     @IBAction func switchIconCurrency(_ sender: UIButton) {
@@ -112,13 +113,12 @@ class ConvertController: UIViewController, UITextFieldDelegate {
 
     // MARK: - Formatted Dates
 
+    /// date shown in view information
     func lastStatementDate() -> String {
-//        let timestamp = persistent.recoverTimestamp()
         return formattedDate(timestamp, format: "dd/MM/yyyy")
     }
 
     private func lastDay() -> String {
-//        let timestamp = persistent.recoverTimestamp()
         return formattedDate(timestamp, format: "dd")
     }
 

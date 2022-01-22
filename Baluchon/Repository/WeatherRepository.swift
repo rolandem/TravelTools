@@ -11,10 +11,13 @@ typealias WeatherOrError = (_ weather: (Weather)?, _ error: Error?) -> Void
 
 class WeatherRepository {
 
+    /// Retrieving the result of the network call (Weather data or error) with the APIService method call.
+
     static var shared = WeatherRepository()
     private init() {}
 
     var apiKey: String = (Bundle.main.infoDictionary?["WEATHER_API_KEY"] as? String).orEmpty
+
     /// to test getUrl method with a fake apiKey
     init(apiKey: String) {
         self.apiKey = apiKey
@@ -48,7 +51,7 @@ class WeatherRepository {
 }
 
 extension WeatherRepository {
-
+    /// build url with the necessary parameter
     func getUrl(location: String) -> URL? {
 
         var component = URLComponents()
