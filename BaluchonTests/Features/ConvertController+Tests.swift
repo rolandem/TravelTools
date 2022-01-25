@@ -60,7 +60,7 @@ class ConvertController_Tests: XCTestCase {
         guard var amountText = sut.amountField.text else { return }
         amountText = "12"
         guard let amount = Double(amountText) else { return }
-        let rate = sut.rate
+        let rate = Persistent.recoverRate()
         let shouldBe = ((amount * rate).withDecimal()).replaceDot()
         
         // act
@@ -76,7 +76,7 @@ class ConvertController_Tests: XCTestCase {
         guard var amountText = sut.amountField.text else { return }
         amountText = "75"
         guard let amount = Double(amountText) else { return }
-        let rate = sut.rate
+        let rate = Persistent.recoverRate()
         let shouldBe = ((amount * (1/rate)).withDecimal()).replaceDot()
         
         // act

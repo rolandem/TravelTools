@@ -14,23 +14,23 @@ class Persistent {
     static var shared = Persistent()
     private init() {}
 
-    let _rate = "rateUsd"
-    let _timestamp = "timestamp"
-    private let userDefault = UserDefaults.standard
+    var _rate = "rateUsd"
+    var _timestamp = "timestamp"
+    private static var userDefault = UserDefaults.standard
 
-    func saveRate(_ rate: Double) {
-        userDefault.set(rate, forKey: _rate)
+    static func saveRate(_ rate: Double) {
+        userDefault.set(rate, forKey: Persistent.shared._rate)
     }
 
-    func recoverRate() -> Double {
-        return userDefault.double(forKey: _rate)
+    static func recoverRate() -> Double {
+        return userDefault.double(forKey: Persistent.shared._rate)
     }
 
-    func saveTime(_ timestamp: Int) {
-        userDefault.set(timestamp, forKey: _timestamp)
+    static func saveTime(_ timestamp: Int) {
+        userDefault.set(timestamp, forKey: Persistent.shared._timestamp)
     }
 
-    func recoverTimestamp() -> Int {
-        return userDefault.integer(forKey: _timestamp)
+    static func recoverTimestamp() -> Int {
+        return userDefault.integer(forKey: Persistent.shared._timestamp)
     }
 }

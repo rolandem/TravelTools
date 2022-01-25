@@ -149,21 +149,25 @@ extension TranslateController {
     }
 
     func addDarkenView(at frame: CGRect) {
+        /// add darkenView
         darkenView.frame = view.frame
         darkenView.backgroundColor = .black.withAlphaComponent(0.9)
         view.addSubview(darkenView)
 
+        /// definition of the tableview frame in relation to the select button (parameter frame)
         let frameWhenTableViewIsHidden = CGRect(
             x: frame.origin.x,
             y: frame.origin.y + frame.height + 5,
             width: frame.width,
             height: 0
         )
-        tableView.frame = frameWhenTableViewIsHidden
 
+        /// tableview is invisible, zero height
+        tableView.frame = frameWhenTableViewIsHidden
         self.view.addSubview(tableView)
         tableView.layer.cornerRadius = 5
 
+        /// creating the gesture to hide the tableview and darkenView
         let tapGesture = UITapGestureRecognizer(
             target: self,
             action: #selector(removeDarkenView)
@@ -171,6 +175,8 @@ extension TranslateController {
         tapGesture.delegate = self
         darkenView.addGestureRecognizer(tapGesture)
         darkenView.alpha = 0
+        
+        /// Animation deploying the tableview
         view.animation {
             self.darkenView.alpha = 0.5
             self.frameTableView(
@@ -179,6 +185,7 @@ extension TranslateController {
             )
         }
         tableView.reloadData()
+
     }
 
     @objc func removeDarkenView() {

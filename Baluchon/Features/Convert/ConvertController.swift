@@ -20,15 +20,20 @@ class ConvertController: UIViewController, UITextFieldDelegate {
     var originCurrency = "€"
     var convertedCurrency = "$"
     private let repository = ConvertRepository.shared
-    private let persistent = Persistent.shared
-    lazy var rate = persistent.recoverRate()
-    lazy var timestamp = persistent.recoverTimestamp()
+    var rate = 2.3
+    var timestamp = 1649999
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Convertisseur"
         launchQueryIfNeeded()
         updateInfoRate()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        Persistent.saveRate(rate)
+        Persistent.saveTime(timestamp)
     }
 
     // MARK: - Convenience Methods
@@ -42,10 +47,13 @@ class ConvertController: UIViewController, UITextFieldDelegate {
         if delta >= 1 {
             getRate()
         }
+        rate = Persistent.recoverRate()
+        timestamp = Persistent.recoverTimestamp()
     }
+
     /// when there is a network call, the result of the repository is affected
     private func getRate() {
-        repository.getRate { [self] rateData, error in
+        repository.getRate { rateData, error in
             if let error = error {
                 AlertView().presentAlert(message: error.localizedDescription)
             }
@@ -53,8 +61,8 @@ class ConvertController: UIViewController, UITextFieldDelegate {
                   let newTimestamp = rateData?.timestamp
             else { return }
             guard let rateUsd = Double(_rateUsd.withDecimal()) else { return }
-            persistent.saveRate(rateUsd)
-            persistent.saveTime(newTimestamp)
+            self.rate = rateUsd
+            self.timestamp = newTimestamp
         }
     }
 
@@ -119,7 +127,7 @@ class ConvertController: UIViewController, UITextFieldDelegate {
     }
 
     private func lastDay() -> String {
-        return formattedDate(timestamp, format: "dd")
+        return formattedDate(Persistent.recoverTimestamp(), format: "dd")
     }
 
     private func currentDay() -> String {
