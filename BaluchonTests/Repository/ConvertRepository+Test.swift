@@ -10,11 +10,11 @@ import XCTest
 
 class ConvertRepository_Test: XCTestCase {
 
-    var sut: ConvertRepository!
+    var sut: ConvertRepository?
 
     override func setUpWithError() throws {
         try super.setUpWithError()
-        sut = ConvertRepository(apiKey: "abcdef")
+        sut  = ConvertRepository(apiKey: "abcdef")
     }
 
     override func tearDownWithError() throws {
@@ -26,6 +26,6 @@ class ConvertRepository_Test: XCTestCase {
         // arrange
         let urlShoudBe = URL(string: "http://data.fixer.io/api/latest?access_key=abcdef")
         // assert
-        XCTAssertEqual(sut.getUrl, urlShoudBe)
+        XCTAssertEqual(sut?.getUrl, urlShoudBe)
     }
 }

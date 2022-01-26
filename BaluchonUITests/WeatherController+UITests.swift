@@ -31,9 +31,9 @@ class WeatherController_UITests: XCTestCase {
 
         app.textFields["destination"].tap()
         app.buttons["ok"].tap()
-        app.alerts["Oups!"].scrollViews.otherElements.buttons["Ok"].tap()
+        app.alerts["Oups..."].scrollViews.otherElements.buttons["Ok"].tap()
 
-        let alert = app.alerts["Oups!"].staticTexts["Mauvais message"]
+        let alert = app.alerts["Oups..."].staticTexts["Mauvais message"]
 
         XCTAssertFalse(alert.exists)
     }

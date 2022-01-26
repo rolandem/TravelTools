@@ -71,11 +71,11 @@ class WeatherController: UIViewController, UITextFieldDelegate {
     private func setupBackgroundVideo() {
 
         /// get the path to the video resource
-        let bundlePath = Bundle.main.path(forResource: "SkyBackground", ofType: "mp4")
-        guard bundlePath != nil else { return }
+        guard let bundlePath = Bundle.main.path(forResource: "SkyBackground",
+                                                ofType: "mp4") else { return }
 
         /// create a url from the path
-        let url = URL(fileURLWithPath: bundlePath!)
+        let url = URL(fileURLWithPath: bundlePath)
 
         /// create the player
         let item = AVPlayerItem(url: url)
@@ -86,7 +86,7 @@ class WeatherController: UIViewController, UITextFieldDelegate {
         videoPlayerLayer?.frame = CGRect(x: -self.view.frame.size.width * 1.5, y: 0, width: self.view.frame.size.width * 4, height: self.view.frame.size.height)
 
         /// add to view and launch
-        view.layer.insertSublayer(videoPlayerLayer!, at: 0)
+        view.layer.insertSublayer(videoPlayerLayer ?? AVPlayerLayer(), at: 0)
         videoPlayer?.playImmediately(atRate: 0.6)
     }
 }

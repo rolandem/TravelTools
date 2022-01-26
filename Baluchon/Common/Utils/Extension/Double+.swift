@@ -15,7 +15,7 @@ extension Double {
         formatter.maximumFractionDigits = 0
         formatter.groupingSeparator = " "
         let number = NSNumber(value: self)
-        let formattedValue = formatter.string(from: number)!
+        guard let formattedValue = formatter.string(from: number) else { return "" }
         return formattedValue
     }
     /// use to have two decimal in converted result
@@ -26,7 +26,7 @@ extension Double {
         formatter.decimalSeparator = "."
         formatter.groupingSeparator = " "
         let number = NSNumber(value: self)
-        let formattedValue = formatter.string(from: number)!
+        guard let formattedValue = formatter.string(from: number) else { return "" }
         return formattedValue
     }
 }

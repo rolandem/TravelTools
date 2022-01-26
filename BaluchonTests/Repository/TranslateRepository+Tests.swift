@@ -10,7 +10,7 @@ import XCTest
 
 class TranslateRepository_Tests: XCTestCase {
 
-    var sut: TranslateRepository!
+    var sut: TranslateRepository?
 
     override func setUpWithError() throws {
         try super.setUpWithError()
@@ -29,6 +29,6 @@ class TranslateRepository_Tests: XCTestCase {
         let target = "en"
         let urlShouldBe = URL(string: "https://translation.googleapis.com/language/translate/v2?q=essai&source=fr&target=en&format=text&key=")
         // assert
-        XCTAssertEqual(sut.getUrl(inputText: inputText, sourceLang: source, targetLang: target), urlShouldBe)
+        XCTAssertEqual(sut?.getUrl(inputText: inputText, sourceLang: source, targetLang: target), urlShouldBe)
     }
 }

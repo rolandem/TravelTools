@@ -10,7 +10,7 @@ import XCTest
 
 class WeatherRepository_Tests: XCTestCase {
 
-    var sut: WeatherRepository!
+    var sut: WeatherRepository?
 
     override func setUpWithError() throws {
         try super.setUpWithError()
@@ -28,7 +28,7 @@ class WeatherRepository_Tests: XCTestCase {
         let urlShouldBe = URL(string: "http://api.openweathermap.org/data/2.5/weather?q=Berlin&units=metric&lang=fr&appid=ghijkl")
 
         // assert
-        XCTAssertEqual(sut.getUrl(location: location), urlShouldBe)
+        XCTAssertEqual(sut?.getUrl(location: location), urlShouldBe)
     }
 
     func test_given_empty_text_when_getUrl_then_url_valid() {
@@ -37,7 +37,7 @@ class WeatherRepository_Tests: XCTestCase {
         let urlShouldBe = URL(string: "http://api.openweathermap.org/data/2.5/weather?q=&units=metric&lang=fr&appid=ghijkl")
 
         // act
-        let result = sut.getUrl(location: location)
+        let result = sut?.getUrl(location: location)
 
         // assert
         XCTAssertEqual(result, urlShouldBe)
@@ -49,7 +49,7 @@ class WeatherRepository_Tests: XCTestCase {
         let urlShouldBe = URL(string: "http://api.openweathermap.org/data/2.5/weather?q=%20&units=metric&lang=fr&appid=ghijkl")
 
         // act
-        let result = sut.getUrl(location: location)
+        let result = sut?.getUrl(location: location)
 
         // assert
         XCTAssertEqual(result, urlShouldBe)

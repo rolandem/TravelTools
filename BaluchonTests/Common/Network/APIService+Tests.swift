@@ -10,7 +10,7 @@ import XCTest
 
 class APIService_Tests: TestCase {
 
-    var sut: APIService!
+    var sut: APIService?
 
     override func setUpWithError() throws {
         try super.setUpWithError()
@@ -40,7 +40,7 @@ class APIService_Tests: TestCase {
         let promise = expectation(description: "Loading")
 
         // act
-        sut.getData(request: url, dataType: Rate.self) { (result) in
+        sut?.getData(request: url, dataType: Rate.self) { (result) in
 
         // assert
             switch result {
@@ -62,7 +62,7 @@ class APIService_Tests: TestCase {
         let promise = expectation(description: "Loading")
 
         // act
-        sut.getData(request: url, dataType: Weather.self) { (result) in
+        sut?.getData(request: url, dataType: Weather.self) { (result) in
 
         // assert
             switch result {
@@ -89,7 +89,7 @@ class APIService_Tests: TestCase {
         let promise = expectation(description: "Loading")
 
         // act
-        sut.getData(request: url, dataType: Rate.self) { (result) in
+        sut?.getData(request: url, dataType: Rate.self) { (result) in
 
         // assert
             switch result {
@@ -117,7 +117,7 @@ class APIService_Tests: TestCase {
         let expectation = XCTestExpectation(description: "Loading")
 
         // act
-        sut.getData(request: url, dataType: Translation.self) { (result) in
+        sut?.getData(request: url, dataType: Translation.self) { (result) in
 
         // assert
             switch result {

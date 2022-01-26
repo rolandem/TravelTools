@@ -36,14 +36,15 @@ class TestCase: XCTestCase {
         } else {
             data = stubData
         }
+        let url = URL(string: "www") ?? URL(fileURLWithPath: "www")
         var request = BaluchonTests.TestURLProtocol.loadingHandler
         request = { request in
-            let response = HTTPURLResponse(
-                url: request.url!,
+            guard let response = HTTPURLResponse(
+                url: url,
                 statusCode: 200,
                 httpVersion: nil,
                 headerFields: nil
-            )!
+            ) else { return (HTTPURLResponse(), data, error) }
             return (response, data, nil)
         }
         return request
@@ -57,14 +58,15 @@ class TestCase: XCTestCase {
         } else {
             data = stubData
         }
+        let url = URL(string: "www") ?? URL(fileURLWithPath: "www")
         var request = BaluchonTests.TestURLProtocol.loadingHandler
         request = { request in
-            let response = HTTPURLResponse(
-                url: request.url!,
+            guard let response = HTTPURLResponse(
+                url: url,
                 statusCode: 204,
                 httpVersion: nil,
                 headerFields: nil
-            )!
+            ) else { return (HTTPURLResponse(), data, error) }
             return (response, data, nil)
         }
         return request
@@ -78,14 +80,15 @@ class TestCase: XCTestCase {
         } else {
             data = stubData
         }
+        let url = URL(string: "www") ?? URL(fileURLWithPath: "www")
         var request = BaluchonTests.TestURLProtocol.loadingHandler
         request = { request in
-            let response = HTTPURLResponse(
-                url: request.url!,
+            guard let response = HTTPURLResponse(
+                url: url,
                 statusCode: 404,
                 httpVersion: nil,
                 headerFields: nil
-            )!
+            ) else { return (HTTPURLResponse(), data, error) }
             return (response, data, nil)
         }
         return request
@@ -134,7 +137,9 @@ final class TestURLProtocol: URLProtocol {
                 client?.urlProtocolDidFinishLoading(self)
             }
             else {
-                client?.urlProtocol(self, didFailWithError: error!)
+                if let error = error {
+                    client?.urlProtocol(self, didFailWithError: error)
+                }
             }
         }
         override func stopLoading() {

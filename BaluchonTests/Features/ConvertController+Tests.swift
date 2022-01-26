@@ -10,12 +10,12 @@ import XCTest
 
 class ConvertController_Tests: XCTestCase {
 
-    var sut: ConvertController!
+    var sut: ConvertController?
 
     override func setUpWithError() throws {
         let storyboard = UIStoryboard(name: "ConvertController", bundle: Bundle.main)
         sut = storyboard.instantiateViewController(withIdentifier: "ConvertController") as? ConvertController
-        sut.loadViewIfNeeded()
+        sut?.loadViewIfNeeded()
     }
 
     override func tearDownWithError() throws {
@@ -25,16 +25,16 @@ class ConvertController_Tests: XCTestCase {
     func test_given_switchIconDeviceButton_when_pressed_then_iconsDevices_swap() throws {
 
         // arrange
-        guard let originalIcon = sut.originIcon.text,
-              let convertedIcon = sut.convertedIcon.text,
-              let button = sut.switchButton
+        guard let originalIcon = sut?.originIcon.text,
+              let convertedIcon = sut?.convertedIcon.text,
+              let button = sut?.switchButton
         else { return }
 
-        let originDevice = sut.originCurrency
-        let convertedDevice = sut.convertedCurrency
+        let originDevice = sut?.originCurrency
+        let convertedDevice = sut?.convertedCurrency
 
         // act
-        sut.switchIconCurrency(button)
+        sut?.switchIconCurrency(button)
 
         // assert
         XCTAssertEqual(originalIcon, originDevice)
@@ -48,7 +48,7 @@ class ConvertController_Tests: XCTestCase {
         let shouldBe = " "
         
         // act
-        let result = sut.getConvertedAmount(with: amountText, originIcon: icon)
+        let result = sut?.getConvertedAmount(with: amountText, originIcon: icon)
 
         // assert
         XCTAssertEqual(result, shouldBe)
@@ -57,14 +57,14 @@ class ConvertController_Tests: XCTestCase {
     func test_Given_€amount_when_getConvertAmount_is_called_then_displays_result() {
         // arrange
         let icon = "€"
-        guard var amountText = sut.amountField.text else { return }
+        guard var amountText = sut?.amountField.text else { return }
         amountText = "12"
         guard let amount = Double(amountText) else { return }
         let rate = Persistent.recoverRate()
         let shouldBe = ((amount * rate).withDecimal()).replaceDot()
         
         // act
-        let result = sut.getConvertedAmount(with: amountText, originIcon: icon)
+        let result = sut?.getConvertedAmount(with: amountText, originIcon: icon)
 
         // assert
         XCTAssertEqual(result, shouldBe)
@@ -73,14 +73,14 @@ class ConvertController_Tests: XCTestCase {
     func test_Given_$amount_when_getConvertAmount_is_called_then_displays_result() {
         // arrange
         let icon = "$"
-        guard var amountText = sut.amountField.text else { return }
+        guard var amountText = sut?.amountField.text else { return }
         amountText = "75"
         guard let amount = Double(amountText) else { return }
         let rate = Persistent.recoverRate()
         let shouldBe = ((amount * (1/rate)).withDecimal()).replaceDot()
         
         // act
-        let result = sut.getConvertedAmount(with: amountText, originIcon: icon)
+        let result = sut?.getConvertedAmount(with: amountText, originIcon: icon)
 
         // assert
         XCTAssertEqual(result, shouldBe)
@@ -88,11 +88,11 @@ class ConvertController_Tests: XCTestCase {
 
     func test_given_keyboard_displayed_when_clic_return_then_keyboard_dismiss() throws {
         // arrange
-        guard let amountText = sut.amountField else { return }
+        guard let amountText = sut?.amountField else { return }
         amountText.becomeFirstResponder()
 
         // act
-        if sut.textFieldShouldReturn(amountText) {
+        if ((sut?.textFieldShouldReturn(amountText)) != nil) {
 
         // assert
             XCTAssertFalse(amountText.isFirstResponder)
@@ -101,13 +101,13 @@ class ConvertController_Tests: XCTestCase {
 
     func test_given_convertButton_when_pressed_then_resignFirstResponder() throws {
         // arrange
-        guard let button = sut.convertToButton,
-              let amount = sut.amountField
+        guard let button = sut?.convertToButton,
+              let amount = sut?.amountField
         else { return }
         amount.becomeFirstResponder()
 
         // act
-        sut.convertButton(button)
+        sut?.convertButton(button)
 
         // assert
         XCTAssertFalse(amount.resignFirstResponder())

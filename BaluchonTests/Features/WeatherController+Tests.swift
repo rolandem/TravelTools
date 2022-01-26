@@ -10,12 +10,12 @@ import XCTest
 
 class WeatherController_Tests: XCTestCase {
 
-    var sut: WeatherController!
+    var sut: WeatherController?
 
     override func setUpWithError() throws {
         let storyboard = UIStoryboard(name: "WeatherController", bundle: Bundle.main)
         sut = storyboard.instantiateViewController(withIdentifier: "WeatherController") as? WeatherController
-        sut.loadViewIfNeeded()
+        sut?.loadViewIfNeeded()
     }
 
     override func tearDownWithError() throws {
@@ -24,11 +24,11 @@ class WeatherController_Tests: XCTestCase {
 
     func test_given_keyboard_displayed_when_clic_return_then_keyboard_dismiss() throws {
         // arrange
-        guard let research = sut.research else { return }
+        guard let research = sut?.research else { return }
         research.becomeFirstResponder()
 
         // act
-        if sut.textFieldShouldReturn(research) {
+        if ((sut?.textFieldShouldReturn(research)) != nil) {
 
         // assert
             XCTAssertFalse(research.isFirstResponder)
@@ -38,14 +38,14 @@ class WeatherController_Tests: XCTestCase {
 
     func test_given_WeatherData_when_get_then_setup_view() throws {
         // arrange
-        guard let location = sut.localWeather else { return }
+        guard let location = sut?.localWeather else { return }
 
         guard let dataWeather = TestCase.stubbedData(from: "weather") else { return }
         let decoder = JSONDecoder()
         let weather = try decoder.decode(Weather.self, from: dataWeather)
 
         // act
-        sut.setupWeatherView(with: weather, from: location)
+        sut?.setupWeatherView(with: weather, from: location)
         let temperature = weather.temperature.withoutDecimal()
         // assert
         XCTAssertEqual(location.cityName.text, "Londres")

@@ -48,7 +48,7 @@ class AlertView: UIAlertController {
 
     func presentAlert(message: String?) {
 
-            let alertController = AlertView(title: "Oups!", message: message, preferredStyle: .alert)
+            let alertController = AlertView(title: "Oups...", message: message, preferredStyle: .alert)
             let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
             alertController.addAction(action)
             alertController.show()
