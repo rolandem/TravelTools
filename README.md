@@ -99,6 +99,7 @@ Third tab :
 ## How To Use
 
 Depuis votre terminal, clonez ce dépôt avec la commande git suivante :
+
 From your terminal, clone this repository with the following git command :
 
 ```
@@ -106,6 +107,7 @@ $ git clone https://github.com/fredMilloh/TravelTools
 ```
 
 Cette application utilise les API suivantes :
+
 This application uses the following APIs :
 
 Convert : https://fixer.io/
@@ -115,18 +117,23 @@ Translate : https://cloud.google.com/translate/docs/
 Weather : https://openweathermap.org/current
 
 Projet sans clés API. Ajoutez vos clés API.
+
 Project without API keys. Add your API keys.
 
 Supprimez le fichier ConfigKeys et ajoutez un nouveau "fichier de paramètres de configuration" au projet.
+
 Delete the ConfigKeys file and add a new "configuration settings file" to the project.
 
 Nommez-le *ConfigKeys*.
+
 Name it *ConfigKeys*.
 
 Définir les configurations (Debug, Release) dans le projet, avec ce fichier de configuration.
+
 Set the configurations (Debug, Release) in the project, with this configuration file.
 
 Ajoutez vos clés API aux clés suivantes :
+
 Add your API values to the following keys :
 
 CONVERT_API_KEY = 
@@ -143,5 +150,6 @@ WEATHER_API_KEY =
 ----------------------------------------------------------------------------------------
 
 création d'une application, dans le cadre d'un projet d'étude.
+
 application coded from scratch, as part of a study project.
 
