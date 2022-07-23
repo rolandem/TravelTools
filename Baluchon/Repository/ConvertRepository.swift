@@ -44,10 +44,12 @@ extension ConvertRepository {
     /// build url
     var getUrl: URL? {
         var component = URLComponents()
-        component.scheme = "http"
-        component.host = "data.fixer.io"
-        component.path = "/api/latest"
-        component.queryItems = [URLQueryItem(name: "access_key", value: "\(apiKey)")]
+        component.scheme = "https"
+        component.host = "api.apilayer.com"
+        component.path = "/fixer/latest"
+        component.queryItems = [URLQueryItem(name: "symbols", value: "USD")]
+        component.queryItems = [URLQueryItem(name: "base", value: "EUR")]
+        component.queryItems = [URLQueryItem(name: "apikey", value: "\(apiKey)")]
         return component.url
     }
 }
