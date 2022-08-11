@@ -20,7 +20,7 @@ class ConvertController: UIViewController, UITextFieldDelegate {
     var originCurrency = "€"
     var convertedCurrency = "$"
     private let repository = ConvertRepository.shared
-    var rate = 2.3
+    var rate = 1.02
     var timestamp = 1649999
 
     override func viewDidLoad() {
